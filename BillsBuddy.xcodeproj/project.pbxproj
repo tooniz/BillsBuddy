@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
 		FD5595131835F5BD00B4D789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595121835F5BD00B4D789 /* Foundation.framework */; };
 		FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595141835F5BD00B4D789 /* CoreGraphics.framework */; };
 		FD5595171835F5BD00B4D789 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595161835F5BD00B4D789 /* UIKit.framework */; };
@@ -15,13 +16,18 @@
 		FD5595231835F5BD00B4D789 /* BBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5595221835F5BD00B4D789 /* BBAppDelegate.m */; };
 		FD5595261835F5BD00B4D789 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5595241835F5BD00B4D789 /* Main_iPhone.storyboard */; };
 		FD5595291835F5BD00B4D789 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5595271835F5BD00B4D789 /* Main_iPad.storyboard */; };
-		FD55952C1835F5BD00B4D789 /* BBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55952B1835F5BD00B4D789 /* BBViewController.m */; };
+		FD55952C1835F5BD00B4D789 /* BBSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55952B1835F5BD00B4D789 /* BBSidePanelController.m */; };
 		FD55952E1835F5BD00B4D789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD55952D1835F5BD00B4D789 /* Images.xcassets */; };
 		FD5595351835F5BD00B4D789 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595341835F5BD00B4D789 /* XCTest.framework */; };
 		FD5595361835F5BD00B4D789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595121835F5BD00B4D789 /* Foundation.framework */; };
 		FD5595371835F5BD00B4D789 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595161835F5BD00B4D789 /* UIKit.framework */; };
 		FD55953F1835F5BD00B4D789 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD55953D1835F5BD00B4D789 /* InfoPlist.strings */; };
 		FD5595411835F5BD00B4D789 /* BillsBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5595401835F5BD00B4D789 /* BillsBuddyTests.m */; };
+		FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55954C1835F6EA00B4D789 /* EqpSingleton.m */; };
+		FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5595511835F8BB00B4D789 /* BBVariableStore.m */; };
+		FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595561835FB5900B4D789 /* QuartzCore.framework */; };
+		FD559560183609E600B4D789 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55955F183609E600B4D789 /* CustomBadge.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55956218360BAE00B4D789 /* BBCenterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178D3495E5DA4CF88E1E837B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D4B2FCC1BD1548E5AF75A294 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55950F1835F5BD00B4D789 /* BillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5595121835F5BD00B4D789 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD5595141835F5BD00B4D789 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,14 +55,25 @@
 		FD5595221835F5BD00B4D789 /* BBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAppDelegate.m; sourceTree = "<group>"; };
 		FD5595251835F5BD00B4D789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		FD5595281835F5BD00B4D789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		FD55952A1835F5BD00B4D789 /* BBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBViewController.h; sourceTree = "<group>"; };
-		FD55952B1835F5BD00B4D789 /* BBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBViewController.m; sourceTree = "<group>"; };
+		FD55952A1835F5BD00B4D789 /* BBSidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSidePanelController.h; sourceTree = "<group>"; };
+		FD55952B1835F5BD00B4D789 /* BBSidePanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBSidePanelController.m; sourceTree = "<group>"; };
 		FD55952D1835F5BD00B4D789 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FD5595331835F5BD00B4D789 /* BillsBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillsBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5595341835F5BD00B4D789 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FD55953C1835F5BD00B4D789 /* BillsBuddyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillsBuddyTests-Info.plist"; sourceTree = "<group>"; };
 		FD55953E1835F5BD00B4D789 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD5595401835F5BD00B4D789 /* BillsBuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillsBuddyTests.m; sourceTree = "<group>"; };
+		FD55954B1835F6EA00B4D789 /* EqpSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EqpSingleton.h; path = ../../CommonDefines/EqpSingleton.h; sourceTree = "<group>"; };
+		FD55954C1835F6EA00B4D789 /* EqpSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EqpSingleton.m; path = ../../CommonDefines/EqpSingleton.m; sourceTree = "<group>"; };
+		FD55954D1835F6EA00B4D789 /* EqpUtilityDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EqpUtilityDefines.h; path = ../../CommonDefines/EqpUtilityDefines.h; sourceTree = "<group>"; };
+		FD5595501835F8BB00B4D789 /* BBVariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVariableStore.h; sourceTree = "<group>"; };
+		FD5595511835F8BB00B4D789 /* BBVariableStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVariableStore.m; sourceTree = "<group>"; };
+		FD5595531835F91300B4D789 /* BBCommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBCommonDefines.h; sourceTree = "<group>"; };
+		FD5595561835FB5900B4D789 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FD55955E183609E600B4D789 /* CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomBadge.h; path = ../../../GitHubClones/CustomBadge/Classes/CustomBadge.h; sourceTree = "<group>"; };
+		FD55955F183609E600B4D789 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomBadge.m; path = ../../../GitHubClones/CustomBadge/Classes/CustomBadge.m; sourceTree = "<group>"; };
+		FD55956118360BAE00B4D789 /* BBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCenterViewController.h; sourceTree = "<group>"; };
+		FD55956218360BAE00B4D789 /* BBCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCenterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +81,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */,
 				FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */,
 				FD5595171835F5BD00B4D789 /* UIKit.framework in Frameworks */,
 				FD5595131835F5BD00B4D789 /* Foundation.framework in Frameworks */,
+				B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +109,7 @@
 				FD55953A1835F5BD00B4D789 /* BillsBuddyTests */,
 				FD5595111835F5BD00B4D789 /* Frameworks */,
 				FD5595101835F5BD00B4D789 /* Products */,
+				178D3495E5DA4CF88E1E837B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +125,12 @@
 		FD5595111835F5BD00B4D789 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD5595561835FB5900B4D789 /* QuartzCore.framework */,
 				FD5595121835F5BD00B4D789 /* Foundation.framework */,
 				FD5595141835F5BD00B4D789 /* CoreGraphics.framework */,
 				FD5595161835F5BD00B4D789 /* UIKit.framework */,
 				FD5595341835F5BD00B4D789 /* XCTest.framework */,
+				D4B2FCC1BD1548E5AF75A294 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,14 +138,10 @@
 		FD5595181835F5BD00B4D789 /* BillsBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				FD5595211835F5BD00B4D789 /* BBAppDelegate.h */,
-				FD5595221835F5BD00B4D789 /* BBAppDelegate.m */,
-				FD5595241835F5BD00B4D789 /* Main_iPhone.storyboard */,
-				FD5595271835F5BD00B4D789 /* Main_iPad.storyboard */,
-				FD55952A1835F5BD00B4D789 /* BBViewController.h */,
-				FD55952B1835F5BD00B4D789 /* BBViewController.m */,
-				FD55952D1835F5BD00B4D789 /* Images.xcassets */,
+				FD5595541835F91C00B4D789 /* Common */,
+				FD5595551835F93100B4D789 /* Interactive */,
 				FD5595191835F5BD00B4D789 /* Supporting Files */,
+				FD55954A1835F6BB00B4D789 /* Imported Files */,
 			);
 			path = BillsBuddy;
 			sourceTree = "<group>";
@@ -129,6 +149,7 @@
 		FD5595191835F5BD00B4D789 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FD55952D1835F5BD00B4D789 /* Images.xcassets */,
 				FD55951A1835F5BD00B4D789 /* BillsBuddy-Info.plist */,
 				FD55951B1835F5BD00B4D789 /* InfoPlist.strings */,
 				FD55951E1835F5BD00B4D789 /* main.m */,
@@ -155,6 +176,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FD55954A1835F6BB00B4D789 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD55955E183609E600B4D789 /* CustomBadge.h */,
+				FD55955F183609E600B4D789 /* CustomBadge.m */,
+				FD55954B1835F6EA00B4D789 /* EqpSingleton.h */,
+				FD55954C1835F6EA00B4D789 /* EqpSingleton.m */,
+				FD55954D1835F6EA00B4D789 /* EqpUtilityDefines.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		FD5595541835F91C00B4D789 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FD5595211835F5BD00B4D789 /* BBAppDelegate.h */,
+				FD5595221835F5BD00B4D789 /* BBAppDelegate.m */,
+				FD5595501835F8BB00B4D789 /* BBVariableStore.h */,
+				FD5595511835F8BB00B4D789 /* BBVariableStore.m */,
+				FD5595531835F91300B4D789 /* BBCommonDefines.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		FD5595551835F93100B4D789 /* Interactive */ = {
+			isa = PBXGroup;
+			children = (
+				FD5595241835F5BD00B4D789 /* Main_iPhone.storyboard */,
+				FD5595271835F5BD00B4D789 /* Main_iPad.storyboard */,
+				FD55952A1835F5BD00B4D789 /* BBSidePanelController.h */,
+				FD55952B1835F5BD00B4D789 /* BBSidePanelController.m */,
+				FD55956118360BAE00B4D789 /* BBCenterViewController.h */,
+				FD55956218360BAE00B4D789 /* BBCenterViewController.m */,
+			);
+			name = Interactive;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD5595441835F5BD00B4D789 /* Build configuration list for PBXNativeTarget "BillsBuddy" */;
 			buildPhases = (
+				094F3C47663D43E8A7643E45 /* Check Pods Manifest.lock */,
 				FD55950B1835F5BD00B4D789 /* Sources */,
 				FD55950C1835F5BD00B4D789 /* Frameworks */,
 				FD55950D1835F5BD00B4D789 /* Resources */,
+				E10BDAF4E6C4440DAD37F6C1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,14 +309,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		094F3C47663D43E8A7643E45 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E10BDAF4E6C4440DAD37F6C1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD55950B1835F5BD00B4D789 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD55952C1835F5BD00B4D789 /* BBViewController.m in Sources */,
+				FD55952C1835F5BD00B4D789 /* BBSidePanelController.m in Sources */,
+				FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */,
 				FD5595231835F5BD00B4D789 /* BBAppDelegate.m in Sources */,
+				FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */,
 				FD55951F1835F5BD00B4D789 /* main.m in Sources */,
+				FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */,
+				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,26 +487,42 @@
 		};
 		FD5595451835F5BD00B4D789 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178D3495E5DA4CF88E1E837B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BillsBuddy/BillsBuddy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"~/Includes/**",
+				);
 				INFOPLIST_FILE = "BillsBuddy/BillsBuddy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		FD5595461835F5BD00B4D789 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178D3495E5DA4CF88E1E837B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BillsBuddy/BillsBuddy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"~/Includes/**",
+				);
 				INFOPLIST_FILE = "BillsBuddy/BillsBuddy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -475,6 +588,7 @@
 				FD5595461835F5BD00B4D789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD5595471835F5BD00B4D789 /* Build configuration list for PBXNativeTarget "BillsBuddyTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +597,7 @@
 				FD5595491835F5BD00B4D789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
