@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface BBCenterViewController : UITableViewController
+@interface BBCenterViewController : UITableViewController <UITableViewDataSource>
+
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)didTapAdd:(id)sender;
+
+- (void) updateView;
 
 @end

@@ -26,8 +26,31 @@
 		FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55954C1835F6EA00B4D789 /* EqpSingleton.m */; };
 		FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5595511835F8BB00B4D789 /* BBVariableStore.m */; };
 		FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595561835FB5900B4D789 /* QuartzCore.framework */; };
-		FD559560183609E600B4D789 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55955F183609E600B4D789 /* CustomBadge.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FD559560183609E600B4D789 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55955F183609E600B4D789 /* CustomBadge.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Xanalyzer -analyzer-disable-checker -w"; }; };
 		FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55956218360BAE00B4D789 /* BBCenterViewController.m */; };
+		FD737DD1184133A000A8DBA0 /* BBCenterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD737DD0184133A000A8DBA0 /* BBCenterTableCell.xib */; };
+		FD737DD418413DC400A8DBA0 /* BBCenterTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD737DD318413DC400A8DBA0 /* BBCenterTableCell.m */; };
+		FD737DD6184297B300A8DBA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD737DD5184297B300A8DBA0 /* CoreData.framework */; };
+		FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */; };
+		FD737DE11842AF5100A8DBA0 /* Quando-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */; };
+		FD737DE41843D8C000A8DBA0 /* BBNewBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD737DE31843D8C000A8DBA0 /* BBNewBillViewController.m */; };
+		FD8EEA9518445568001B331B /* BBLeftTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9418445568001B331B /* BBLeftTableCell.xib */; };
+		FD8EEA9A18445849001B331B /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9618445849001B331B /* check@2x.png */; };
+		FD8EEA9B18445849001B331B /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9718445849001B331B /* clock@2x.png */; };
+		FD8EEA9C18445849001B331B /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9818445849001B331B /* cross@2x.png */; };
+		FD8EEA9D18445849001B331B /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9918445849001B331B /* list@2x.png */; };
+		FD8EEAA018445945001B331B /* BBLeftTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEA9F18445945001B331B /* BBLeftTableCell.m */; };
+		FD8EEAA318447FE2001B331B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEAA218447FE2001B331B /* Montserrat-Bold.ttf */; };
+		FD8EEAD31845835B001B331B /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAD21845835B001B331B /* BillDate.m */; };
+		FD8EEAD61845835B001B331B /* YearMonths.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAD51845835B001B331B /* YearMonths.m */; };
+		FD8EEAD91845835B001B331B /* YearWeeks.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAD81845835B001B331B /* YearWeeks.m */; };
+		FD8EEADC1845835B001B331B /* MonthDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEADB1845835B001B331B /* MonthDays.m */; };
+		FD8EEADF1845835B001B331B /* YearDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEADE1845835B001B331B /* YearDays.m */; };
+		FD8EEAE21845835B001B331B /* Positions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAE11845835B001B331B /* Positions.m */; };
+		FD8EEAE51845835B001B331B /* BillRecurrenceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAE41845835B001B331B /* BillRecurrenceRule.m */; };
+		FD8EEAE81845835B001B331B /* WeekDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAE71845835B001B331B /* WeekDays.m */; };
+		FD8EEAEB1845835B001B331B /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAEA1845835B001B331B /* BillRecord.m */; };
+		FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB7C265183F337C004E6117 /* BBLeftViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +97,42 @@
 		FD55955F183609E600B4D789 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomBadge.m; path = ../../../GitHubClones/CustomBadge/Classes/CustomBadge.m; sourceTree = "<group>"; };
 		FD55956118360BAE00B4D789 /* BBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCenterViewController.h; sourceTree = "<group>"; };
 		FD55956218360BAE00B4D789 /* BBCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCenterViewController.m; sourceTree = "<group>"; };
+		FD737DD0184133A000A8DBA0 /* BBCenterTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCenterTableCell.xib; sourceTree = "<group>"; };
+		FD737DD218413DC400A8DBA0 /* BBCenterTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCenterTableCell.h; sourceTree = "<group>"; };
+		FD737DD318413DC400A8DBA0 /* BBCenterTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCenterTableCell.m; sourceTree = "<group>"; };
+		FD737DD5184297B300A8DBA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FD737DD9184297F400A8DBA0 /* BillsBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BillsBuddy.xcdatamodel; sourceTree = "<group>"; };
+		FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quando-Regular.ttf"; path = "../../../../Fonts/Quando/Quando-Regular.ttf"; sourceTree = "<group>"; };
+		FD737DE21843D8C000A8DBA0 /* BBNewBillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewBillViewController.h; sourceTree = "<group>"; };
+		FD737DE31843D8C000A8DBA0 /* BBNewBillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewBillViewController.m; sourceTree = "<group>"; };
+		FD8EEA9418445568001B331B /* BBLeftTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLeftTableCell.xib; sourceTree = "<group>"; };
+		FD8EEA9618445849001B331B /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		FD8EEA9718445849001B331B /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		FD8EEA9818445849001B331B /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		FD8EEA9918445849001B331B /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		FD8EEA9E18445945001B331B /* BBLeftTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeftTableCell.h; sourceTree = "<group>"; };
+		FD8EEA9F18445945001B331B /* BBLeftTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLeftTableCell.m; sourceTree = "<group>"; };
+		FD8EEAA218447FE2001B331B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../../Fonts/Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		FD8EEAD11845835B001B331B /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
+		FD8EEAD21845835B001B331B /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
+		FD8EEAD41845835B001B331B /* YearMonths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearMonths.h; sourceTree = "<group>"; };
+		FD8EEAD51845835B001B331B /* YearMonths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearMonths.m; sourceTree = "<group>"; };
+		FD8EEAD71845835B001B331B /* YearWeeks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearWeeks.h; sourceTree = "<group>"; };
+		FD8EEAD81845835B001B331B /* YearWeeks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearWeeks.m; sourceTree = "<group>"; };
+		FD8EEADA1845835B001B331B /* MonthDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthDays.h; sourceTree = "<group>"; };
+		FD8EEADB1845835B001B331B /* MonthDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthDays.m; sourceTree = "<group>"; };
+		FD8EEADD1845835B001B331B /* YearDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearDays.h; sourceTree = "<group>"; };
+		FD8EEADE1845835B001B331B /* YearDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearDays.m; sourceTree = "<group>"; };
+		FD8EEAE01845835B001B331B /* Positions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Positions.h; sourceTree = "<group>"; };
+		FD8EEAE11845835B001B331B /* Positions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Positions.m; sourceTree = "<group>"; };
+		FD8EEAE31845835B001B331B /* BillRecurrenceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecurrenceRule.h; sourceTree = "<group>"; };
+		FD8EEAE41845835B001B331B /* BillRecurrenceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecurrenceRule.m; sourceTree = "<group>"; };
+		FD8EEAE61845835B001B331B /* WeekDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekDays.h; sourceTree = "<group>"; };
+		FD8EEAE71845835B001B331B /* WeekDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekDays.m; sourceTree = "<group>"; };
+		FD8EEAE91845835B001B331B /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
+		FD8EEAEA1845835B001B331B /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
+		FDB7C264183F337C004E6117 /* BBLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeftViewController.h; sourceTree = "<group>"; };
+		FDB7C265183F337C004E6117 /* BBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLeftViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD737DD6184297B300A8DBA0 /* CoreData.framework in Frameworks */,
 				FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */,
 				FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */,
 				FD5595171835F5BD00B4D789 /* UIKit.framework in Frameworks */,
@@ -125,6 +185,7 @@
 		FD5595111835F5BD00B4D789 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD737DD5184297B300A8DBA0 /* CoreData.framework */,
 				FD5595561835FB5900B4D789 /* QuartzCore.framework */,
 				FD5595121835F5BD00B4D789 /* Foundation.framework */,
 				FD5595141835F5BD00B4D789 /* CoreGraphics.framework */,
@@ -138,10 +199,12 @@
 		FD5595181835F5BD00B4D789 /* BillsBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				FD737DD7184297CB00A8DBA0 /* Core Data */,
 				FD5595541835F91C00B4D789 /* Common */,
 				FD5595551835F93100B4D789 /* Interactive */,
 				FD5595191835F5BD00B4D789 /* Supporting Files */,
 				FD55954A1835F6BB00B4D789 /* Imported Files */,
+				FD737DDE1842AB5E00A8DBA0 /* Resources */,
 			);
 			path = BillsBuddy;
 			sourceTree = "<group>";
@@ -207,10 +270,59 @@
 				FD5595271835F5BD00B4D789 /* Main_iPad.storyboard */,
 				FD55952A1835F5BD00B4D789 /* BBSidePanelController.h */,
 				FD55952B1835F5BD00B4D789 /* BBSidePanelController.m */,
+				FDB7C264183F337C004E6117 /* BBLeftViewController.h */,
+				FDB7C265183F337C004E6117 /* BBLeftViewController.m */,
+				FD8EEA9E18445945001B331B /* BBLeftTableCell.h */,
+				FD8EEA9F18445945001B331B /* BBLeftTableCell.m */,
+				FD8EEA9418445568001B331B /* BBLeftTableCell.xib */,
 				FD55956118360BAE00B4D789 /* BBCenterViewController.h */,
 				FD55956218360BAE00B4D789 /* BBCenterViewController.m */,
+				FD737DD218413DC400A8DBA0 /* BBCenterTableCell.h */,
+				FD737DD318413DC400A8DBA0 /* BBCenterTableCell.m */,
+				FD737DD0184133A000A8DBA0 /* BBCenterTableCell.xib */,
+				FD737DE21843D8C000A8DBA0 /* BBNewBillViewController.h */,
+				FD737DE31843D8C000A8DBA0 /* BBNewBillViewController.m */,
 			);
 			name = Interactive;
+			sourceTree = "<group>";
+		};
+		FD737DD7184297CB00A8DBA0 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */,
+				FD8EEAE91845835B001B331B /* BillRecord.h */,
+				FD8EEAEA1845835B001B331B /* BillRecord.m */,
+				FD8EEAE61845835B001B331B /* WeekDays.h */,
+				FD8EEAE71845835B001B331B /* WeekDays.m */,
+				FD8EEAE31845835B001B331B /* BillRecurrenceRule.h */,
+				FD8EEAE41845835B001B331B /* BillRecurrenceRule.m */,
+				FD8EEAE01845835B001B331B /* Positions.h */,
+				FD8EEAE11845835B001B331B /* Positions.m */,
+				FD8EEADD1845835B001B331B /* YearDays.h */,
+				FD8EEADE1845835B001B331B /* YearDays.m */,
+				FD8EEADA1845835B001B331B /* MonthDays.h */,
+				FD8EEADB1845835B001B331B /* MonthDays.m */,
+				FD8EEAD71845835B001B331B /* YearWeeks.h */,
+				FD8EEAD81845835B001B331B /* YearWeeks.m */,
+				FD8EEAD41845835B001B331B /* YearMonths.h */,
+				FD8EEAD51845835B001B331B /* YearMonths.m */,
+				FD8EEAD11845835B001B331B /* BillDate.h */,
+				FD8EEAD21845835B001B331B /* BillDate.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		FD737DDE1842AB5E00A8DBA0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD8EEA9618445849001B331B /* check@2x.png */,
+				FD8EEA9718445849001B331B /* clock@2x.png */,
+				FD8EEA9818445849001B331B /* cross@2x.png */,
+				FD8EEA9918445849001B331B /* list@2x.png */,
+				FD8EEAA218447FE2001B331B /* Montserrat-Bold.ttf */,
+				FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +405,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD5595291835F5BD00B4D789 /* Main_iPad.storyboard in Resources */,
+				FD737DE11842AF5100A8DBA0 /* Quando-Regular.ttf in Resources */,
+				FD737DD1184133A000A8DBA0 /* BBCenterTableCell.xib in Resources */,
 				FD55952E1835F5BD00B4D789 /* Images.xcassets in Resources */,
 				FD5595261835F5BD00B4D789 /* Main_iPhone.storyboard in Resources */,
+				FD8EEA9C18445849001B331B /* cross@2x.png in Resources */,
 				FD55951D1835F5BD00B4D789 /* InfoPlist.strings in Resources */,
+				FD8EEA9B18445849001B331B /* clock@2x.png in Resources */,
+				FD8EEAA318447FE2001B331B /* Montserrat-Bold.ttf in Resources */,
+				FD8EEA9518445568001B331B /* BBLeftTableCell.xib in Resources */,
+				FD8EEA9D18445849001B331B /* list@2x.png in Resources */,
+				FD8EEA9A18445849001B331B /* check@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,11 +469,25 @@
 			files = (
 				FD55952C1835F5BD00B4D789 /* BBSidePanelController.m in Sources */,
 				FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */,
+				FD8EEAD91845835B001B331B /* YearWeeks.m in Sources */,
+				FD8EEAE81845835B001B331B /* WeekDays.m in Sources */,
+				FD8EEAA018445945001B331B /* BBLeftTableCell.m in Sources */,
+				FD737DD418413DC400A8DBA0 /* BBCenterTableCell.m in Sources */,
 				FD5595231835F5BD00B4D789 /* BBAppDelegate.m in Sources */,
+				FD8EEAEB1845835B001B331B /* BillRecord.m in Sources */,
+				FD8EEAE21845835B001B331B /* Positions.m in Sources */,
 				FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */,
+				FD8EEAE51845835B001B331B /* BillRecurrenceRule.m in Sources */,
+				FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */,
 				FD55951F1835F5BD00B4D789 /* main.m in Sources */,
 				FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */,
+				FD8EEADF1845835B001B331B /* YearDays.m in Sources */,
+				FD8EEAD61845835B001B331B /* YearMonths.m in Sources */,
+				FD737DE41843D8C000A8DBA0 /* BBNewBillViewController.m in Sources */,
 				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,
+				FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */,
+				FD8EEAD31845835B001B331B /* BillDate.m in Sources */,
+				FD8EEADC1845835B001B331B /* MonthDays.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +734,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD737DD9184297F400A8DBA0 /* BillsBuddy.xcdatamodel */,
+			);
+			currentVersion = FD737DD9184297F400A8DBA0 /* BillsBuddy.xcdatamodel */;
+			path = BillsBuddy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FD5595071835F5BD00B4D789 /* Project object */;
 }

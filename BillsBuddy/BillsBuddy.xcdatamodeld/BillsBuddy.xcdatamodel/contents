@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BillDate" representedClassName="BillDate" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="overdueRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="paidBills" inverseEntity="BillRecord" syncable="YES"/>
+        <relationship name="paidRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="overdueBills" inverseEntity="BillRecord" syncable="YES"/>
+    </entity>
+    <entity name="BillRecord" representedClassName="BillRecord" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="item" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="overdueBills" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillDate" inverseName="paidRecord" inverseEntity="BillDate" syncable="YES"/>
+        <relationship name="paidBills" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillDate" inverseName="overdueRecord" inverseEntity="BillDate" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="record" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <entity name="BillRecurrenceRule" representedClassName="BillRecurrenceRule" syncable="YES">
+        <attribute name="calendarIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstDayOfTheWeek" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="7" defaultValueString="0" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="3" defaultValueString="0" syncable="YES"/>
+        <attribute name="interval" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="recurrenceEnd" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="daysOfTheMonth" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MonthDays" inverseName="recurrenceRule" inverseEntity="MonthDays" syncable="YES"/>
+        <relationship name="daysOfTheWeek" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WeekDays" inverseName="recurrenceRule" inverseEntity="WeekDays" syncable="YES"/>
+        <relationship name="daysOfTheYear" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YearDays" inverseName="recurrenceRule" inverseEntity="YearDays" syncable="YES"/>
+        <relationship name="monthsOfTheYear" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YearMonths" inverseName="recurrenceRule" inverseEntity="YearMonths" syncable="YES"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="recurrenceRule" inverseEntity="BillRecord" syncable="YES"/>
+        <relationship name="setPositions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Positions" inverseName="recurrenceRule" inverseEntity="Positions" syncable="YES"/>
+        <relationship name="weeksOfTheYear" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YearWeeks" inverseName="recurrenceRule" inverseEntity="YearWeeks" syncable="YES"/>
+    </entity>
+    <entity name="MonthDays" representedClassName="MonthDays" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Integer 16" minValueString="-31" maxValueString="31" defaultValueString="1" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="daysOfTheMonth" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <entity name="Positions" representedClassName="Positions" syncable="YES">
+        <attribute name="position" optional="YES" attributeType="Integer 16" minValueString="-366" maxValueString="366" defaultValueString="1" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="setPositions" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <entity name="WeekDays" representedClassName="WeekDays" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="7" defaultValueString="1" syncable="YES"/>
+        <attribute name="week" optional="YES" attributeType="Integer 16" minValueString="-53" maxValueString="53" defaultValueString="0" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="daysOfTheWeek" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <entity name="YearDays" representedClassName="YearDays" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Integer 16" minValueString="-366" maxValueString="366" defaultValueString="1" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="daysOfTheYear" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <entity name="YearMonths" representedClassName="YearMonths" syncable="YES">
+        <attribute name="month" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="12" defaultValueString="1" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="monthsOfTheYear" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <entity name="YearWeeks" representedClassName="YearWeeks" syncable="YES">
+        <attribute name="week" optional="YES" attributeType="Integer 16" minValueString="-53" maxValueString="53" defaultValueString="1" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="weeksOfTheYear" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BillRecord" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BillRecurrenceRule" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WeekDays" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MonthDays" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="YearDays" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="YearMonths" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="YearWeeks" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Positions" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BillDate" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
