@@ -2,14 +2,14 @@
 //  BillRecurrenceRule.h
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/27/13.
+//  Created by Tony Zhou on 11/29/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class BillRecord, MonthDays, Positions, WeekDays, YearDays, YearMonths, YearWeeks;
+@class BillRecord, BillRecurrenceEnd, MonthDays, Positions, WeekDays, YearDays, YearMonths, YearWeeks;
 
 @interface BillRecurrenceRule : NSManagedObject
 
@@ -17,7 +17,6 @@
 @property (nonatomic, retain) NSNumber * firstDayOfTheWeek;
 @property (nonatomic, retain) NSNumber * frequency;
 @property (nonatomic, retain) NSNumber * interval;
-@property (nonatomic, retain) NSDate * recurrenceEnd;
 @property (nonatomic, retain) NSSet *daysOfTheMonth;
 @property (nonatomic, retain) NSSet *daysOfTheWeek;
 @property (nonatomic, retain) NSSet *daysOfTheYear;
@@ -25,6 +24,7 @@
 @property (nonatomic, retain) BillRecord *record;
 @property (nonatomic, retain) NSSet *setPositions;
 @property (nonatomic, retain) NSSet *weeksOfTheYear;
+@property (nonatomic, retain) BillRecurrenceEnd *recurrenceEnd;
 @end
 
 @interface BillRecurrenceRule (CoreDataGeneratedAccessors)

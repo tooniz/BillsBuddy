@@ -102,7 +102,8 @@
         (VAR_STORE).pendingBillRecord = [BillRecord disconnectedEntity];
         (VAR_STORE).pendingBillRecord.amount = [NSDecimalNumber decimalNumberWithString:self.amountText.text];
         (VAR_STORE).pendingBillRecord.item = self.descriptionText.text;
-        (VAR_STORE).pendingBillRecord.date = self.dueDate;
+        (VAR_STORE).pendingBillRecord.startDate = self.dueDate;
+        (VAR_STORE).pendingBillRecord.nextDueDate = self.dueDate;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addRecurenceViewController"];
         [self.navigationItem setBackBarButtonItem: [[UIBarButtonItem alloc] initWithTitle: @"" style: UIBarButtonItemStyleBordered target: nil action: nil]];
         [self.navigationController pushViewController:vc animated:YES];
@@ -250,11 +251,12 @@
 }
 
 - (void) formatDueDateButton:(NSString *)dueDate {
-    NSString *initString = [NSString stringWithFormat:@"due: %@", dueDate];
+    NSString *message = @"due: ";
+    NSString *initString = [NSString stringWithFormat:@"%@%@", message, dueDate];
 //    CGSize stringSize = [initString sizeWithFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:14]];
 //    CGRect stringFrame = CGRectMake(self.dueDateButton.frame.origin.x,self.dueDateButton.frame.origin.y,stringSize.width, self.dueDateButton.frame.size.height);
 //    [self.dueDateButton setFrame:stringFrame];
-    NSMutableAttributedString *mutableString = [self formatStringTwoTone:initString firstRange:NSMakeRange(0,4) asFirstColor:[VAR_STORE buttonDarkGrayColor] secondRange:NSMakeRange(5,initString.length - 5) asSecondColor:[VAR_STORE buttonAppTextColor]];
+    NSMutableAttributedString *mutableString = [self formatStringTwoTone:initString firstRange:NSMakeRange(0,message.length-1) asFirstColor:[VAR_STORE buttonDarkGrayColor] secondRange:NSMakeRange(message.length,initString.length - message.length) asSecondColor:[VAR_STORE buttonAppTextColor]];
 
     [self formatButtonToDefault:self.dueDateButton];
     [self.dueDateButton setAttributedTitle:mutableString forState:UIControlStateNormal];

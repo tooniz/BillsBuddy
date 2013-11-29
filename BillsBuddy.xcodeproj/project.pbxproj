@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
-		FD0BCAB31848336800E20B83 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB21848336800E20B83 /* BillRecord.m */; };
 		FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB51848352F00E20B83 /* BillDate.m */; };
 		FD5595131835F5BD00B4D789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595121835F5BD00B4D789 /* Foundation.framework */; };
 		FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595141835F5BD00B4D789 /* CoreGraphics.framework */; };
@@ -34,7 +33,6 @@
 		FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */; };
 		FD737DE11842AF5100A8DBA0 /* Quando-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */; };
 		FD737DE41843D8C000A8DBA0 /* BBAddBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD737DE31843D8C000A8DBA0 /* BBAddBillViewController.m */; };
-		FD7859BA18469374006AA2C7 /* BillRecurrenceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7859B918469374006AA2C7 /* BillRecurrenceRule.m */; };
 		FD7859C018469749006AA2C7 /* BBMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7859BF18469749006AA2C7 /* BBMethodStore.m */; };
 		FD7859C61846E2CA006AA2C7 /* BBAddRecurrenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7859C51846E2CA006AA2C7 /* BBAddRecurrenceViewController.m */; };
 		FD8EEA9518445568001B331B /* BBLeftTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9418445568001B331B /* BBLeftTableCell.xib */; };
@@ -50,6 +48,9 @@
 		FD8EEADF1845835B001B331B /* YearDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEADE1845835B001B331B /* YearDays.m */; };
 		FD8EEAE21845835B001B331B /* Positions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAE11845835B001B331B /* Positions.m */; };
 		FD8EEAE81845835B001B331B /* WeekDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAE71845835B001B331B /* WeekDays.m */; };
+		FDA357BC1848E89800002AC9 /* BillRecurrenceEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357BB1848E89800002AC9 /* BillRecurrenceEnd.m */; };
+		FDA357BF1848E91F00002AC9 /* BillRecurrenceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */; };
+		FDA357C21848EB0000002AC9 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357C11848EB0000002AC9 /* BillRecord.m */; };
 		FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB7C265183F337C004E6117 /* BBLeftViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +67,6 @@
 /* Begin PBXFileReference section */
 		178D3495E5DA4CF88E1E837B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D4B2FCC1BD1548E5AF75A294 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD0BCAB11848336800E20B83 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
-		FD0BCAB21848336800E20B83 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FD0BCAB41848352F00E20B83 /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
 		FD0BCAB51848352F00E20B83 /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
 		FD55950F1835F5BD00B4D789 /* BillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,8 +105,6 @@
 		FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quando-Regular.ttf"; path = "../../../../Fonts/Quando/Quando-Regular.ttf"; sourceTree = "<group>"; };
 		FD737DE21843D8C000A8DBA0 /* BBAddBillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddBillViewController.h; sourceTree = "<group>"; };
 		FD737DE31843D8C000A8DBA0 /* BBAddBillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddBillViewController.m; sourceTree = "<group>"; };
-		FD7859B818469374006AA2C7 /* BillRecurrenceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecurrenceRule.h; sourceTree = "<group>"; };
-		FD7859B918469374006AA2C7 /* BillRecurrenceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecurrenceRule.m; sourceTree = "<group>"; };
 		FD7859BE18469749006AA2C7 /* BBMethodStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMethodStore.h; sourceTree = "<group>"; };
 		FD7859BF18469749006AA2C7 /* BBMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMethodStore.m; sourceTree = "<group>"; };
 		FD7859C41846E2CA006AA2C7 /* BBAddRecurrenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddRecurrenceViewController.h; sourceTree = "<group>"; };
@@ -132,6 +129,12 @@
 		FD8EEAE11845835B001B331B /* Positions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Positions.m; sourceTree = "<group>"; };
 		FD8EEAE61845835B001B331B /* WeekDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekDays.h; sourceTree = "<group>"; };
 		FD8EEAE71845835B001B331B /* WeekDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekDays.m; sourceTree = "<group>"; };
+		FDA357BA1848E89800002AC9 /* BillRecurrenceEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecurrenceEnd.h; sourceTree = "<group>"; };
+		FDA357BB1848E89800002AC9 /* BillRecurrenceEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecurrenceEnd.m; sourceTree = "<group>"; };
+		FDA357BD1848E91F00002AC9 /* BillRecurrenceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecurrenceRule.h; sourceTree = "<group>"; };
+		FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecurrenceRule.m; sourceTree = "<group>"; };
+		FDA357C01848EB0000002AC9 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
+		FDA357C11848EB0000002AC9 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FDB7C264183F337C004E6117 /* BBLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeftViewController.h; sourceTree = "<group>"; };
 		FDB7C265183F337C004E6117 /* BBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLeftViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,12 +295,14 @@
 			isa = PBXGroup;
 			children = (
 				FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */,
+				FDA357C01848EB0000002AC9 /* BillRecord.h */,
+				FDA357C11848EB0000002AC9 /* BillRecord.m */,
+				FDA357BD1848E91F00002AC9 /* BillRecurrenceRule.h */,
+				FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */,
+				FDA357BA1848E89800002AC9 /* BillRecurrenceEnd.h */,
+				FDA357BB1848E89800002AC9 /* BillRecurrenceEnd.m */,
 				FD0BCAB41848352F00E20B83 /* BillDate.h */,
 				FD0BCAB51848352F00E20B83 /* BillDate.m */,
-				FD0BCAB11848336800E20B83 /* BillRecord.h */,
-				FD0BCAB21848336800E20B83 /* BillRecord.m */,
-				FD7859B818469374006AA2C7 /* BillRecurrenceRule.h */,
-				FD7859B918469374006AA2C7 /* BillRecurrenceRule.m */,
 				FD8EEAE61845835B001B331B /* WeekDays.h */,
 				FD8EEAE71845835B001B331B /* WeekDays.m */,
 				FD8EEAE01845835B001B331B /* Positions.h */,
@@ -476,19 +481,20 @@
 				FD8EEAA018445945001B331B /* BBLeftTableCell.m in Sources */,
 				FD5595231835F5BD00B4D789 /* BBAppDelegate.m in Sources */,
 				FD8EEAE21845835B001B331B /* Positions.m in Sources */,
+				FDA357BF1848E91F00002AC9 /* BillRecurrenceRule.m in Sources */,
 				FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */,
 				FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */,
-				FD7859BA18469374006AA2C7 /* BillRecurrenceRule.m in Sources */,
 				FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */,
 				FD55951F1835F5BD00B4D789 /* main.m in Sources */,
 				FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */,
 				FD8EEADF1845835B001B331B /* YearDays.m in Sources */,
 				FD8EEAD61845835B001B331B /* YearMonths.m in Sources */,
+				FDA357BC1848E89800002AC9 /* BillRecurrenceEnd.m in Sources */,
 				FD737DE41843D8C000A8DBA0 /* BBAddBillViewController.m in Sources */,
+				FDA357C21848EB0000002AC9 /* BillRecord.m in Sources */,
 				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,
 				FD7859C018469749006AA2C7 /* BBMethodStore.m in Sources */,
 				FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */,
-				FD0BCAB31848336800E20B83 /* BillRecord.m in Sources */,
 				FD8EEADC1845835B001B331B /* MonthDays.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

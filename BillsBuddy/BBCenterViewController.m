@@ -14,6 +14,12 @@
 
 #define kCellHeight 60
 
+#define kCellItemImageTag 100
+#define kCellItemTextTag 101
+#define kCellItemDescTag 102
+#define kCellAmountDescTag 103
+#define kCellAmountTag 104
+
 @interface BBCenterViewController ()
 
 @property (nonatomic, strong) NSArray* tableRecordsArray;
@@ -91,11 +97,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    DLog(@"cellForRowAtIndexPath called")
     static NSString *cellIdentifier = @"centerTableCell";
     
+    // Item retrieval
+    BillRecord *record = [self.tableRecordsArray objectAtIndex:indexPath.row];
+    
+    // Cell retrieval
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
     {
+        DLog(@"nil cell returned")
         // Swiped out buttons
         NSMutableArray *leftUtilityButtons = [NSMutableArray new];
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
@@ -116,60 +128,30 @@
                                   containingTableView:tableView // For row height and selection
                                    leftUtilityButtons:leftUtilityButtons
                                   rightUtilityButtons:rightUtilityButtons];
-        // Item retrieval
-        BillRecord *record = [self.tableRecordsArray objectAtIndex:indexPath.row];
         // Item Image
         UIImageView *itemImage = [[UIImageView alloc] initWithFrame:CGRectMake(13, 10, 40, 40)];
+        itemImage.tag = kCellItemImageTag;
         itemImage.backgroundColor = [VAR_STORE sideTintColor];
-//FIXME image for record
         // Item Text
-        CGRect itemFrameUpper = CGRectMake(66, 11, 128, 28);
-        CGRect itemFrameLower = CGRectMake(66, 15, 128, 28);
         UILabel *itemText = [[UILabel alloc] init];
+        itemText.tag = kCellItemTextTag;
         itemText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:18];
-        itemText.text = record.item;
-        // Item Text
+        // Item Desc Text
         UILabel *itemDescText = [[UILabel alloc] initWithFrame:CGRectMake(66, 30, 128, 28)];
+        itemDescText.tag = kCellItemDescTag;
         itemDescText.textColor = [UIColor lightGrayColor];
         itemDescText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:12];
         // Item Amount Description
         UILabel *amountDescText = [[UILabel alloc] initWithFrame: CGRectMake(190, 10, 100, 23)];
+        amountDescText.tag = kCellAmountDescTag;
         amountDescText.textColor = [UIColor lightGrayColor];
         amountDescText.textAlignment = NSTextAlignmentRight;
         amountDescText.font = [UIFont fontWithName:[VAR_STORE labelLightFontName] size:12];
         // Item Amount
         UILabel *amountText = [[UILabel alloc] initWithFrame:CGRectMake(190, 20, 100, 40)];
-        switch ([VAR_STORE centerViewType]) {
-            case CV_UPCOMING: {
-                itemText.frame = itemFrameLower;
-                NSInteger days = [BBMethodStore daysBetween:[NSDate date] and:record.date];
-                NSString *daysString = abs((int)days) > 1 ? @"days" : @"day";
-                amountDescText.text = (days<0) ? StringGen(@"overdue %d %@", abs(days), daysString) : (days>0) ? StringGen(@"in %d %@", (int)days, daysString) : StringGen(@"today");
-                amountText.textColor = (days > [VAR_STORE urgentDays]) ? [VAR_STORE clockIconColor] : [VAR_STORE crossIconColor];
-                break;
-            }
-            case CV_PAID: {
-                itemText.frame = itemFrameUpper;
-                BillDate *recent = [record.paidBills objectAtIndex:0];
-                NSString *dateString = [NSDateFormatter localizedStringFromDate:recent.date
-                                                                      dateStyle:NSDateFormatterShortStyle
-                                                                      timeStyle:NSDateFormatterNoStyle];
-//FIXME need to get last paid
-                itemDescText.text = [NSString stringWithFormat:@"last paid %@", dateString];
-                NSInteger times = record.paidBills.count;
-                amountDescText.text = (times==1) ? StringGen(@"paid once") : StringGen(@"paid %d times", times);
-                amountText.textColor = [VAR_STORE checkIconColor];
-                break;
-            }
-            case CV_OVERDUE:
-                amountText.textColor = [VAR_STORE crossIconColor];
-                break;
-            default:
-                break;
-        }
+        amountText.tag = kCellAmountTag;
         amountText.textAlignment = NSTextAlignmentRight;
         amountText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:19];
-        amountText.text = StringGen(@"%@%@", [VAR_STORE currencySymbol], record.amount.stringValue);
         // Cell subviews
         [cell.contentView addSubview:itemImage];
         [cell.contentView addSubview:itemText];
@@ -181,6 +163,46 @@
         cell.delegate = self;
     }
     
+    // Updates needs to be outside nil block so it occurs with every reloadData call
+    UIImageView *itemImage = (UIImageView *)[cell viewWithTag:kCellItemImageTag];
+    UILabel *itemDescText = (UILabel *)[cell viewWithTag:kCellItemDescTag];
+    UILabel *itemText = (UILabel *)[cell viewWithTag:kCellItemTextTag];
+    UILabel *amountDescText = (UILabel *)[cell viewWithTag:kCellAmountDescTag];
+    UILabel *amountText = (UILabel *)[cell viewWithTag:kCellAmountTag];
+    CGRect itemFrameUpper = CGRectMake(66, 11, 128, 28);
+    CGRect itemFrameLower = CGRectMake(66, 15, 128, 28);
+
+//FIXME nned to update image for record
+    itemImage = itemImage;
+    itemText.text = record.item;
+    amountText.text = StringGen(@"%@%@", [VAR_STORE currencySymbol], record.amount.stringValue);
+    switch ([VAR_STORE centerViewType]) {
+        case CV_UPCOMING: {
+            itemText.frame = itemFrameLower;
+            NSInteger days = [BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate];
+            NSString *daysString = abs((int)days) > 1 ? @"days" : @"day";
+            amountDescText.text = (days<0) ? StringGen(@"overdue %d %@", abs(days), daysString) : (days>0) ? StringGen(@"in %d %@", (int)days, daysString) : StringGen(@"today");
+            amountText.textColor = (days > [VAR_STORE urgentDays]) ? [VAR_STORE clockIconColor] : [VAR_STORE crossIconColor];
+            break;
+        }
+        case CV_PAID: {
+            itemText.frame = itemFrameUpper;
+            NSString *dateString = [NSDateFormatter localizedStringFromDate:[record recentPaidDate]
+                                                                  dateStyle:NSDateFormatterShortStyle
+                                                                  timeStyle:NSDateFormatterNoStyle];
+            itemDescText.text = [NSString stringWithFormat:@"last paid %@", dateString];
+            NSInteger times = record.paidBills.count;
+            amountDescText.text = (times==1) ? StringGen(@"paid once") : StringGen(@"paid %d times", times);
+            amountText.textColor = [VAR_STORE checkIconColor];
+            break;
+        }
+        case CV_OVERDUE:
+            amountText.textColor = [VAR_STORE crossIconColor];
+            break;
+        default:
+            break;
+    }
+
     return cell;
 }
 
@@ -193,6 +215,7 @@
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             BillRecord *record = [self.tableRecordsArray objectAtIndex:cellIndexPath.row];
             [record paidCurrentAndUpdateDueDate];
+//FIXME
             [self updateView];
             break;
         }

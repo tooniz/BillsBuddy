@@ -63,16 +63,22 @@
         for (BillRecord *record in fetchedRecordsArray) {
             if (record.hasDueDate)
                 [upcomingViewRecords addObject:record];
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"nextDueDate" ascending:YES];
+            [upcomingViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         }
         [VAR_STORE setUpcomingCount:[upcomingViewRecords count]];
         for (BillRecord *record in fetchedRecordsArray) {
             if (record.hasPaidBills)
                 [paidViewRecords addObject:record];
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentPaidDate" ascending:NO];
+            [paidViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         }
         [VAR_STORE setPaidCount:[paidViewRecords count]];
         for (BillRecord *record in fetchedRecordsArray) {
             if (record.hasOverdueBills)
                 [overdueViewRecords addObject:record];
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentOverdueDate" ascending:YES];
+            [overdueViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         }
         [VAR_STORE setOverdueCount:[overdueViewRecords count]];
         [VAR_STORE setRefetchNeeded:NO];

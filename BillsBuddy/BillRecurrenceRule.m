@@ -2,12 +2,13 @@
 //  BillRecurrenceRule.m
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/27/13.
+//  Created by Tony Zhou on 11/29/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
 #import "BillRecurrenceRule.h"
 #import "BillRecord.h"
+#import "BillRecurrenceEnd.h"
 #import "MonthDays.h"
 #import "Positions.h"
 #import "WeekDays.h"
@@ -22,7 +23,6 @@
 @dynamic firstDayOfTheWeek;
 @dynamic frequency;
 @dynamic interval;
-@dynamic recurrenceEnd;
 @dynamic daysOfTheMonth;
 @dynamic daysOfTheWeek;
 @dynamic daysOfTheYear;
@@ -30,6 +30,7 @@
 @dynamic record;
 @dynamic setPositions;
 @dynamic weeksOfTheYear;
+@dynamic recurrenceEnd;
 
 - (void)addToContext:(NSManagedObjectContext *)context {
     [context insertObject:self];
@@ -45,6 +46,7 @@
         [yw addToContext:context];
     for (Positions *pos in self.setPositions)
         [pos addToContext:context];
+    [self.recurrenceEnd addToContext:context];
 }
 
 @end

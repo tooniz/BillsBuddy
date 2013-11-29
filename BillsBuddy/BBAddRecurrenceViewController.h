@@ -11,8 +11,9 @@
 
 @interface BBAddRecurrenceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tabelView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *recurrenceFieldWrapper;
+@property (weak, nonatomic) IBOutlet UILabel *recurrenceField;
 
 - (IBAction)didTapSave:(id)sender;
 

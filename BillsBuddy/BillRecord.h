@@ -2,7 +2,7 @@
 //  BillRecord.h
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/28/13.
+//  Created by Tony Zhou on 11/29/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 @interface BillRecord : NSManagedObject
 
 @property (nonatomic, retain) NSDecimalNumber * amount;
-@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSDate * nextDueDate;
 @property (nonatomic, retain) NSString * item;
 @property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSOrderedSet *overdueBills;
 @property (nonatomic, retain) NSOrderedSet *paidBills;
 @property (nonatomic, retain) BillRecurrenceRule *recurrenceRule;
@@ -51,5 +52,8 @@
 - (BOOL)hasDueDate;
 - (BOOL)hasPaidBills;
 - (BOOL)hasOverdueBills;
+
+- (NSDate *)recentPaidDate;
+- (NSDate *)recentOverdueDate;
 
 @end
