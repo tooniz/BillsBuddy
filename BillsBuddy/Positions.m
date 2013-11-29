@@ -15,4 +15,8 @@
 @dynamic position;
 @dynamic recurrenceRule;
 
+- (void)addToContext:(NSManagedObjectContext *)context {
+    [context insertObject:self];
+}
+
 @end

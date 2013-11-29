@@ -2,7 +2,7 @@
 //  BillRecurrenceRule.h
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/26/13.
+//  Created by Tony Zhou on 11/27/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
@@ -22,9 +22,9 @@
 @property (nonatomic, retain) NSSet *daysOfTheWeek;
 @property (nonatomic, retain) NSSet *daysOfTheYear;
 @property (nonatomic, retain) NSSet *monthsOfTheYear;
-@property (nonatomic, retain) NSSet *weeksOfTheYear;
-@property (nonatomic, retain) NSSet *setPositions;
 @property (nonatomic, retain) BillRecord *record;
+@property (nonatomic, retain) NSSet *setPositions;
+@property (nonatomic, retain) NSSet *weeksOfTheYear;
 @end
 
 @interface BillRecurrenceRule (CoreDataGeneratedAccessors)
@@ -49,14 +49,16 @@
 - (void)addMonthsOfTheYear:(NSSet *)values;
 - (void)removeMonthsOfTheYear:(NSSet *)values;
 
+- (void)addSetPositionsObject:(Positions *)value;
+- (void)removeSetPositionsObject:(Positions *)value;
+- (void)addSetPositions:(NSSet *)values;
+- (void)removeSetPositions:(NSSet *)values;
+
 - (void)addWeeksOfTheYearObject:(YearWeeks *)value;
 - (void)removeWeeksOfTheYearObject:(YearWeeks *)value;
 - (void)addWeeksOfTheYear:(NSSet *)values;
 - (void)removeWeeksOfTheYear:(NSSet *)values;
 
-- (void)addSetPositionsObject:(Positions *)value;
-- (void)removeSetPositionsObject:(Positions *)value;
-- (void)addSetPositions:(NSSet *)values;
-- (void)removeSetPositions:(NSSet *)values;
+- (void)addToContext:(NSManagedObjectContext *)context;
 
 @end

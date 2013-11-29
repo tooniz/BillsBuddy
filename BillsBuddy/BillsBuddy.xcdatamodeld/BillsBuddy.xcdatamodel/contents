@@ -2,16 +2,17 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BillDate" representedClassName="BillDate" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="overdueRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="paidBills" inverseEntity="BillRecord" syncable="YES"/>
-        <relationship name="paidRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="overdueBills" inverseEntity="BillRecord" syncable="YES"/>
+        <relationship name="overdueRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="overdueBills" inverseEntity="BillRecord" syncable="YES"/>
+        <relationship name="paidRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecord" inverseName="paidBills" inverseEntity="BillRecord" syncable="YES"/>
     </entity>
     <entity name="BillRecord" representedClassName="BillRecord" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="item" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="overdueBills" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillDate" inverseName="paidRecord" inverseEntity="BillDate" syncable="YES"/>
-        <relationship name="paidBills" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillDate" inverseName="overdueRecord" inverseEntity="BillDate" syncable="YES"/>
-        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="record" inverseEntity="BillRecurrenceRule" syncable="YES"/>
+        <relationship name="overdueBills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BillDate" inverseName="overdueRecord" inverseEntity="BillDate" syncable="YES"/>
+        <relationship name="paidBills" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BillDate" inverseName="paidRecord" inverseEntity="BillDate" syncable="YES"/>
+        <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BillRecurrenceRule" inverseName="record" inverseEntity="BillRecurrenceRule" syncable="YES"/>
     </entity>
     <entity name="BillRecurrenceRule" representedClassName="BillRecurrenceRule" syncable="YES">
         <attribute name="calendarIdentifier" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,14 +54,14 @@
         <relationship name="recurrenceRule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillRecurrenceRule" inverseName="weeksOfTheYear" inverseEntity="BillRecurrenceRule" syncable="YES"/>
     </entity>
     <elements>
+        <element name="BillDate" positionX="0" positionY="0" width="0" height="0"/>
         <element name="BillRecord" positionX="0" positionY="0" width="0" height="0"/>
         <element name="BillRecurrenceRule" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="WeekDays" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MonthDays" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Positions" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WeekDays" positionX="0" positionY="0" width="0" height="0"/>
         <element name="YearDays" positionX="0" positionY="0" width="0" height="0"/>
         <element name="YearMonths" positionX="0" positionY="0" width="0" height="0"/>
         <element name="YearWeeks" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Positions" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="BillDate" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

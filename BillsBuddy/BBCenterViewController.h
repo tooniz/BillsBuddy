@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <SWTableViewCell.h>
 
-@interface BBCenterViewController : UITableViewController <UITableViewDataSource>
+@interface BBCenterViewController : UITableViewController <UITableViewDataSource, SWTableViewCellDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

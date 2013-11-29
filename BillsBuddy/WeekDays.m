@@ -16,4 +16,8 @@
 @dynamic week;
 @dynamic recurrenceRule;
 
+- (void)addToContext:(NSManagedObjectContext *)context {
+    [context insertObject:self];
+}
+
 @end

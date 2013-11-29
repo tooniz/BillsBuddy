@@ -119,24 +119,32 @@
     // Create contents for each cell
     UIImage *iconImage;
     NSInteger sectionRow = indexPath.section*10 + indexPath.row;
+    int count;
     switch (sectionRow) {
         case 00:
             iconImage = [[UIImage imageNamed:@"clock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE clockIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE clockIconColor]];
             [cell.itemLabel setText:@"Upcoming bills"];
+            count = (int)[VAR_STORE upcomingCount];
+            [cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
             break;
         case 01:
             iconImage = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE checkIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE checkIconColor]];
             [cell.itemLabel setText:@"Paid bills"];
+            count = (int)[VAR_STORE paidCount];
+            //[cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
+            [cell.countLabel setText:@""];
             break;
         case 02:
             iconImage = [[UIImage imageNamed:@"cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE crossIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE crossIconColor]];
             [cell.itemLabel setText:@"Overdue bills"];
+            count = (int)[VAR_STORE overdueCount];
+            [cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
             break;
         case 10:
             iconImage = [[UIImage imageNamed:@"list"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];

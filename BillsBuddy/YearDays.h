@@ -16,4 +16,6 @@
 @property (nonatomic, retain) NSNumber * day;
 @property (nonatomic, retain) BillRecurrenceRule *recurrenceRule;
 
+- (void)addToContext:(NSManagedObjectContext *)context;
+
 @end

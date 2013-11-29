@@ -2,7 +2,7 @@
 //  BillRecord.h
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/26/13.
+//  Created by Tony Zhou on 11/28/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
@@ -14,10 +14,42 @@
 @interface BillRecord : NSManagedObject
 
 @property (nonatomic, retain) NSDecimalNumber * amount;
+@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * item;
 @property (nonatomic, retain) NSString * notes;
-@property (nonatomic, retain) BillDate *paidBills;
-@property (nonatomic, retain) BillDate *overdueBills;
+@property (nonatomic, retain) NSOrderedSet *overdueBills;
+@property (nonatomic, retain) NSOrderedSet *paidBills;
 @property (nonatomic, retain) BillRecurrenceRule *recurrenceRule;
+@end
+
+@interface BillRecord (CoreDataGeneratedAccessors)
+
+- (void)insertObject:(BillDate *)value inOverdueBillsAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromOverdueBillsAtIndex:(NSUInteger)idx;
+- (void)insertOverdueBills:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeOverdueBillsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInOverdueBillsAtIndex:(NSUInteger)idx withObject:(BillDate *)value;
+- (void)replaceOverdueBillsAtIndexes:(NSIndexSet *)indexes withOverdueBills:(NSArray *)values;
+- (void)addOverdueBillsObject:(BillDate *)value;
+- (void)removeOverdueBillsObject:(BillDate *)value;
+- (void)addOverdueBills:(NSOrderedSet *)values;
+- (void)removeOverdueBills:(NSOrderedSet *)values;
+- (void)insertObject:(BillDate *)value inPaidBillsAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromPaidBillsAtIndex:(NSUInteger)idx;
+- (void)insertPaidBills:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removePaidBillsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInPaidBillsAtIndex:(NSUInteger)idx withObject:(BillDate *)value;
+- (void)replacePaidBillsAtIndexes:(NSIndexSet *)indexes withPaidBills:(NSArray *)values;
+- (void)addPaidBillsObject:(BillDate *)value;
+- (void)removePaidBillsObject:(BillDate *)value;
+- (void)addPaidBills:(NSOrderedSet *)values;
+- (void)removePaidBills:(NSOrderedSet *)values;
+
++ (id)disconnectedEntity;
+- (void)addToContext:(NSManagedObjectContext *)context;
+- (void)paidCurrentAndUpdateDueDate;
+- (BOOL)hasDueDate;
+- (BOOL)hasPaidBills;
+- (BOOL)hasOverdueBills;
 
 @end

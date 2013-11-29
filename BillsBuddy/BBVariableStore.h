@@ -7,14 +7,16 @@
 //
 
 #import "EqpSingleton.h"
+#import "BillRecord.h"
 
 #define VAR_STORE (BBVariableStore *)[BBVariableStore sharedInstance]
 
 @interface BBVariableStore : EqpSingleton
 
 // data properties
-@property (nonatomic) NSInteger totalCount;
-@property (nonatomic) NSInteger numberOfRowsInCenterTable;
+@property (nonatomic) NSInteger upcomingCount;
+@property (nonatomic) NSInteger paidCount;
+@property (nonatomic) NSInteger overdueCount;
 @property (nonatomic) NSInteger numberOfRowsInLeftTable;
 @property (nonatomic, copy) NSString *currencySymbol;
 
@@ -23,9 +25,14 @@
 @property (nonatomic) NSInteger upcomingDays;
 
 // app properties
+@property (nonatomic) BOOL refetchNeeded;
 @property (nonatomic) CenterViewType_E centerViewType;
+@property (nonatomic, strong) BillRecord *pendingBillRecord;
+
 // app ui properties
+@property (nonatomic, copy) NSString *labelLightFontName;
 @property (nonatomic, copy) NSString *labelDefaultFontName;
+@property (nonatomic, copy) NSString *buttonLightFontName;
 @property (nonatomic, copy) NSString *buttonDefaultFontName;
 @property (nonatomic, copy) NSString *panelDefaultFontName;
 @property (nonatomic, copy) NSString *navBarDefaultFontName;

@@ -7,7 +7,6 @@
 //
 
 #import "BBAppDelegate.h"
-#import "BBVariableStore.h"
 
 @interface BBAppDelegate ()
 
@@ -126,6 +125,7 @@
 #endif
         }
     }
+    [VAR_STORE setRefetchNeeded:YES];
 }
 // 6
 -(NSArray*)getAllRecords

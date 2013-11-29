@@ -2,7 +2,7 @@
 //  BillRecurrenceRule.m
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/26/13.
+//  Created by Tony Zhou on 11/27/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
@@ -27,8 +27,24 @@
 @dynamic daysOfTheWeek;
 @dynamic daysOfTheYear;
 @dynamic monthsOfTheYear;
-@dynamic weeksOfTheYear;
-@dynamic setPositions;
 @dynamic record;
+@dynamic setPositions;
+@dynamic weeksOfTheYear;
+
+- (void)addToContext:(NSManagedObjectContext *)context {
+    [context insertObject:self];
+    for (WeekDays *wd in self.daysOfTheWeek)
+        [wd addToContext:context];
+    for (MonthDays *md in self.daysOfTheMonth)
+        [md addToContext:context];
+    for (YearDays *yd in self.daysOfTheYear)
+        [yd addToContext:context];
+    for (YearMonths *ym in self.monthsOfTheYear)
+        [ym addToContext:context];
+    for (YearWeeks *yw in self.weeksOfTheYear)
+        [yw addToContext:context];
+    for (Positions *pos in self.setPositions)
+        [pos addToContext:context];
+}
 
 @end

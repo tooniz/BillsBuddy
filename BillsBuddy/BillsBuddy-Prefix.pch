@@ -22,4 +22,5 @@
 
 #import "BBCommonDefines.h"
 #import "BBVariableStore.h"
+#import "BBMethodStore.h"
 #import "BBAppDelegate.h"
