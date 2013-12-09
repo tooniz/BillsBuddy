@@ -32,6 +32,13 @@
 @dynamic weeksOfTheYear;
 @dynamic recurrenceEnd;
 
++ (id)disconnectedEntity {
+    NSManagedObjectContext *context = [APP_DELEGATE managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"BillRecurrenceRule" inManagedObjectContext:context];
+    return (BillRecord *)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:nil];
+}
+
+
 - (void)addToContext:(NSManagedObjectContext *)context {
     [context insertObject:self];
     for (WeekDays *wd in self.daysOfTheWeek)

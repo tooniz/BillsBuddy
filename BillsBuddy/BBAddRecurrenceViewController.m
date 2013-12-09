@@ -9,10 +9,21 @@
 #import "BBAddRecurrenceViewController.h"
 #import "BillRecord.h"
 #import "BillRecurrenceRule.h"
+#import "BillRecurrenceEnd.h"
+
+#define kRecurrenceTag 10
+
+#define kRecurOnceText @"Once only"
+#define kRecurDailyText @"Repeat daily"
+#define kRecurWeeklyText @"Repeat weekly"
+#define kRecurMonthlyText @"Repeat monthly"
+#define kRecurYearlyText @"Repeat yearly"
+#define kUndefinedText @"Undefined"
 
 @interface BBAddRecurrenceViewController ()
 
-@property (nonatomic) BBRecurrenceFrequency recurrenceFreq;
+@property (nonatomic, strong) BillRecurrenceRule *pendingRecurrenceRule;
+@property (nonatomic, strong) BillRecurrenceEnd *pendingRecurrenceEnd;
 @property (nonatomic) BOOL recurrenceValid;
 
 @end
@@ -34,7 +45,6 @@
 	// Do any additional setup after loading the view.
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self setRecurrenceValid:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,13 +58,7 @@
     [self.recurrenceFieldWrapper.layer addSublayer:line];
     self.recurrenceField.font = [UIFont fontWithName:[VAR_STORE labelLightFontName] size:18];
     self.recurrenceField.textColor = [UIColor lightGrayColor];
-    
-    NSString *message = @"With frequency of: ";
-    NSString *initString = [NSString stringWithFormat:@"%@%@", message, @"Pick a rule below"];
-    NSMutableAttributedString *mutableString = [self formatStringTwoTone:initString firstRange:NSMakeRange(0,message.length-1) asFirstColor:[UIColor blackColor] secondRange:NSMakeRange(message.length,initString.length - message.length) asSecondColor:[UIColor lightGrayColor]];
-    
-    [self.recurrenceField setAttributedText:mutableString];
-
+    [self updateRecurrenceField:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -69,30 +73,60 @@
 }
 
 - (IBAction)didTapSave:(id)sender {
-    [(VAR_STORE).pendingBillRecord addToContext:[APP_DELEGATE managedObjectContext]];
-    // Create recurrence rule in context
-    BillRecurrenceRule *recurrence = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"BillRecurrenceRule"
-                                      inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
-//FIXME dummy frequency of daily for now
-    [recurrence setFrequency:[NSNumber numberWithInt:BBRecurrenceFrequencyDaily]];
-    // Create record in context
-    BillRecord *record = (VAR_STORE).pendingBillRecord;
-    [record setRecurrenceRule:recurrence];
-    // Save context
-    DLog(@"Dump bill record about to be added:\n %@", record.description)
-    DLog(@"Dump recurrence rule of bill record about to be added:\n %@", record.recurrenceRule.description)
-    [APP_DELEGATE saveContext];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
-- (NSMutableAttributedString *) formatStringTwoTone:(NSString *)string firstRange:(NSRange)range1 asFirstColor:(UIColor *)color1 secondRange:(NSRange)range2 asSecondColor:(UIColor *)color2 {
-    NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:string];
-    [mutableString addAttribute:NSForegroundColorAttributeName value:color1 range:range1];
-    [mutableString addAttribute:NSForegroundColorAttributeName value:color2 range:range2];
-    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Medium" size:14] range:range1];
-    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Light" size:14] range:range2];
-    return mutableString;
+    if (self.recurrenceValid) {
+        // Create recurrence rule in context
+        BillRecord *record = (VAR_STORE).pendingBillRecord;
+        [record setRecurrenceRule:self.pendingRecurrenceRule];
+        // Save context
+        [(VAR_STORE).pendingBillRecord addToContext:[APP_DELEGATE managedObjectContext]];
+        DLog(@"Dump bill record about to be added:\n %@", record.description)
+        DLog(@"Dump recurrence rule of bill record about to be added:\n %@", record.recurrenceRule.description)
+        [APP_DELEGATE saveContext];
+
+        // Schedule the notification
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [BBMethodStore beginningOfDay:record.nextDueDate plusHours:8];
+        localNotification.alertBody = @"Upcoming bill";
+        localNotification.alertAction = StringGen(@"%@ is due", record.item);
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+// TODO
+//        localNotification.alertLaunchImage = ...;
+
+        if (record.recurrenceRule.recurrenceEnd == nil) {
+            switch (record.recurrenceRule.frequency.intValue) {
+                case BBRecurrenceFrequencyDaily:
+                    localNotification.repeatInterval = NSDayCalendarUnit;
+                    break;
+                case BBRecurrenceFrequencyWeekly:
+                    localNotification.repeatInterval = NSWeekCalendarUnit;
+                    break;
+                case BBRecurrenceFrequencyMonthly:
+                    localNotification.repeatInterval = NSMonthCalendarUnit;
+                    break;
+                case BBRecurrenceFrequencyYearly:
+                    localNotification.repeatInterval = NSYearCalendarUnit;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else {
+            DAssert(record.recurrenceRule.recurrenceEnd.occurenceCount.intValue == 1, @"only 1-time occurence or infinitely repeated recurrence supported for now!")
+        }
+
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        LMAlertView *alert = [[LMAlertView alloc]initWithTitle: @"Uh oh!"
+                                                       message: @"Missing a recurrence type"
+                                                      delegate: self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil,nil];
+        [alert show];
+    }
 }
 
 #pragma mark - Table View Methods
@@ -115,10 +149,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return 6;
+            return 5;
             break;
         default:
-            return 2;
+            return 0;
             break;
     }
 }
@@ -130,9 +164,6 @@
     {
         case 0:
             sectionName = @"Rules";
-            break;
-        case 1:
-            sectionName = @"Special rules";
             break;
         default:
             break;
@@ -153,39 +184,124 @@
                                       reuseIdentifier:cellIdentifier];
         UILabel *itemText = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, cell.frame.size.width-40, 28)];
         itemText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:18];
+        itemText.tag = kRecurrenceTag;
         NSInteger sectionRow = indexPath.section*10 + indexPath.row;
         switch (sectionRow) {
             case 00:
-                itemText.text = @"Once only";
+                itemText.text = kRecurOnceText;
                 break;
             case 01:
-                itemText.text = @"Repeat daily";
+                itemText.text = kRecurDailyText;
                 break;
             case 02:
-                itemText.text = @"Repeat weekly";
+                itemText.text = kRecurWeeklyText;
                 break;
+/* how does notification support work?
             case 03:
                 itemText.text = @"Repeat every other week";
                 break;
+ */
+            case 03:
+                itemText.text = kRecurMonthlyText;
+                break;
             case 04:
-                itemText.text = @"Repeat monthly";
+                itemText.text = kRecurYearlyText;
                 break;
-            case 05:
-                itemText.text = @"Repeat yearly";
-                break;
+/* how does notification support work?
+
             case 10:
                 itemText.text = @"Repeat ... times";
                 break;
             case 11:
                 itemText.text = @"Repeat ... on every ...";
                 break;
+ */
             default:
-                itemText.text = @"Undefined";
+                itemText.text = kUndefinedText;
                 break;
         }
         [cell.contentView addSubview:itemText];
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DLog(@"tableView:didSelectRowAtIndexPath called")
+    NSInteger sectionRow = indexPath.section*10 + indexPath.row;
+    self.pendingRecurrenceRule = [BillRecurrenceRule disconnectedEntity];
+    self.pendingRecurrenceEnd = nil;
+    self.recurrenceValid = YES;
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel *selection = (UILabel *)[cell viewWithTag:kRecurrenceTag];
+    [self updateRecurrenceField:selection.text];
+    switch (sectionRow) {
+        case 00:
+            self.pendingRecurrenceEnd = [BillRecurrenceEnd disconnectedEntity];
+            self.pendingRecurrenceEnd.occurenceCount = [NSNumber numberWithInt:1];
+            [self.pendingRecurrenceRule setRecurrenceEnd:self.pendingRecurrenceEnd];
+            break;
+        case 01:
+            self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyDaily];
+            self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
+            break;
+        case 02:
+            self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyWeekly];
+            self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
+            break;
+/*
+        case 03:
+            self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyWeekly];
+            self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:2];
+            break;
+ */
+        case 03:
+            self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyMonthly];
+            self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
+            break;
+        case 04:
+            self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyYearly];
+            self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
+            break;
+/*
+        case 10:
+//TODO special rule
+            self.recurrenceValid = NO;
+            break;
+        case 11:
+//TODO special rule
+            self.recurrenceValid = NO;
+            break;
+ */
+        default:
+            self.recurrenceValid = NO;
+            break;
+    }
+    
+}
+
+#pragma mark - Misc Methods
+
+- (NSMutableAttributedString *) formatStringTwoTone:(NSString *)string firstRange:(NSRange)range1 asFirstColor:(UIColor *)color1 secondRange:(NSRange)range2 asSecondColor:(UIColor *)color2 {
+    NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:string];
+    [mutableString addAttribute:NSForegroundColorAttributeName value:color1 range:range1];
+    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Light" size:[VAR_STORE buttonDefaultFontSize]] range:range1];
+    [mutableString addAttribute:NSForegroundColorAttributeName value:color2 range:range2];
+    if (self.recurrenceValid)
+        [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Medium" size:[VAR_STORE buttonDefaultFontSize]] range:range2];
+    else
+        [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Light" size:[VAR_STORE buttonDefaultFontSize]] range:range2];
+    return mutableString;
+}
+
+- (void)updateRecurrenceField:(NSString *)selected {
+    [self setRecurrenceValid: (selected == nil) ? NO : [selected isEqualToString:kUndefinedText] ? NO : YES];
+    NSString *message = @"With frequency of: ";
+    NSString *selection = self.recurrenceValid ? selected : @"Pick a rule below";
+    NSString *initString = [NSString stringWithFormat:@"%@%@", message, selection];
+    UIColor *secondColor = self.recurrenceValid ? [VAR_STORE buttonAppTextColor]: [UIColor lightGrayColor];
+    NSMutableAttributedString *mutableString = [self formatStringTwoTone:initString firstRange:NSMakeRange(0,message.length-1) asFirstColor:[UIColor blackColor] secondRange:NSMakeRange(message.length,initString.length - message.length) asSecondColor:secondColor];
+    [self.recurrenceField setAttributedText:mutableString];
 }
 
 @end

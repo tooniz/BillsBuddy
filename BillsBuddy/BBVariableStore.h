@@ -10,6 +10,7 @@
 #import "BillRecord.h"
 
 #define VAR_STORE (BBVariableStore *)[BBVariableStore sharedInstance]
+#define SETTINGS [NSUserDefaults standardUserDefaults]
 
 @interface BBVariableStore : EqpSingleton
 
@@ -21,8 +22,6 @@
 @property (nonatomic, copy) NSString *currencySymbol;
 
 // app settings
-@property (nonatomic) NSInteger urgentDays;
-@property (nonatomic) NSInteger upcomingDays;
 
 // app properties
 @property (nonatomic) BOOL refetchNeeded;
@@ -36,6 +35,7 @@
 @property (nonatomic, copy) NSString *buttonDefaultFontName;
 @property (nonatomic, copy) NSString *panelDefaultFontName;
 @property (nonatomic, copy) NSString *navBarDefaultFontName;
+@property (nonatomic) NSInteger buttonDefaultFontSize;
 
 @property (nonatomic, copy) UIColor *navBarTintColor;
 @property (nonatomic, copy) UIColor *navTintColor;
@@ -52,5 +52,6 @@
 @property (nonatomic, copy) UIColor *crossIconColor;
 @property (nonatomic, copy) UIColor *clockIconColor;
 @property (nonatomic, copy) UIColor *listIconColor;
+@property (nonatomic, copy) UIColor *gearIconColor;
 
 @end

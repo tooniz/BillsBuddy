@@ -16,6 +16,12 @@
 @dynamic occurenceCount;
 @dynamic rule;
 
++ (id)disconnectedEntity {
+    NSManagedObjectContext *context = [APP_DELEGATE managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"BillRecurrenceEnd" inManagedObjectContext:context];
+    return (BillRecord *)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:nil];
+}
+
 - (void)addToContext:(NSManagedObjectContext *)context {
     [context insertObject:self];
 }

@@ -10,7 +10,27 @@
 
 @implementation BBMethodStore
 
-+(BOOL)isDate:(NSDate*)date1 sameDayAsDate:(NSDate*)date2 {
++ (NSDate *)beginningOfDay:(NSDate *)date plusHours:(NSInteger)hours
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:date];
+    [components setHour:0 + hours];
+    [components setMinute:0];
+    [components setSecond:0];
+    return [cal dateFromComponents:components];
+}
+
++ (NSDate *)endOfDay:(NSDate *)date minusHours:(NSInteger)hours
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:date];
+    [components setHour:23 - hours];
+    [components setMinute:59];
+    [components setSecond:59];
+    return [cal dateFromComponents:components];
+}
+
++ (BOOL)isDate:(NSDate*)date1 sameDayAsDate:(NSDate*)date2 {
     NSCalendar* calendar = [NSCalendar currentCalendar];
     
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
@@ -22,24 +42,20 @@
     [comp1 year]  == [comp2 year];
 }
 
-+ (int)daysBetween:(NSDate *)date1 and:(NSDate *)date2 {
++ (NSInteger)daysBetween:(NSDate *)date1 and:(NSDate *)date2 {
+    NSDate *beginningOfDate1 = [BBMethodStore beginningOfDay:date1 plusHours:0];
+    NSDate *endOfDate1 = [BBMethodStore endOfDay:date1 minusHours:0];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *dayDiff = [calendar components:NSDayCalendarUnit fromDate:date1 toDate:date2 options:0];
-    NSDateComponents *secondDiff = [calendar components:NSSecondCalendarUnit fromDate:date1 toDate:date2 options:0];
-    
-    NSInteger days;
-
-    if ([BBMethodStore isDate:date1 sameDayAsDate:date2])
-        days = 0;
-    else if (dayDiff.day < 0)
-        days = dayDiff.day - 1;
-    else if (dayDiff.day > 0)
-        days = dayDiff.day + 1;
-    else if (secondDiff.second < 0)
-        days = -1;
-    else // notSameDay && dayDiff==0 && secondDiff>=0
-        days = 1;
-    return (int)days;
+    NSDateComponents *beginningDayDiff = [calendar components:NSDayCalendarUnit fromDate:beginningOfDate1 toDate:date2 options:0];
+    NSDateComponents *endDayDiff = [calendar components:NSDayCalendarUnit fromDate:endOfDate1 toDate:date2 options:0];
+    if (beginningDayDiff.day > 0)
+        return beginningDayDiff.day;
+    else if (endDayDiff.day < 0)
+        return endDayDiff.day;
+    else {
+        DAssert(beginningDayDiff.day == endDayDiff.day && beginningDayDiff.day == 0, @"two calculations should match and equal to 0")
+        return 0;
+    }
 }
 
 + (NSArray *)tableViewRecords {
@@ -58,30 +74,63 @@
         upcomingViewRecords = [[NSMutableArray alloc] init];
         paidViewRecords = [[NSMutableArray alloc] init];
         overdueViewRecords = [[NSMutableArray alloc] init];
+        [VAR_STORE setUpcomingCount:0];
+        [VAR_STORE setPaidCount:0];
+        [VAR_STORE setOverdueCount:0];
         
         NSArray* fetchedRecordsArray = [APP_DELEGATE getAllRecords];
+        NSSortDescriptor *descriptor;
+        
         for (BillRecord *record in fetchedRecordsArray) {
-            if (record.hasDueDate)
-                [upcomingViewRecords addObject:record];
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"nextDueDate" ascending:YES];
-            [upcomingViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
-        }
-        [VAR_STORE setUpcomingCount:[upcomingViewRecords count]];
-        for (BillRecord *record in fetchedRecordsArray) {
-            if (record.hasPaidBills)
-                [paidViewRecords addObject:record];
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentPaidDate" ascending:NO];
-            [paidViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
-        }
-        [VAR_STORE setPaidCount:[paidViewRecords count]];
-        for (BillRecord *record in fetchedRecordsArray) {
+            // BACKGROUND UPDATES
+            if (record.hasDueDate && [BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate] < 0)
+                [record overdueCurrentAndUpdateDueDate];
+                
+            // UPCOMING SECTION
+            if (record.hasDueDate) {
+                NSInteger upcomingDays = [SETTINGS integerForKey:@"upcomingDays"];
+                if ([BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate] <= upcomingDays) {
+                    [upcomingViewRecords addObject:record];
+                    (VAR_STORE).upcomingCount += 1;
+                }
+            }
+#ifdef ALLOW_OVERDUE_IN_UPCOMING
             if (record.hasOverdueBills)
+                [upcomingViewRecords addObject:record];
+            if (record.hasOverdueBills)
+                (VAR_STORE).upcomingCount += record.overdueBills.count;
+#endif
+            // PAID SECTION
+            if (record.hasPaidBills) {
+                [paidViewRecords addObject:record];
+                (VAR_STORE).paidCount += record.paidBills.count;
+            }
+            // OVERDUE SECTION
+            if (record.hasOverdueBills) {
                 [overdueViewRecords addObject:record];
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentOverdueDate" ascending:YES];
-            [overdueViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+                (VAR_STORE).overdueCount+= record.overdueBills.count;
+            }
         }
-        [VAR_STORE setOverdueCount:[overdueViewRecords count]];
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"nextDueDate" ascending:YES];
+        [upcomingViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentPaidDate" ascending:NO];
+        [paidViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentOverdueDate" ascending:YES];
+        [overdueViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+
         [VAR_STORE setRefetchNeeded:NO];
+
+        // TODO settings to determine how badge is set
+        UILocalNotification* notification = [[UILocalNotification alloc] init];
+        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+        notification.timeZone = [NSTimeZone systemTimeZone];
+        notification.alertBody = nil;
+        notification.soundName = nil;
+        notification.applicationIconBadgeNumber = (VAR_STORE).upcomingCount + (VAR_STORE).overdueCount;
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+
     }
     
     switch (viewType) {

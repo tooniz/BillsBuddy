@@ -49,6 +49,7 @@
 + (id)disconnectedEntity;
 - (void)addToContext:(NSManagedObjectContext *)context;
 - (void)paidCurrentAndUpdateDueDate;
+- (void)overdueCurrentAndUpdateDueDate;
 - (BOOL)hasDueDate;
 - (BOOL)hasPaidBills;
 - (BOOL)hasOverdueBills;

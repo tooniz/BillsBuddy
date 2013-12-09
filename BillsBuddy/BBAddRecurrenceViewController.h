@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <LMAlertView.h>
 
 @interface BBAddRecurrenceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -47,23 +47,27 @@
 	// Do any additional setup after loading the view.
     [self.navigationController.navigationBar setBarTintColor:[VAR_STORE navBarTintColor]];
     [self.navigationController.navigationBar setTintColor:[VAR_STORE navTintColor]];
-    [self.datePicker addTarget:self action:@selector(datePickerWheelChanged) forControlEvents:UIControlEventValueChanged];
-    [self.datePicker setMinimumDate:[NSDate date]];
-    [self setDueDate:self.datePicker.date];
-    [self setDatePickerDateString:@"today"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // Initialization
+    [self setDatePickerDateString:@"today"];
     // Appearance for text fields
     [self.descriptionText setDelegate:self];
     [self.descriptionText becomeFirstResponder];
     [self.amountText setDelegate:self];
     // Appearance for buttons
     [self.currencyButton setTitle:[VAR_STORE currencySymbol] forState:UIControlStateNormal];
+    [self setDueDate:self.datePicker.date];
     [self formatDueDateButton:self.datePickerDateString];
     [self formatDueHelperButtons:self.dueTodayButton];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     // Appearance for date picker/wrapper
+    [self.datePicker addTarget:self action:@selector(datePickerWheelChanged) forControlEvents:UIControlEventValueChanged];
+    [self.datePicker setMinimumDate:[NSDate date]];
     [self.datePickerWrapperView setBackgroundColor:[VAR_STORE buttonGrayColor]];
     [self.datePicker setBackgroundColor:[UIColor whiteColor]];
     [self resignDatePickerWrapperView];
@@ -253,9 +257,6 @@
 - (void) formatDueDateButton:(NSString *)dueDate {
     NSString *message = @"due: ";
     NSString *initString = [NSString stringWithFormat:@"%@%@", message, dueDate];
-//    CGSize stringSize = [initString sizeWithFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:14]];
-//    CGRect stringFrame = CGRectMake(self.dueDateButton.frame.origin.x,self.dueDateButton.frame.origin.y,stringSize.width, self.dueDateButton.frame.size.height);
-//    [self.dueDateButton setFrame:stringFrame];
     NSMutableAttributedString *mutableString = [self formatStringTwoTone:initString firstRange:NSMakeRange(0,message.length-1) asFirstColor:[VAR_STORE buttonDarkGrayColor] secondRange:NSMakeRange(message.length,initString.length - message.length) asSecondColor:[VAR_STORE buttonAppTextColor]];
 
     [self formatButtonToDefault:self.dueDateButton];
@@ -267,17 +268,14 @@
     [self.dueDateButton.titleLabel layoutIfNeeded];
     [self.dueDateButton sizeToFit];
     [self.dueDateButton layoutIfNeeded];
-//    [self.dueDateButton sizeToFit];
-//    [self.dueDateButton removeFromSuperview];
-//    [self.view addSubview:self.dueDateButton];
 }
 
 - (NSMutableAttributedString *) formatStringTwoTone:(NSString *)string firstRange:(NSRange)range1 asFirstColor:(UIColor *)color1 secondRange:(NSRange)range2 asSecondColor:(UIColor *)color2 {
     NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:string];
     [mutableString addAttribute:NSForegroundColorAttributeName value:color1 range:range1];
     [mutableString addAttribute:NSForegroundColorAttributeName value:color2 range:range2];
-    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Light" size:14] range:range1];
-    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Medium" size:14] range:range2];
+    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Light" size:[VAR_STORE buttonDefaultFontSize]] range:range1];
+    [mutableString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"STHeitiSC-Medium" size:[VAR_STORE buttonDefaultFontSize]] range:range2];
     return mutableString;
 }
 

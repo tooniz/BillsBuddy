@@ -59,6 +59,7 @@
 - (void)addWeeksOfTheYear:(NSSet *)values;
 - (void)removeWeeksOfTheYear:(NSSet *)values;
 
++ (id)disconnectedEntity;
 - (void)addToContext:(NSManagedObjectContext *)context;
 
 @end

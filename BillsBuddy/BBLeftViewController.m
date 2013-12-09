@@ -66,7 +66,7 @@
     if (section == 0)
         return 3;
     else if (section == 1)
-        return 1;
+        return 2;
     else
         return 0;
 }
@@ -86,7 +86,7 @@
     if (section == 0)
         string = @"BILLS";
     else if (section == 1)
-        string = @"SETTINGS";
+        string = @"OTHERS";
     else
         string = @"UNSET";
     [label setText:string];
@@ -135,7 +135,6 @@
             [cell.icon setBackgroundColor:[VAR_STORE checkIconColor]];
             [cell.itemLabel setText:@"Paid bills"];
             count = (int)[VAR_STORE paidCount];
-            //[cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
             [cell.countLabel setText:@""];
             break;
         case 02:
@@ -151,6 +150,15 @@
             [bg setBackgroundColor:[VAR_STORE listIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE listIconColor]];
             [cell.itemLabel setText:@"Categories"];
+            [cell.countLabel setText:@""];
+            break;
+        case 11:
+//FIXME need settngs icon & color theme
+            iconImage = [[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [bg setBackgroundColor:[VAR_STORE gearIconColor]];
+            [cell.icon setBackgroundColor:[VAR_STORE gearIconColor]];
+            [cell.itemLabel setText:@"Settings"];
+            [cell.countLabel setText:@""];
             break;
         default:
             break;
@@ -179,6 +187,9 @@
             break;
         case 10:
             [VAR_STORE setCenterViewType:CV_CATEGORIES];
+            break;
+        case 11:
+            [VAR_STORE setCenterViewType:CV_SETTINGS];
             break;
         default:
             break;

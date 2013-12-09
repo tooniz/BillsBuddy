@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * occurenceCount;
 @property (nonatomic, retain) BillRecurrenceRule *rule;
 
++ (id)disconnectedEntity;
 - (void)addToContext:(NSManagedObjectContext *)context;
 
 @end

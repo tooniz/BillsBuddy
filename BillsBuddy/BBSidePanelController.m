@@ -22,7 +22,7 @@ BOOL statusBarHidden = NO;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self setLeftDrawerViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"leftViewController"]];
-    [self setCenterViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navigationViewController"]];
+    [self setCenterViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"centerNavController"]];
     // Setup drawer interactions
     [self setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningNavigationBar];
     [self setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeTapCenterView];
@@ -31,6 +31,7 @@ BOOL statusBarHidden = NO;
     [self setStatusBarViewBackgroundColor:[VAR_STORE navBarTintColor]];
     [self initNavigationControllerRootView];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:[VAR_STORE buttonDefaultFontName] size:16.0f], NSFontAttributeName, nil] forState: UIControlStateNormal];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{ NSFontAttributeName: [UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:19.0f] }];
     [VAR_STORE setCenterViewType:CV_UPCOMING];
 }
 
@@ -63,19 +64,20 @@ BOOL statusBarHidden = NO;
 #pragma mark - NavigationView Setup
 - (void)initNavigationControllerRootView {
 
-// FIXME
-    if ([VAR_STORE centerViewType] == CV_UPCOMING)
-        [[UINavigationBar appearance] setTitleTextAttributes: @{ NSFontAttributeName: [UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:19.0f] }];
-    else
-        [[UINavigationBar appearance] setTitleTextAttributes: @{ NSFontAttributeName: [UIFont systemFontOfSize:19.0f] }];
-
-    // Setup navigation root view controller
     UINavigationController *nav = (UINavigationController *)self.centerViewController;
-    BBCenterViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"centerViewController"];
+    UIViewController *centerViewController;
+    if ([VAR_STORE centerViewType] == CV_UPCOMING ||
+        [VAR_STORE centerViewType] == CV_PAID ||
+        [VAR_STORE centerViewType] == CV_OVERDUE)
+        // Setup navigation root view controller
+        centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"centerViewController"];
+    else
+        centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+
     NSArray *viewControllers = [[NSArray alloc] initWithObjects:centerViewController, nil];
     [nav setViewControllers:viewControllers animated:NO];
     [self placeButtonForLeftPanel];
-    DLog(@"navigiationController has %d viewControllers", (int)[nav.viewControllers count])
+    DLog(@"navigiationController has %d viewControllers, front = %@", (int)[nav.viewControllers count], centerViewController.description)
 }
 
 #pragma mark - CenterView Setup
@@ -118,7 +120,7 @@ BOOL statusBarHidden = NO;
         if ([buttonController isKindOfClass:[UINavigationController class]]) {
             UINavigationController *nav = (UINavigationController *)buttonController;
             if ([nav.viewControllers count] > 0) {
-                DLog(@"rootViewController on navigationViewController found")
+                DLog(@"rootViewController on centerNavController found")
                 buttonController = [nav.viewControllers objectAtIndex:0];
             }
         }

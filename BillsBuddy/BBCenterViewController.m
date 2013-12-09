@@ -10,6 +10,8 @@
 
 #import "CustomBadge.h"
 #import "BillRecord.h"
+#import "BillRecurrenceRule.h"
+#import "BillRecurrenceEnd.h"
 #import "BillDate.h"
 
 #define kCellHeight 60
@@ -26,10 +28,12 @@
 @property (nonatomic, strong) CustomBadge *totalCountBadge;
 @property NSInteger totalCount;
 
+@property (nonatomic, strong) UIViewController *pushViewController;
+@property (nonatomic, strong) NSMutableArray *scrollableCells;
+
 @end
 
 @implementation BBCenterViewController
-
 
 #pragma mark - Default Overrides
 
@@ -61,6 +65,9 @@
     [self.navigationController.navigationBar setTintColor:[VAR_STORE navTintColor]];
     [self.navigationController.navigationBar setTranslucent:NO];
     
+    // Others
+    self.scrollableCells = [[NSMutableArray alloc] init];
+    self.pushViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addBillNavController"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,6 +109,7 @@
     
     // Item retrieval
     BillRecord *record = [self.tableRecordsArray objectAtIndex:indexPath.row];
+    DLog(@"record to be displayed in cell:\n %@ \n with recurrenceRule:\n %@ with recurrenceEnd:\n %@", record.description, record.recurrenceRule.description, record.recurrenceRule.recurrenceEnd.description)
     
     // Cell retrieval
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -135,20 +143,20 @@
         // Item Text
         UILabel *itemText = [[UILabel alloc] init];
         itemText.tag = kCellItemTextTag;
-        itemText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:18];
+        itemText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:16];
         // Item Desc Text
-        UILabel *itemDescText = [[UILabel alloc] initWithFrame:CGRectMake(66, 30, 128, 28)];
+        UILabel *itemDescText = [[UILabel alloc] initWithFrame:CGRectMake(66, 30, 138, 28)];
         itemDescText.tag = kCellItemDescTag;
         itemDescText.textColor = [UIColor lightGrayColor];
         itemDescText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:12];
         // Item Amount Description
-        UILabel *amountDescText = [[UILabel alloc] initWithFrame: CGRectMake(190, 10, 100, 23)];
+        UILabel *amountDescText = [[UILabel alloc] initWithFrame: CGRectMake(200, 10, 100, 23)];
         amountDescText.tag = kCellAmountDescTag;
         amountDescText.textColor = [UIColor lightGrayColor];
         amountDescText.textAlignment = NSTextAlignmentRight;
         amountDescText.font = [UIFont fontWithName:[VAR_STORE labelLightFontName] size:12];
         // Item Amount
-        UILabel *amountText = [[UILabel alloc] initWithFrame:CGRectMake(190, 20, 100, 40)];
+        UILabel *amountText = [[UILabel alloc] initWithFrame:CGRectMake(200, 20, 100, 40)];
         amountText.tag = kCellAmountTag;
         amountText.textAlignment = NSTextAlignmentRight;
         amountText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:19];
@@ -169,20 +177,33 @@
     UILabel *itemText = (UILabel *)[cell viewWithTag:kCellItemTextTag];
     UILabel *amountDescText = (UILabel *)[cell viewWithTag:kCellAmountDescTag];
     UILabel *amountText = (UILabel *)[cell viewWithTag:kCellAmountTag];
-    CGRect itemFrameUpper = CGRectMake(66, 11, 128, 28);
-    CGRect itemFrameLower = CGRectMake(66, 15, 128, 28);
+    CGRect itemFrameUpper = CGRectMake(66, 11, 138, 28);
+    CGRect itemFrameLower = CGRectMake(66, 15, 138, 28);
 
-//FIXME nned to update image for record
+//FIXME need to update image for record
     itemImage = itemImage;
     itemText.text = record.item;
     amountText.text = StringGen(@"%@%@", [VAR_STORE currencySymbol], record.amount.stringValue);
     switch ([VAR_STORE centerViewType]) {
         case CV_UPCOMING: {
             itemText.frame = itemFrameLower;
-            NSInteger days = [BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate];
+            NSInteger days;
+#ifdef ALLOW_OVERDUE_IN_UPCOMING
+            if (record.overdueBills.count == 0) {
+                DAssert(record.nextDueDate, @"cannot have nil nextDueDate \n%@", record.description)
+                days = [BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate];
+            }
+            else {
+                days = [BBMethodStore daysBetween:[NSDate date] and:[record recentOverdueDate]];
+            }
+#else
+            DAssert(record.nextDueDate, @"cannot have nil nextDueDate \n%@", record.description)
+            days = [BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate];
+#endif
+            NSInteger urgentDays = [SETTINGS integerForKey:@"urgentDays"];
             NSString *daysString = abs((int)days) > 1 ? @"days" : @"day";
             amountDescText.text = (days<0) ? StringGen(@"overdue %d %@", abs(days), daysString) : (days>0) ? StringGen(@"in %d %@", (int)days, daysString) : StringGen(@"today");
-            amountText.textColor = (days > [VAR_STORE urgentDays]) ? [VAR_STORE clockIconColor] : [VAR_STORE crossIconColor];
+            amountText.textColor = (days > urgentDays) ? [VAR_STORE clockIconColor] : [VAR_STORE crossIconColor];
             break;
         }
         case CV_PAID: {
@@ -192,18 +213,44 @@
                                                                   timeStyle:NSDateFormatterNoStyle];
             itemDescText.text = [NSString stringWithFormat:@"last paid %@", dateString];
             NSInteger times = record.paidBills.count;
-            amountDescText.text = (times==1) ? StringGen(@"paid once") : StringGen(@"paid %d times", times);
+            amountDescText.text = (times==1) ? StringGen(@"paid once") : StringGen(@"paid %d times", (int)times);
             amountText.textColor = [VAR_STORE checkIconColor];
             break;
         }
-        case CV_OVERDUE:
+        case CV_OVERDUE: {
+            itemText.frame = itemFrameUpper;
+            NSString *dateString = [NSDateFormatter localizedStringFromDate:[record recentOverdueDate]
+                                                                  dateStyle:NSDateFormatterShortStyle
+                                                                  timeStyle:NSDateFormatterNoStyle];
+            itemDescText.text = [NSString stringWithFormat:@"last missed on %@", dateString];
+            NSInteger times = record.overdueBills.count;
+            amountDescText.text = (times==1) ? StringGen(@"%d bill overdue", (int)times) : StringGen(@"%d bills overdue", (int)times);
             amountText.textColor = [VAR_STORE crossIconColor];
             break;
+        }
         default:
             break;
     }
 
     return cell;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    DLog(@"scrollViewWillBeginDragging called")
+    UITableView *tableView = (UITableView *)scrollView;
+    NSArray *cells = [tableView visibleCells];
+    [self.scrollableCells removeAllObjects];
+    for (SWTableViewCell *cell in cells) {
+        [cell setScrollEnabled:NO];
+        [self.scrollableCells addObject:cell];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    DLog(@"scrollViewDidEndDragging called")
+    for (SWTableViewCell *cell in self.scrollableCells)
+        [cell setScrollEnabled:YES];
+    [self.scrollableCells removeAllObjects];
 }
 
 #pragma mark - SWTableViewCell Methods
@@ -215,7 +262,9 @@
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             BillRecord *record = [self.tableRecordsArray objectAtIndex:cellIndexPath.row];
             [record paidCurrentAndUpdateDueDate];
-//FIXME
+#ifdef ALLOW_OVERDUE_IN_UPCOMING
+            // need to decide to udpate nextDueDate or get rid of an overdueDate
+#endif
             [self updateView];
             break;
         }
@@ -229,10 +278,12 @@
 
 - (void)swippableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     switch (index) {
+/* TODO see above "more" button
         case 0:
             DLog(@"More button was pressed");
             break;
-        case 1:
+*/
+        case 0:
         {
             DLog(@"Delete button was pressed");
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
@@ -250,7 +301,7 @@
 #pragma mark - Interaction Methods
 
 - (IBAction)didTapAdd:(id)sender {
-    [self presentViewControllerWithStoryboardId:@"newBillViewController"];
+    [self presentViewController:self.pushViewController animated:YES completion:nil];
 }
 
 #pragma mark - Misc Methods
@@ -267,17 +318,18 @@
 
     // Update table view
     switch ([VAR_STORE centerViewType]) {
-        case CV_UPCOMING:
+        case CV_UPCOMING: {
             [self.navigationItem setTitle:@"BillsBuddy"];
-            self.totalCount = [self.tableRecordsArray count];
+            self.totalCount = [VAR_STORE upcomingCount];
             break;
+        }
         case CV_PAID:
             [self.navigationItem setTitle:@"Paid bills"];
             self.totalCount = 0;
             break;
         case CV_OVERDUE:
             [self.navigationItem setTitle:@"Overdue bills"];
-            self.totalCount = 0;
+            self.totalCount = [VAR_STORE overdueCount];
             break;
         default:
             break;

@@ -12,8 +12,10 @@
 
 @interface BBMethodStore : EqpSingleton
 
++ (NSDate *)beginningOfDay:(NSDate *)date plusHours:(NSInteger)hours;
++ (NSDate *)endOfDay:(NSDate *)date minusHours:(NSInteger)hours;
 + (BOOL)isDate:(NSDate*)date1 sameDayAsDate:(NSDate*)date2;
-+ (int)daysBetween:(NSDate *)date1 and:(NSDate *)date2;
++ (NSInteger)daysBetween:(NSDate *)date1 and:(NSDate *)date2;
 + (NSArray *)tableViewRecords:(CenterViewType_E)viewType;
 + (NSArray *)tableViewRecords;
 

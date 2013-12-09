@@ -52,6 +52,11 @@
 		FDA357BF1848E91F00002AC9 /* BillRecurrenceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */; };
 		FDA357C21848EB0000002AC9 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357C11848EB0000002AC9 /* BillRecord.m */; };
 		FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB7C265183F337C004E6117 /* BBLeftViewController.m */; };
+		FDD57B59185538F100813197 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD57B58185538F100813197 /* gear@2x.png */; };
+		FDD57B5C185547CA00813197 /* BBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD57B5B185547CA00813197 /* BBSettingsViewController.m */; };
+		FDD57B5E185549EE00813197 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDD57B5D185549EE00813197 /* DefaultSettings.plist */; };
+		FDD57B61185556EE00813197 /* BBSettingsNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD57B60185556EE00813197 /* BBSettingsNotifications.m */; };
+		FDD57B641855570F00813197 /* BBSettingsUpcomingDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD57B631855570F00813197 /* BBSettingsUpcomingDays.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +142,14 @@
 		FDA357C11848EB0000002AC9 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FDB7C264183F337C004E6117 /* BBLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeftViewController.h; sourceTree = "<group>"; };
 		FDB7C265183F337C004E6117 /* BBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLeftViewController.m; sourceTree = "<group>"; };
+		FDD57B58185538F100813197 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		FDD57B5A185547CA00813197 /* BBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingsViewController.h; sourceTree = "<group>"; };
+		FDD57B5B185547CA00813197 /* BBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingsViewController.m; sourceTree = "<group>"; };
+		FDD57B5D185549EE00813197 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
+		FDD57B5F185556EE00813197 /* BBSettingsNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingsNotifications.h; sourceTree = "<group>"; };
+		FDD57B60185556EE00813197 /* BBSettingsNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingsNotifications.m; sourceTree = "<group>"; };
+		FDD57B621855570F00813197 /* BBSettingsUpcomingDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingsUpcomingDays.h; sourceTree = "<group>"; };
+		FDD57B631855570F00813197 /* BBSettingsUpcomingDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingsUpcomingDays.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +234,7 @@
 				FD55951B1835F5BD00B4D789 /* InfoPlist.strings */,
 				FD55951E1835F5BD00B4D789 /* main.m */,
 				FD5595201835F5BD00B4D789 /* BillsBuddy-Prefix.pch */,
+				FDD57B5D185549EE00813197 /* DefaultSettings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -287,6 +301,12 @@
 				FD737DE31843D8C000A8DBA0 /* BBAddBillViewController.m */,
 				FD7859C41846E2CA006AA2C7 /* BBAddRecurrenceViewController.h */,
 				FD7859C51846E2CA006AA2C7 /* BBAddRecurrenceViewController.m */,
+				FDD57B5A185547CA00813197 /* BBSettingsViewController.h */,
+				FDD57B5B185547CA00813197 /* BBSettingsViewController.m */,
+				FDD57B5F185556EE00813197 /* BBSettingsNotifications.h */,
+				FDD57B60185556EE00813197 /* BBSettingsNotifications.m */,
+				FDD57B621855570F00813197 /* BBSettingsUpcomingDays.h */,
+				FDD57B631855570F00813197 /* BBSettingsUpcomingDays.m */,
 			);
 			name = Interactive;
 			sourceTree = "<group>";
@@ -326,6 +346,7 @@
 				FD8EEA9718445849001B331B /* clock@2x.png */,
 				FD8EEA9818445849001B331B /* cross@2x.png */,
 				FD8EEA9918445849001B331B /* list@2x.png */,
+				FDD57B58185538F100813197 /* gear@2x.png */,
 				FD8EEAA218447FE2001B331B /* Montserrat-Bold.ttf */,
 				FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */,
 			);
@@ -418,6 +439,8 @@
 				FD8EEA9C18445849001B331B /* cross@2x.png in Resources */,
 				FD55951D1835F5BD00B4D789 /* InfoPlist.strings in Resources */,
 				FD8EEA9B18445849001B331B /* clock@2x.png in Resources */,
+				FDD57B5E185549EE00813197 /* DefaultSettings.plist in Resources */,
+				FDD57B59185538F100813197 /* gear@2x.png in Resources */,
 				FD8EEAA318447FE2001B331B /* Montserrat-Bold.ttf in Resources */,
 				FD8EEA9518445568001B331B /* BBLeftTableCell.xib in Resources */,
 				FD8EEA9D18445849001B331B /* list@2x.png in Resources */,
@@ -477,6 +500,8 @@
 				FD7859C61846E2CA006AA2C7 /* BBAddRecurrenceViewController.m in Sources */,
 				FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */,
 				FD8EEAD91845835B001B331B /* YearWeeks.m in Sources */,
+				FDD57B61185556EE00813197 /* BBSettingsNotifications.m in Sources */,
+				FDD57B641855570F00813197 /* BBSettingsUpcomingDays.m in Sources */,
 				FD8EEAE81845835B001B331B /* WeekDays.m in Sources */,
 				FD8EEAA018445945001B331B /* BBLeftTableCell.m in Sources */,
 				FD5595231835F5BD00B4D789 /* BBAppDelegate.m in Sources */,
@@ -490,6 +515,7 @@
 				FD8EEADF1845835B001B331B /* YearDays.m in Sources */,
 				FD8EEAD61845835B001B331B /* YearMonths.m in Sources */,
 				FDA357BC1848E89800002AC9 /* BillRecurrenceEnd.m in Sources */,
+				FDD57B5C185547CA00813197 /* BBSettingsViewController.m in Sources */,
 				FD737DE41843D8C000A8DBA0 /* BBAddBillViewController.m in Sources */,
 				FDA357C21848EB0000002AC9 /* BillRecord.m in Sources */,
 				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,

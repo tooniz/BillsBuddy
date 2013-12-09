@@ -13,7 +13,8 @@ typedef NS_OPTIONS(NSUInteger, CenterViewType_E) {
     CV_UPCOMING,
     CV_PAID,
     CV_OVERDUE,
-    CV_CATEGORIES
+    CV_CATEGORIES,
+    CV_SETTINGS
 };
 
 #define kOccurenceOnce 0
@@ -27,7 +28,8 @@ typedef enum {
     BBRecurrenceFrequencyDaily = 0,
     BBRecurrenceFrequencyWeekly = 1,
     BBRecurrenceFrequencyMonthly = 2,
-    BRecurrenceFrequencyYearly = 3
+    BBRecurrenceFrequencyYearly = 3
 } BBRecurrenceFrequency;
 
+//#define ALLOW_OVERDUE_IN_UPCOMING
 #endif
