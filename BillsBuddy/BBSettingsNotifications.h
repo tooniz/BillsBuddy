@@ -10,4 +10,9 @@
 
 @interface BBSettingsNotifications : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
+
+- (IBAction)sliderValueChanged:(id)sender;
+
 @end

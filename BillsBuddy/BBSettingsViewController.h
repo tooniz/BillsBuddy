@@ -1,4 +1,4 @@
-//
+    //
 //  BBSettingsViewController.h
 //  BillsBuddy
 //
@@ -10,6 +10,9 @@
 
 @interface BBSettingsViewController : UITableViewController
 
-@property (nonatomic, strong) NSUserDefaults *prefs;
+@property (weak, nonatomic) IBOutlet UISwitch *upcomingSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *overdueSwitch;
 
+- (IBAction)upcomingValueChanged:(id)sender;
+- (IBAction)overdueValueChanged:(id)sender;
 @end

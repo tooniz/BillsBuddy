@@ -12,5 +12,7 @@
 	<integer>31</integer>
 	<key>scheduledReminderHour</key>
 	<integer>8</integer>
+	<key>notificationDays</key>
+	<integer>0</integer>
 </dict>
 </plist>

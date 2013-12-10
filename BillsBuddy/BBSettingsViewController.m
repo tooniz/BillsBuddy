@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.prefs = [NSUserDefaults standardUserDefaults];
+    self.upcomingSwitch.on = [SETTINGS boolForKey:@"badgeShowsUpcoming"];
+    self.overdueSwitch.on = [SETTINGS boolForKey:@"badgeShowsOverdue"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,4 +37,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)upcomingValueChanged:(id)sender {
+    [SETTINGS setBool:self.upcomingSwitch.on forKey:@"badgeShowsUpcoming"];
+    [SETTINGS synchronize];
+}
+
+- (IBAction)overdueValueChanged:(id)sender {
+    [SETTINGS setBool:self.overdueSwitch.on forKey:@"badgeShowsOverdue"];
+    [SETTINGS synchronize];
+}
 @end

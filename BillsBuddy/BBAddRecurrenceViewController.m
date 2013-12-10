@@ -87,8 +87,8 @@
         // Schedule the notification
         UILocalNotification* localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [BBMethodStore beginningOfDay:record.nextDueDate plusHours:8];
-        localNotification.alertBody = @"Upcoming bill";
-        localNotification.alertAction = StringGen(@"%@ is due", record.item);
+        localNotification.alertBody = StringGen(@"%@ is due", record.item);
+        localNotification.alertAction = @"Upcoming bill";
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
 // TODO
 //        localNotification.alertLaunchImage = ...;

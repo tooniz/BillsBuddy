@@ -98,6 +98,7 @@
     [SETTINGS setInteger:upcomingDays forKey:@"upcomingDays"];
     [SETTINGS synchronize];
     [tableView reloadData];
+    [VAR_STORE setRefetchNeeded:YES];
 }
 
 /*
