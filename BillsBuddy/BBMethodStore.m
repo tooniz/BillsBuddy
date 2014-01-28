@@ -121,18 +121,10 @@
         [overdueViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
 
         [VAR_STORE setRefetchNeeded:NO];
-
-        // TODO settings to determine how badge is set
-        UILocalNotification* notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-        notification.timeZone = [NSTimeZone systemTimeZone];
-        notification.alertBody = nil;
-        notification.soundName = nil;
-        notification.applicationIconBadgeNumber = (VAR_STORE).upcomingCount + (VAR_STORE).overdueCount;
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-
     }
     
+    [self scheduleAppBadgeUpdate];
+
     switch (viewType) {
         case CV_UPCOMING:
             return upcomingViewRecords;
@@ -148,6 +140,59 @@
             return nil;
             break;
         }
+    }
+}
+
++ (void) scheduleAppBadgeUpdate {
+    UILocalNotification* notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    notification.timeZone = [NSTimeZone systemTimeZone];
+    notification.alertBody = nil;
+    notification.soundName = nil;
+    notification.applicationIconBadgeNumber = 0;
+    if ([SETTINGS boolForKey:@"badgeShowsUpcoming"] == YES)
+        notification.applicationIconBadgeNumber += (VAR_STORE).upcomingCount;
+    if ([SETTINGS boolForKey:@"badgeShowsOverdue"] == YES)
+        notification.applicationIconBadgeNumber += (VAR_STORE).overdueCount;
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
+
++ (void) scheduleNotificationForDate:(NSDate *)date AlertBody:(NSString *)alertBody ActionButtonTitle:(NSString *)actionButtonTitle RepeatInterval:(NSCalendarUnit)repeatInterval NotificationID:(NSString *)notificationID{
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = date;
+    localNotification.timeZone = [NSTimeZone localTimeZone];
+    localNotification.alertBody = alertBody;
+    localNotification.alertAction = actionButtonTitle;
+    localNotification.repeatInterval = repeatInterval;
+    // TODO
+    //        localNotification.alertLaunchImage = ...;
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:notificationID forKey:@"id"];
+    DLog(@"userInfo dict:\n %@", infoDict.description)
+    localNotification.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    DLog(@"just set notification: \n%@", localNotification.description);
+}
+
++ (void) cancelLocalNotification:(NSString*)notificationID {
+    //loop through all scheduled notifications and cancel the one we're looking for
+    UILocalNotification *cancelThisNotification = nil;
+    BOOL hasNotification = NO;
+    
+    for (UILocalNotification *someNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        DAssert(someNotification.userInfo != nil, @"userInfo cannot be null")
+        if([[someNotification.userInfo objectForKey:@"id"] isEqualToString:notificationID]) {
+            cancelThisNotification = someNotification;
+            hasNotification = YES;
+            break;
+        }
+    }
+    if (hasNotification == YES) {
+        NSLog(@"%@ ",cancelThisNotification);
+        [[UIApplication sharedApplication] cancelLocalNotification:cancelThisNotification];
+        DLog(@"just cancelled notification: \n%@", cancelThisNotification.description);
     }
 }
 

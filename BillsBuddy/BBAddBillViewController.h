@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *currencyButton;
 @property (weak, nonatomic) IBOutlet UIButton *dueDateButton;
+@property (weak, nonatomic) IBOutlet UIButton *notesButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *dueOneMonthButton;
 @property (weak, nonatomic) IBOutlet UIButton *dueOneWeekButton;
 @property (weak, nonatomic) IBOutlet UIButton *dueTomorrowButton;

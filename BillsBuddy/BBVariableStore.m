@@ -20,12 +20,16 @@ EQP_FIELD_INT(refetchNeeded, YES)
 EQP_FIELD_ENUM(centerViewType, CV_UPCOMING)
 EQP_FIELD_OBJECT(pendingBillRecord, [BillRecord disconnectedEntity])
 
-EQP_FIELD_OBJECT(navBarTintColor, UIColorFromRGB(247, 247, 247))
-EQP_FIELD_OBJECT(navTintColor, UIColorFromRGB(115, 115, 115))
+//EQP_FIELD_OBJECT(navBarTintColor, UIColorFromRGB(247, 247, 247))
+//EQP_FIELD_OBJECT(navTintColor, UIColorFromRGB(115, 115, 115))
+EQP_FIELD_OBJECT(navBarTintColor, UIColorFromRGB(251, 203, 67))
+EQP_FIELD_OBJECT(navTintColor, [UIColor colorWithWhite:1 alpha:1])
+
 EQP_FIELD_OBJECT(sidePanelColor, [UIColor darkGrayColor])
 EQP_FIELD_OBJECT(sideTintColor, [UIColor colorWithWhite:0.8 alpha:1])
 EQP_FIELD_OBJECT(iconTintColor, [UIColor colorWithWhite:1 alpha:1])
 
+EQP_FIELD_OBJECT(textGrayColor, UIColorFromRGB(121, 121, 121))
 EQP_FIELD_OBJECT(buttonAppTextColor, UIColorFromRGB(251, 203, 67))
 EQP_FIELD_OBJECT(buttonDarkGrayColor, [UIColor colorWithWhite:0.2 alpha:1])
 EQP_FIELD_OBJECT(buttonGrayColor, [UIColor colorWithWhite:0.99 alpha:1])

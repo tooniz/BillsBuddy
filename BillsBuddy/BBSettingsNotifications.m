@@ -11,6 +11,7 @@
 @interface BBSettingsNotifications ()
 
 @property (nonatomic, strong) NSIndexPath *selected;
+@property (nonatomic) NSInteger currentHour;
 
 @end
 
@@ -35,11 +36,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    int hour = [SETTINGS integerForKey:@"scheduledReminderHour"];
+    int hour = (int)[SETTINGS integerForKey:@"scheduledReminderHour"];
+    self.currentHour = hour;
     self.slider.value = (float)hour;
     self.sliderLabel.text = StringGen(@"Trigger reminders at %d:00%@", (hour==0 || hour==12) ? 12 : hour<12 ? hour : hour-12, hour<12 ? @"AM" : @"PM");
-    
-    [self.slider addTarget:self action:@selector(sliderValueChanged) forControlEvents:UIControlEventValueChanged];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,7 +84,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selected = indexPath;
-    NSInteger notificationDays;
+
+    NSInteger originalDays = [SETTINGS integerForKey:@"notificationDays"];
+    NSInteger notificationDays = originalDays;
     if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
@@ -103,6 +106,25 @@
     }
     [SETTINGS synchronize];
     [tableView reloadData];
+    
+    NSInteger delta = notificationDays - originalDays;
+    if (delta != 0) {
+        for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+            NSString *notificationId = [notification.userInfo objectForKey:@"id"];
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+            DLog(@"just cancelled notification: \n%@", notification.description);
+            
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            NSDateComponents *offset = [[NSDateComponents alloc] init];
+            [offset setDay:delta];
+            notification.fireDate = [calendar dateByAddingComponents:offset toDate:notification.fireDate options:0];
+            [BBMethodStore scheduleNotificationForDate:notification.fireDate
+                                             AlertBody:notification.alertBody
+                                     ActionButtonTitle:notification.alertAction
+                                        RepeatInterval:notification.repeatInterval
+                                        NotificationID:notificationId];
+        }
+    }
 }
 
 /*
@@ -156,14 +178,28 @@
 
  */
 
-- (void)sliderValueChanged {
-    int hour = (int)self.slider.value;
-    self.sliderLabel.text = StringGen(@"Trigger reminders at %d:00%@", (hour==0 || hour==12) ? 12 : hour<12 ? hour : hour-12, hour<12 ? @"AM" : @"PM");
-}
-
 - (IBAction)sliderValueChanged:(id)sender {
-    [SETTINGS setInteger:(NSInteger)self.slider.value forKey:@"scheduledReminderHour"];
-    [SETTINGS synchronize];
+    int hour = (int)self.slider.value;
+
+    if (self.currentHour != hour) {
+        [SETTINGS setInteger:(NSInteger)self.slider.value forKey:@"scheduledReminderHour"];
+        [SETTINGS synchronize];
+        
+        hour = (int)self.slider.value;
+        self.currentHour = hour;
+        self.sliderLabel.text = StringGen(@"Trigger reminders at %d:00%@", (hour==0 || hour==12) ? 12 : hour<12 ? hour : hour-12, hour<12 ? @"AM" : @"PM");
+        for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+            NSString *notificationId = [notification.userInfo objectForKey:@"id"];
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+            DLog(@"just cancelled notification: \n%@", notification.description);
+            notification.fireDate = [BBMethodStore beginningOfDay:notification.fireDate plusHours:hour];
+            [BBMethodStore scheduleNotificationForDate:notification.fireDate
+                                             AlertBody:notification.alertBody
+                                     ActionButtonTitle:notification.alertAction
+                                        RepeatInterval:notification.repeatInterval
+                                        NotificationID:notificationId];
+        }
+    }
 }
 
 @end

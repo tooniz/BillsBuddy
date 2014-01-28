@@ -7,6 +7,7 @@
     </entity>
     <entity name="BillRecord" representedClassName="BillRecord" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="item" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nextDueDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,6 +63,7 @@
     <elements>
         <element name="BillDate" positionX="0" positionY="0" width="0" height="0"/>
         <element name="BillRecord" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BillRecurrenceEnd" positionX="0" positionY="0" width="0" height="0"/>
         <element name="BillRecurrenceRule" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MonthDays" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Positions" positionX="0" positionY="0" width="0" height="0"/>
@@ -69,6 +71,5 @@
         <element name="YearDays" positionX="0" positionY="0" width="0" height="0"/>
         <element name="YearMonths" positionX="0" positionY="0" width="0" height="0"/>
         <element name="YearWeeks" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="BillRecurrenceEnd" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

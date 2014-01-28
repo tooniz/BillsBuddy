@@ -31,7 +31,7 @@ BOOL statusBarHidden = NO;
     [self setStatusBarViewBackgroundColor:[VAR_STORE navBarTintColor]];
     [self initNavigationControllerRootView];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:[VAR_STORE buttonDefaultFontName] size:16.0f], NSFontAttributeName, nil] forState: UIControlStateNormal];
-    [[UINavigationBar appearance] setTitleTextAttributes: @{ NSFontAttributeName: [UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:19.0f] }];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:19.0f]}];
     [VAR_STORE setCenterViewType:CV_UPCOMING];
 }
 

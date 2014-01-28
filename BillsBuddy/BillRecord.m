@@ -2,7 +2,7 @@
 //  BillRecord.m
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 11/29/13.
+//  Created by Tony Zhou on 12/15/13.
 //  Copyright (c) 2013 Equippd Software. All rights reserved.
 //
 
@@ -14,10 +14,11 @@
 @implementation BillRecord
 
 @dynamic amount;
-@dynamic nextDueDate;
 @dynamic item;
+@dynamic nextDueDate;
 @dynamic notes;
 @dynamic startDate;
+@dynamic category;
 @dynamic overdueBills;
 @dynamic paidBills;
 @dynamic recurrenceRule;
@@ -52,8 +53,8 @@
 - (void)overdueCurrentAndUpdateDueDate {
     DLog(@"overdueCurrentAndUpdateDueDate called")
     BillDate *overdueDate = [NSEntityDescription
-                          insertNewObjectForEntityForName:@"BillDate"
-                          inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
+                             insertNewObjectForEntityForName:@"BillDate"
+                             inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
     [overdueDate setDate:self.nextDueDate];
     [overdueDate setOverdueRecord:self];
     [self updateOccurences];

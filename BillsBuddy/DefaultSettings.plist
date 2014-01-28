@@ -9,7 +9,7 @@
 	<key>urgentDays</key>
 	<integer>7</integer>
 	<key>upcomingDays</key>
-	<integer>31</integer>
+	<integer>93</integer>
 	<key>scheduledReminderHour</key>
 	<integer>8</integer>
 	<key>notificationDays</key>

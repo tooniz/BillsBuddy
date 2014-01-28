@@ -27,8 +27,7 @@
 @property (nonatomic, strong) NSArray* tableRecordsArray;
 @property (nonatomic, strong) CustomBadge *totalCountBadge;
 @property NSInteger totalCount;
-
-@property (nonatomic, strong) UIViewController *pushViewController;
+@property BOOL billsCleared;
 @property (nonatomic, strong) NSMutableArray *scrollableCells;
 
 @end
@@ -67,14 +66,15 @@
     
     // Others
     self.scrollableCells = [[NSMutableArray alloc] init];
-    self.pushViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addBillNavController"];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // FIXME LATER hack to remove extra padding caused by UITableViewStyleGrouped
-    [self.tableView setContentInset:UIEdgeInsetsMake(-36, 0, 0, 0)];
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
+    [self.tableView setContentInset:UIEdgeInsetsMake(self.infoView.frame.size.height, 0, 0, 0)];
+    [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(self.infoView.frame.size.height,0,0,0)];
     DLog(@"viewWillAppear called")
     [self.navigationController.navigationBar addSubview:self.totalCountBadge];
     [self updateView];
@@ -104,12 +104,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    DLog(@"cellForRowAtIndexPath called")
+    //DLog(@"cellForRowAtIndexPath called")
     static NSString *cellIdentifier = @"centerTableCell";
     
     // Item retrieval
     BillRecord *record = [self.tableRecordsArray objectAtIndex:indexPath.row];
-    DLog(@"record to be displayed in cell:\n %@ \n with recurrenceRule:\n %@ with recurrenceEnd:\n %@", record.description, record.recurrenceRule.description, record.recurrenceRule.recurrenceEnd.description)
+    //DLog(@"record to be displayed in cell:\n %@ \n with recurrenceRule:\n %@ with recurrenceEnd:\n %@", record.description, record.recurrenceRule.description, record.recurrenceRule.recurrenceEnd.description)
     
     // Cell retrieval
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -127,8 +127,8 @@
             [leftUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE clockIconColor]
                                                         icon:[UIImage imageNamed:@"clock.png"]];
         }
-        [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE sideTintColor]
-                                                    title:@"More"];
+//        [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE sideTintColor]
+ //                                                   title:@"More"];
         [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE crossIconColor]
                                                     title:@"Delete"];
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
@@ -145,21 +145,21 @@
         itemText.tag = kCellItemTextTag;
         itemText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:16];
         // Item Desc Text
-        UILabel *itemDescText = [[UILabel alloc] initWithFrame:CGRectMake(66, 30, 138, 28)];
+        UILabel *itemDescText = [[UILabel alloc] initWithFrame:CGRectMake(67, 27, 138, 28)];
         itemDescText.tag = kCellItemDescTag;
-        itemDescText.textColor = [UIColor lightGrayColor];
+        itemDescText.textColor = [VAR_STORE textGrayColor];
         itemDescText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:12];
         // Item Amount Description
-        UILabel *amountDescText = [[UILabel alloc] initWithFrame: CGRectMake(200, 10, 100, 23)];
+        UILabel *amountDescText = [[UILabel alloc] initWithFrame: CGRectMake(200, 8, 100, 23)];
         amountDescText.tag = kCellAmountDescTag;
-        amountDescText.textColor = [UIColor lightGrayColor];
+        amountDescText.textColor = [VAR_STORE textGrayColor];
         amountDescText.textAlignment = NSTextAlignmentRight;
         amountDescText.font = [UIFont fontWithName:[VAR_STORE labelLightFontName] size:12];
         // Item Amount
         UILabel *amountText = [[UILabel alloc] initWithFrame:CGRectMake(200, 20, 100, 40)];
         amountText.tag = kCellAmountTag;
         amountText.textAlignment = NSTextAlignmentRight;
-        amountText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:19];
+        amountText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:20];
         // Cell subviews
         [cell.contentView addSubview:itemImage];
         [cell.contentView addSubview:itemText];
@@ -177,7 +177,7 @@
     UILabel *itemText = (UILabel *)[cell viewWithTag:kCellItemTextTag];
     UILabel *amountDescText = (UILabel *)[cell viewWithTag:kCellAmountDescTag];
     UILabel *amountText = (UILabel *)[cell viewWithTag:kCellAmountTag];
-    CGRect itemFrameUpper = CGRectMake(66, 11, 138, 28);
+    CGRect itemFrameUpper = CGRectMake(66, 10, 138, 28);
     CGRect itemFrameLower = CGRectMake(66, 15, 138, 28);
 
 //FIXME need to update image for record
@@ -262,6 +262,31 @@
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             BillRecord *record = [self.tableRecordsArray objectAtIndex:cellIndexPath.row];
             [record paidCurrentAndUpdateDueDate];
+            if (record.hasDueDate) {
+                for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+                    NSString *notificationId = [notification.userInfo objectForKey:@"id"];
+                    if ([notificationId isEqualToString:[[[record objectID] URIRepresentation] absoluteString]]) {
+                        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+                        DLog(@"just cancelled notification: \n%@", notification.description);
+                        int hour = (int)[SETTINGS integerForKey:@"scheduledReminderHour"];
+                        int day = (int)[SETTINGS integerForKey:@"notificationDays"];
+                        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+                        NSDateComponents *offset = [[NSDateComponents alloc] init];
+                        [offset setDay:day];
+                        NSDate *fireDate = [calendar dateByAddingComponents:offset toDate:record.nextDueDate options:0];
+                        [BBMethodStore scheduleNotificationForDate:[BBMethodStore beginningOfDay:fireDate plusHours:hour]
+                                                         AlertBody:notification.alertBody
+                                                 ActionButtonTitle:notification.alertAction
+                                                    RepeatInterval:notification.repeatInterval
+                                                    NotificationID:notificationId];
+                        DLog(@"just set notification: \n%@", notification.description);
+                        break;
+                    }
+                }
+            }
+            else {
+                [BBMethodStore cancelLocalNotification:[[[record objectID] URIRepresentation] absoluteString]]; // delete notification with id
+            }
 #ifdef ALLOW_OVERDUE_IN_UPCOMING
             // need to decide to udpate nextDueDate or get rid of an overdueDate
 #endif
@@ -290,6 +315,7 @@
             BillRecord *record = [self.tableRecordsArray objectAtIndex:cellIndexPath.row];
             [[APP_DELEGATE managedObjectContext] deleteObject:record];
             [APP_DELEGATE saveContext];
+            [BBMethodStore cancelLocalNotification:[[[record objectID] URIRepresentation] absoluteString]]; // delete notification with id
             [self updateView];
             break;
         }
@@ -301,7 +327,8 @@
 #pragma mark - Interaction Methods
 
 - (IBAction)didTapAdd:(id)sender {
-    [self presentViewController:self.pushViewController animated:YES completion:nil];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addBillNavController"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - Misc Methods
@@ -354,6 +381,47 @@
         [self.totalCountBadge autoBadgeSizeWithString:numString];
         [UIView commitAnimations];
     }
+
+    // Update cleared status
+    self.billsCleared = (self.tableRecordsArray.count == 0);
+    if (self.billsCleared) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:1];
+        [UIView setAnimationDelay:0.1];
+        self.billsClearedImage.frame = CGRectMake(0,
+                                                  0,
+                                                  self.billsClearedImage.frame.size.width,
+                                                  self.billsClearedImage.frame.size.height);
+        [UIView commitAnimations];
+        self.tableView.alpha = 0;
+    }
+    else {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:1];
+        [UIView setAnimationDelay:0.1];
+        self.billsClearedImage.frame = CGRectMake(0,
+                                                  self.billsClearedImage.frame.size.height,
+                                                  self.billsClearedImage.frame.size.width,
+                                                  self.billsClearedImage.frame.size.height);
+        [UIView commitAnimations];
+        self.tableView.alpha = 1;
+    }
+    
+    // Update info views
+    self.numBillsLabel.text = StringGen(@"%d", (int)[self.tableRecordsArray count]);
+    self.numBillsLabel.textColor = (self.billsCleared || [VAR_STORE centerViewType] == CV_PAID) ? [VAR_STORE checkIconColor] : [VAR_STORE crossIconColor];
+    
+    NSDecimalNumber *sum = [[NSDecimalNumber alloc] initWithInt:0];
+    for (BillRecord *record in self.tableRecordsArray) {
+        NSDecimalNumber *multiplier = [[NSDecimalNumber alloc] initWithInteger:
+        [VAR_STORE centerViewType] == CV_UPCOMING ? 1 :
+        [VAR_STORE centerViewType] == CV_PAID ? record.paidBills.count :
+        [VAR_STORE centerViewType] == CV_OVERDUE ? record.overdueBills.count : 0 ];
+        NSDecimalNumber *product = [[NSDecimalNumber alloc] initWithDecimal:[record.amount decimalNumberByMultiplyingBy:multiplier].decimalValue];
+        sum = [sum decimalNumberByAdding:product];
+    }
+    self.totalAmtLabel.text = StringGen(@"%@%@", [VAR_STORE currencySymbol], sum.stringValue);
+    self.totalAmtLabel.textColor = (self.billsCleared || [VAR_STORE centerViewType] == CV_PAID) ? [VAR_STORE checkIconColor] : [VAR_STORE crossIconColor];
 
     // Debug dump
     // [VAR_STORE dump];

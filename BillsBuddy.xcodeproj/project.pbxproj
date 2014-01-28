@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
 		FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB51848352F00E20B83 /* BillDate.m */; };
+		FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD2EDA491897A46700613A99 /* allclear@2x.png */; };
 		FD5595131835F5BD00B4D789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595121835F5BD00B4D789 /* Foundation.framework */; };
 		FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595141835F5BD00B4D789 /* CoreGraphics.framework */; };
 		FD5595171835F5BD00B4D789 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595161835F5BD00B4D789 /* UIKit.framework */; };
@@ -29,6 +30,8 @@
 		FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595561835FB5900B4D789 /* QuartzCore.framework */; };
 		FD559560183609E600B4D789 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55955F183609E600B4D789 /* CustomBadge.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Xanalyzer -analyzer-disable-checker -w"; }; };
 		FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55956218360BAE00B4D789 /* BBCenterViewController.m */; };
+		FD70CBF3185E7B8100F6C850 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70CBF2185E7B8100F6C850 /* BillRecord.m */; };
+		FD70CBF6185E81B600F6C850 /* BBAddNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70CBF5185E81B600F6C850 /* BBAddNotesViewController.m */; };
 		FD737DD6184297B300A8DBA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD737DD5184297B300A8DBA0 /* CoreData.framework */; };
 		FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */; };
 		FD737DE11842AF5100A8DBA0 /* Quando-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */; };
@@ -50,7 +53,6 @@
 		FD8EEAE81845835B001B331B /* WeekDays.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8EEAE71845835B001B331B /* WeekDays.m */; };
 		FDA357BC1848E89800002AC9 /* BillRecurrenceEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357BB1848E89800002AC9 /* BillRecurrenceEnd.m */; };
 		FDA357BF1848E91F00002AC9 /* BillRecurrenceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */; };
-		FDA357C21848EB0000002AC9 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA357C11848EB0000002AC9 /* BillRecord.m */; };
 		FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB7C265183F337C004E6117 /* BBLeftViewController.m */; };
 		FDD57B59185538F100813197 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD57B58185538F100813197 /* gear@2x.png */; };
 		FDD57B5C185547CA00813197 /* BBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD57B5B185547CA00813197 /* BBSettingsViewController.m */; };
@@ -74,6 +76,7 @@
 		D4B2FCC1BD1548E5AF75A294 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0BCAB41848352F00E20B83 /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
 		FD0BCAB51848352F00E20B83 /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
+		FD2EDA491897A46700613A99 /* allclear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allclear@2x.png"; sourceTree = "<group>"; };
 		FD55950F1835F5BD00B4D789 /* BillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5595121835F5BD00B4D789 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD5595141835F5BD00B4D789 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +108,10 @@
 		FD55955F183609E600B4D789 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomBadge.m; path = ../../../GitHubClones/CustomBadge/Classes/CustomBadge.m; sourceTree = "<group>"; };
 		FD55956118360BAE00B4D789 /* BBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCenterViewController.h; sourceTree = "<group>"; };
 		FD55956218360BAE00B4D789 /* BBCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCenterViewController.m; sourceTree = "<group>"; };
+		FD70CBF1185E7B8100F6C850 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
+		FD70CBF2185E7B8100F6C850 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
+		FD70CBF4185E81B600F6C850 /* BBAddNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddNotesViewController.h; sourceTree = "<group>"; };
+		FD70CBF5185E81B600F6C850 /* BBAddNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddNotesViewController.m; sourceTree = "<group>"; };
 		FD737DD5184297B300A8DBA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FD737DD9184297F400A8DBA0 /* BillsBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BillsBuddy.xcdatamodel; sourceTree = "<group>"; };
 		FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quando-Regular.ttf"; path = "../../../../Fonts/Quando/Quando-Regular.ttf"; sourceTree = "<group>"; };
@@ -138,8 +145,6 @@
 		FDA357BB1848E89800002AC9 /* BillRecurrenceEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecurrenceEnd.m; sourceTree = "<group>"; };
 		FDA357BD1848E91F00002AC9 /* BillRecurrenceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecurrenceRule.h; sourceTree = "<group>"; };
 		FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecurrenceRule.m; sourceTree = "<group>"; };
-		FDA357C01848EB0000002AC9 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
-		FDA357C11848EB0000002AC9 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FDB7C264183F337C004E6117 /* BBLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeftViewController.h; sourceTree = "<group>"; };
 		FDB7C265183F337C004E6117 /* BBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLeftViewController.m; sourceTree = "<group>"; };
 		FDD57B58185538F100813197 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
@@ -299,6 +304,8 @@
 				FD55956218360BAE00B4D789 /* BBCenterViewController.m */,
 				FD737DE21843D8C000A8DBA0 /* BBAddBillViewController.h */,
 				FD737DE31843D8C000A8DBA0 /* BBAddBillViewController.m */,
+				FD70CBF4185E81B600F6C850 /* BBAddNotesViewController.h */,
+				FD70CBF5185E81B600F6C850 /* BBAddNotesViewController.m */,
 				FD7859C41846E2CA006AA2C7 /* BBAddRecurrenceViewController.h */,
 				FD7859C51846E2CA006AA2C7 /* BBAddRecurrenceViewController.m */,
 				FDD57B5A185547CA00813197 /* BBSettingsViewController.h */,
@@ -314,9 +321,9 @@
 		FD737DD7184297CB00A8DBA0 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				FD70CBF1185E7B8100F6C850 /* BillRecord.h */,
+				FD70CBF2185E7B8100F6C850 /* BillRecord.m */,
 				FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */,
-				FDA357C01848EB0000002AC9 /* BillRecord.h */,
-				FDA357C11848EB0000002AC9 /* BillRecord.m */,
 				FDA357BD1848E91F00002AC9 /* BillRecurrenceRule.h */,
 				FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */,
 				FDA357BA1848E89800002AC9 /* BillRecurrenceEnd.h */,
@@ -349,6 +356,7 @@
 				FDD57B58185538F100813197 /* gear@2x.png */,
 				FD8EEAA218447FE2001B331B /* Montserrat-Bold.ttf */,
 				FD737DE01842AF5100A8DBA0 /* Quando-Regular.ttf */,
+				FD2EDA491897A46700613A99 /* allclear@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -440,6 +448,7 @@
 				FD55951D1835F5BD00B4D789 /* InfoPlist.strings in Resources */,
 				FD8EEA9B18445849001B331B /* clock@2x.png in Resources */,
 				FDD57B5E185549EE00813197 /* DefaultSettings.plist in Resources */,
+				FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */,
 				FDD57B59185538F100813197 /* gear@2x.png in Resources */,
 				FD8EEAA318447FE2001B331B /* Montserrat-Bold.ttf in Resources */,
 				FD8EEA9518445568001B331B /* BBLeftTableCell.xib in Resources */,
@@ -507,6 +516,7 @@
 				FD5595231835F5BD00B4D789 /* BBAppDelegate.m in Sources */,
 				FD8EEAE21845835B001B331B /* Positions.m in Sources */,
 				FDA357BF1848E91F00002AC9 /* BillRecurrenceRule.m in Sources */,
+				FD70CBF6185E81B600F6C850 /* BBAddNotesViewController.m in Sources */,
 				FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */,
 				FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */,
 				FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */,
@@ -517,7 +527,7 @@
 				FDA357BC1848E89800002AC9 /* BillRecurrenceEnd.m in Sources */,
 				FDD57B5C185547CA00813197 /* BBSettingsViewController.m in Sources */,
 				FD737DE41843D8C000A8DBA0 /* BBAddBillViewController.m in Sources */,
-				FDA357C21848EB0000002AC9 /* BillRecord.m in Sources */,
+				FD70CBF3185E7B8100F6C850 /* BillRecord.m in Sources */,
 				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,
 				FD7859C018469749006AA2C7 /* BBMethodStore.m in Sources */,
 				FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */,

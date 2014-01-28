@@ -84,28 +84,20 @@
         DLog(@"Dump recurrence rule of bill record about to be added:\n %@", record.recurrenceRule.description)
         [APP_DELEGATE saveContext];
 
-        // Schedule the notification
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [BBMethodStore beginningOfDay:record.nextDueDate plusHours:8];
-        localNotification.alertBody = StringGen(@"%@ is due", record.item);
-        localNotification.alertAction = @"Upcoming bill";
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-// TODO
-//        localNotification.alertLaunchImage = ...;
-
+        NSCalendarUnit repeatInterval = 0;
         if (record.recurrenceRule.recurrenceEnd == nil) {
             switch (record.recurrenceRule.frequency.intValue) {
                 case BBRecurrenceFrequencyDaily:
-                    localNotification.repeatInterval = NSDayCalendarUnit;
+                    repeatInterval = NSDayCalendarUnit;
                     break;
                 case BBRecurrenceFrequencyWeekly:
-                    localNotification.repeatInterval = NSWeekCalendarUnit;
+                    repeatInterval = NSWeekCalendarUnit;
                     break;
                 case BBRecurrenceFrequencyMonthly:
-                    localNotification.repeatInterval = NSMonthCalendarUnit;
+                    repeatInterval = NSMonthCalendarUnit;
                     break;
                 case BBRecurrenceFrequencyYearly:
-                    localNotification.repeatInterval = NSYearCalendarUnit;
+                    repeatInterval = NSYearCalendarUnit;
                     break;
                 default:
                     break;
@@ -114,8 +106,18 @@
         else {
             DAssert(record.recurrenceRule.recurrenceEnd.occurenceCount.intValue == 1, @"only 1-time occurence or infinitely repeated recurrence supported for now!")
         }
-
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        // Schedule the notification
+        int hour = (int)[SETTINGS integerForKey:@"scheduledReminderHour"];
+        int day = (int)[SETTINGS integerForKey:@"notificationDays"];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *offset = [[NSDateComponents alloc] init];
+        [offset setDay:day];
+        NSDate *fireDate = [calendar dateByAddingComponents:offset toDate:record.nextDueDate options:0];
+        [BBMethodStore scheduleNotificationForDate:[BBMethodStore beginningOfDay:fireDate plusHours:hour]
+                                         AlertBody:StringGen(@"%@ is due", record.item)
+                                 ActionButtonTitle:@"Upcoming bill"
+                                    RepeatInterval:repeatInterval
+                                    NotificationID:[[[record objectID] URIRepresentation] absoluteString]];
         
         [self dismissViewControllerAnimated:YES completion:nil];
     }

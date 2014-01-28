@@ -47,6 +47,7 @@
 	// Do any additional setup after loading the view.
     [self.navigationController.navigationBar setBarTintColor:[VAR_STORE navBarTintColor]];
     [self.navigationController.navigationBar setTintColor:[VAR_STORE navTintColor]];
+    [self.navigationItem setBackBarButtonItem: [[UIBarButtonItem alloc] initWithTitle: @"" style: UIBarButtonItemStyleBordered target: nil action: nil]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -109,7 +110,6 @@
         (VAR_STORE).pendingBillRecord.startDate = self.dueDate;
         (VAR_STORE).pendingBillRecord.nextDueDate = self.dueDate;
         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addRecurenceViewController"];
-        [self.navigationItem setBackBarButtonItem: [[UIBarButtonItem alloc] initWithTitle: @"" style: UIBarButtonItemStyleBordered target: nil action: nil]];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
@@ -235,7 +235,7 @@
     [button.layer setBorderWidth:0.5f];
     [button.layer setBorderColor:[VAR_STORE buttonBorderColor].CGColor];
     [button setClipsToBounds:YES];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[VAR_STORE buttonDarkGrayColor] forState:UIControlStateNormal];
     [button setBackgroundColor:[VAR_STORE buttonGrayColor]];
 }
 
@@ -261,13 +261,15 @@
 
     [self formatButtonToDefault:self.dueDateButton];
     [self.dueDateButton setAttributedTitle:mutableString forState:UIControlStateNormal];
-
     [self.dueDateButton.titleLabel setNumberOfLines:0];
     [self.dueDateButton.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [self.dueDateButton.titleLabel sizeToFit];
-    [self.dueDateButton.titleLabel layoutIfNeeded];
-    [self.dueDateButton sizeToFit];
-    [self.dueDateButton layoutIfNeeded];
+// FIXME these are no use, sizeToFit
+//    [self.dueDateButton.titleLabel sizeToFit];
+//    [self.dueDateButton.titleLabel layoutIfNeeded];
+//    [self.dueDateButton sizeToFit];
+//    [self.dueDateButton layoutIfNeeded];
+    
+    [self formatButtonToDefault:self.notesButton];
 }
 
 - (NSMutableAttributedString *) formatStringTwoTone:(NSString *)string firstRange:(NSRange)range1 asFirstColor:(UIColor *)color1 secondRange:(NSRange)range2 asSecondColor:(UIColor *)color2 {

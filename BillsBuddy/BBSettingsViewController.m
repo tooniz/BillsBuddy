@@ -40,10 +40,12 @@
 - (IBAction)upcomingValueChanged:(id)sender {
     [SETTINGS setBool:self.upcomingSwitch.on forKey:@"badgeShowsUpcoming"];
     [SETTINGS synchronize];
+    [BBMethodStore scheduleAppBadgeUpdate];
 }
 
 - (IBAction)overdueValueChanged:(id)sender {
     [SETTINGS setBool:self.overdueSwitch.on forKey:@"badgeShowsOverdue"];
     [SETTINGS synchronize];
+    [BBMethodStore scheduleAppBadgeUpdate];
 }
 @end

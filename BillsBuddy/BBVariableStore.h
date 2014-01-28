@@ -43,6 +43,7 @@
 @property (nonatomic, copy) UIColor *sideTintColor;
 @property (nonatomic, copy) UIColor *iconTintColor;
 
+@property (nonatomic, copy) UIColor *textGrayColor;
 @property (nonatomic, copy) UIColor *buttonAppTextColor;
 @property (nonatomic, copy) UIColor *buttonGrayColor;
 @property (nonatomic, copy) UIColor *buttonDarkGrayColor;

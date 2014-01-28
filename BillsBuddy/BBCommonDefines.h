@@ -31,5 +31,9 @@ typedef enum {
     BBRecurrenceFrequencyYearly = 3
 } BBRecurrenceFrequency;
 
+typedef enum {
+    BBBillTypeDefault = 0
+} BBBillType;
+
 //#define ALLOW_OVERDUE_IN_UPCOMING
 #endif
