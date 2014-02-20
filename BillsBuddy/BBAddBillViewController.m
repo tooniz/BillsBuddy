@@ -45,6 +45,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    if ((VAR_STORE).pendingBillRecord == nil)
+        (VAR_STORE).pendingBillRecord = [BillRecord disconnectedEntity];
     [self.navigationController.navigationBar setBarTintColor:[VAR_STORE navBarTintColor]];
     [self.navigationController.navigationBar setTintColor:[VAR_STORE navTintColor]];
     [self.navigationItem setBackBarButtonItem: [[UIBarButtonItem alloc] initWithTitle: @"" style: UIBarButtonItemStyleBordered target: nil action: nil]];
@@ -53,7 +55,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // Initialization
-    [self setDatePickerDateString:@"today"];
+    if (self.datePickerDateString==nil)
+        [self setDatePickerDateString:@"today"];
     // Appearance for text fields
     [self.descriptionText setDelegate:self];
     [self.descriptionText becomeFirstResponder];
@@ -62,7 +65,7 @@
     [self.currencyButton setTitle:[VAR_STORE currencySymbol] forState:UIControlStateNormal];
     [self setDueDate:self.datePicker.date];
     [self formatDueDateButton:self.datePickerDateString];
-    [self formatDueHelperButtons:self.dueTodayButton];
+    [self datePickerWheelChanged];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -83,6 +86,7 @@
 #pragma mark - Interaction Methods
 
 - (IBAction)didTapCancel:(id)sender {
+    (VAR_STORE).pendingBillRecord = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -104,7 +108,6 @@
         /* Remember how to create a record atomic way
         BillRecord *record = [NSEntityDescription insertNewObjectForEntityForName:@"BillRecord"
                                                   inManagedObjectContext:[APP_DELEGATE managedObjectContext]];; */
-        (VAR_STORE).pendingBillRecord = [BillRecord disconnectedEntity];
         (VAR_STORE).pendingBillRecord.amount = [NSDecimalNumber decimalNumberWithString:self.amountText.text];
         (VAR_STORE).pendingBillRecord.item = self.descriptionText.text;
         (VAR_STORE).pendingBillRecord.startDate = self.dueDate;

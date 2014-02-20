@@ -66,7 +66,7 @@
     if (section == 0)
         return 3;
     else if (section == 1)
-        return 2;
+        return 1; // FIXME if CATEGORIES implemented, change this to 2
     else
         return 0;
 }
@@ -145,6 +145,7 @@
             count = (int)[VAR_STORE overdueCount];
             [cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
             break;
+/* FIXME to implement
         case 10:
             iconImage = [[UIImage imageNamed:@"list"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE listIconColor]];
@@ -152,8 +153,8 @@
             [cell.itemLabel setText:@"Categories"];
             [cell.countLabel setText:@""];
             break;
-        case 11:
-//FIXME need settngs icon & color theme
+*/
+        case 10:
             iconImage = [[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE gearIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE gearIconColor]];
@@ -185,10 +186,12 @@
         case 02:
             [VAR_STORE setCenterViewType:CV_OVERDUE];
             break;
+/* FIXME to implement
         case 10:
             [VAR_STORE setCenterViewType:CV_CATEGORIES];
             break;
-        case 11:
+*/
+        case 10:
             [VAR_STORE setCenterViewType:CV_SETTINGS];
             break;
         default:

@@ -9,6 +9,8 @@
 #import "BBAddNotesViewController.h"
 
 @interface BBAddNotesViewController ()
+// Create recurrence rule in context
+@property (strong, atomic) BillRecord *record;
 
 @end
 
@@ -26,7 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.notesTextView.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    DLog(@"Found pendingBillRecord %@", (VAR_STORE).pendingBillRecord.description)
+    self.record = (VAR_STORE).pendingBillRecord;
+    self.notesTextView.text = self.record.notes;
+    self.notesPlaceHolder.hidden = ([self.notesTextView.text length]>0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -34,13 +44,34 @@
     CGRect notesFrame = self.notesTextView.frame;
     notesFrame.size.height -= 216;
     self.notesTextView.frame = notesFrame;
-    [self.notesTextView becomeFirstResponder];
+    //[self.notesTextView becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)didTapSave:(id)sender {
+    self.record.notes = self.notesTextView.text;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma TextView Methods
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.notesPlaceHolder.hidden = YES;
+}
+
+- (void)textViewDidChange:(UITextView *)txtView
+{
+    self.notesPlaceHolder.hidden = ([txtView.text length] > 0);
+}
+
+- (void)textViewDidEndEditing:(UITextView *)txtView
+{
+    self.notesPlaceHolder.hidden = ([txtView.text length] > 0);
 }
 
 @end

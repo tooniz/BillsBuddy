@@ -25,6 +25,13 @@
     [VAR_STORE initialize];
     // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"]]];
+    // FIXME CLEAR NOTIF
+    // [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    // FIXME DEBUG ONLY
+    for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        NSString *notificationId = [notification.userInfo objectForKey:@"id"];
+        DLog(@"notification found with id = %@ \n %@", notificationId, notification.description)
+    }
     return YES;
 }
 							
@@ -144,5 +151,18 @@
     NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     // Returning Fetched Records
     return fetchedRecords;
+}
+// 7
+-(void) flushDatabase {
+    [__managedObjectContext lock];
+    NSArray *stores = [__persistentStoreCoordinator persistentStores];
+    for(NSPersistentStore *store in stores) {
+        [__persistentStoreCoordinator removePersistentStore:store error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+    }
+    [__managedObjectContext unlock];
+    __managedObjectModel    = nil;
+    __managedObjectContext  = nil;
+    __persistentStoreCoordinator = nil;
 }
 @end

@@ -126,11 +126,11 @@
                                                         icon:[UIImage imageNamed:@"check.png"]];
             [leftUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE clockIconColor]
                                                         icon:[UIImage imageNamed:@"clock.png"]];
+            [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE crossIconColor]
+                                                        title:@"Delete"];
         }
 //        [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE sideTintColor]
  //                                                   title:@"More"];
-        [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE crossIconColor]
-                                                    title:@"Delete"];
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier
                                   containingTableView:tableView // For row height and selection

@@ -83,7 +83,8 @@
         DLog(@"Dump bill record about to be added:\n %@", record.description)
         DLog(@"Dump recurrence rule of bill record about to be added:\n %@", record.recurrenceRule.description)
         [APP_DELEGATE saveContext];
-
+        (VAR_STORE).pendingBillRecord = nil;
+        
         NSCalendarUnit repeatInterval = 0;
         if (record.recurrenceRule.recurrenceEnd == nil) {
             switch (record.recurrenceRule.frequency.intValue) {
