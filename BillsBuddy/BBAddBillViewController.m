@@ -66,6 +66,11 @@
     [self setDueDate:self.datePicker.date];
     [self formatDueDateButton:self.datePickerDateString];
     [self datePickerWheelChanged];
+    
+    BillCategory_E category = (VAR_STORE).pendingBillRecord.category.integerValue;
+    [self.categoryText setTitle:[BBMethodStore billCategoryShortText:category] forState:UIControlStateNormal];
+    [self.categoryText.titleLabel setFont:[UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:26]];
+    [self.categoryText setBackgroundColor:[BBMethodStore billCategoryColor:category]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

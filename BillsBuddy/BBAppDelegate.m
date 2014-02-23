@@ -25,13 +25,15 @@
     [VAR_STORE initialize];
     // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"]]];
+#ifdef DEBUG
     // FIXME CLEAR NOTIF
-    // [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    // FIXME DEBUG ONLY
+    //[self flushDatabase];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
         NSString *notificationId = [notification.userInfo objectForKey:@"id"];
         DLog(@"notification found with id = %@ \n %@", notificationId, notification.description)
     }
+#endif
     return YES;
 }
 							

@@ -143,6 +143,132 @@
     }
 }
 
++ (UIColor*) billCategoryColor:(BillCategory_E)category {
+    switch (category) {
+        case BILL_TRANSPORT:
+            return UIColorFromHEX(0xA0C3FF);
+            break;
+        case BILL_UTILITIES:
+            return UIColorFromHEX(0xFFE168);
+            break;
+        case BILL_EDUCATION:
+            return UIColorFromHEX(0xBADBAB);
+            break;
+        case BILL_ENTERTAINMENT:
+            return UIColorFromHEX(0xF8B39B);
+            break;
+        case BILL_FINANCIAL:
+            return UIColorFromHEX(0xD799AE);
+            break;
+        case BILL_FOOD_DINING:
+            return UIColorFromHEX(0xAB948C);
+            break;
+        case BILL_HEALTH:
+            return UIColorFromHEX(0xDAE56B);
+            break;
+        case BILL_HOME:
+            return UIColorFromHEX(0xED9D97);
+            break;
+        case BILL_KIDS:
+            return UIColorFromHEX(0xF8F06C);
+            break;
+        case BILL_TRAVEL:
+            return UIColorFromHEX(0xC5A5CF);
+            break;
+        case BILL_MISC:
+            return UIColorFromHEX(0xE6E6E6);
+            break;
+        default:
+            return UIColorFromHEX(0xE6E6E6);
+            break;
+    }
+    return nil;
+}
+
++ (NSString*) billCategoryShortText:(BillCategory_E)category {
+    switch (category) {
+        case BILL_TRANSPORT:
+            return StringGen(@"At");
+            break;
+        case BILL_UTILITIES:
+            return StringGen(@"Ut");
+            break;
+        case BILL_EDUCATION:
+            return StringGen(@"Ed");
+            break;
+        case BILL_ENTERTAINMENT:
+            return StringGen(@"Et");
+            break;
+        case BILL_FINANCIAL:
+            return StringGen(@"Fn");
+            break;
+        case BILL_FOOD_DINING:
+            return StringGen(@"Fd");
+            break;
+        case BILL_HEALTH:
+            return StringGen(@"He");
+            break;
+        case BILL_HOME:
+            return StringGen(@"Hm");
+            break;
+        case BILL_KIDS:
+            return StringGen(@"Kd");
+            break;
+        case BILL_TRAVEL:
+            return StringGen(@"Tr");
+            break;
+        case BILL_MISC:
+            return StringGen(@"Ms");
+            break;
+        default:
+            return StringGen(@"Ms");
+            break;
+    }
+    return nil;
+}
+
++ (NSString*) billCategoryLongText:(BillCategory_E)category {
+    switch (category) {
+        case BILL_TRANSPORT:
+            return StringGen(@"Auto & Transportation");
+            break;
+        case BILL_UTILITIES:
+            return StringGen(@"Utilities & Bills");
+            break;
+        case BILL_EDUCATION:
+            return StringGen(@"Education");
+            break;
+        case BILL_ENTERTAINMENT:
+            return StringGen(@"Entertainment");
+            break;
+        case BILL_FINANCIAL:
+            return StringGen(@"Financial & Taxes");
+            break;
+        case BILL_FOOD_DINING:
+            return StringGen(@"Food & Dining");
+            break;
+        case BILL_HEALTH:
+            return StringGen(@"Health & Fitness");
+            break;
+        case BILL_HOME:
+            return StringGen(@"Home");
+            break;
+        case BILL_KIDS:
+            return StringGen(@"Kids");
+            break;
+        case BILL_TRAVEL:
+            return StringGen(@"Travel");
+            break;
+        case BILL_MISC:
+            return StringGen(@"Miscellaneous");
+            break;
+        default:
+            return nil;
+            break;
+    }
+    return nil;
+}
+
 + (void) scheduleAppBadgeUpdate {
     UILocalNotification* notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];

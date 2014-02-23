@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *descriptionText;
 @property (weak, nonatomic) IBOutlet UITextField *amountText;
 
+@property (weak, nonatomic) IBOutlet UIButton *categoryText;
+
 @property (weak, nonatomic) IBOutlet UIButton *currencyButton;
 @property (weak, nonatomic) IBOutlet UIButton *dueDateButton;
 @property (weak, nonatomic) IBOutlet UIButton *notesButton;

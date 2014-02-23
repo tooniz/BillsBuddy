@@ -10,6 +10,8 @@
 		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
 		FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB51848352F00E20B83 /* BillDate.m */; };
 		FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD2EDA491897A46700613A99 /* allclear@2x.png */; };
+		FD2F822D18B8A59600DDA517 /* BBSetCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */; };
+		FD54BDFE18B96BDD00788BC1 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54BDFD18B96BDD00788BC1 /* BillRecord.m */; };
 		FD5595131835F5BD00B4D789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595121835F5BD00B4D789 /* Foundation.framework */; };
 		FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595141835F5BD00B4D789 /* CoreGraphics.framework */; };
 		FD5595171835F5BD00B4D789 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595161835F5BD00B4D789 /* UIKit.framework */; };
@@ -30,7 +32,6 @@
 		FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595561835FB5900B4D789 /* QuartzCore.framework */; };
 		FD559560183609E600B4D789 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55955F183609E600B4D789 /* CustomBadge.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Xanalyzer -analyzer-disable-checker -w"; }; };
 		FD55956318360BAE00B4D789 /* BBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55956218360BAE00B4D789 /* BBCenterViewController.m */; };
-		FD70CBF3185E7B8100F6C850 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70CBF2185E7B8100F6C850 /* BillRecord.m */; };
 		FD70CBF6185E81B600F6C850 /* BBAddNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70CBF5185E81B600F6C850 /* BBAddNotesViewController.m */; };
 		FD737DD6184297B300A8DBA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD737DD5184297B300A8DBA0 /* CoreData.framework */; };
 		FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */; };
@@ -77,6 +78,10 @@
 		FD0BCAB41848352F00E20B83 /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
 		FD0BCAB51848352F00E20B83 /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
 		FD2EDA491897A46700613A99 /* allclear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allclear@2x.png"; sourceTree = "<group>"; };
+		FD2F822B18B8A59600DDA517 /* BBSetCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSetCategoryViewController.h; sourceTree = "<group>"; };
+		FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSetCategoryViewController.m; sourceTree = "<group>"; };
+		FD54BDFC18B96BDD00788BC1 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
+		FD54BDFD18B96BDD00788BC1 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FD55950F1835F5BD00B4D789 /* BillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5595121835F5BD00B4D789 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD5595141835F5BD00B4D789 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,8 +113,6 @@
 		FD55955F183609E600B4D789 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomBadge.m; path = ../../../GitHubClones/CustomBadge/Classes/CustomBadge.m; sourceTree = "<group>"; };
 		FD55956118360BAE00B4D789 /* BBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCenterViewController.h; sourceTree = "<group>"; };
 		FD55956218360BAE00B4D789 /* BBCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCenterViewController.m; sourceTree = "<group>"; };
-		FD70CBF1185E7B8100F6C850 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
-		FD70CBF2185E7B8100F6C850 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FD70CBF4185E81B600F6C850 /* BBAddNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddNotesViewController.h; sourceTree = "<group>"; };
 		FD70CBF5185E81B600F6C850 /* BBAddNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddNotesViewController.m; sourceTree = "<group>"; };
 		FD737DD5184297B300A8DBA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -304,6 +307,8 @@
 				FD55956218360BAE00B4D789 /* BBCenterViewController.m */,
 				FD737DE21843D8C000A8DBA0 /* BBAddBillViewController.h */,
 				FD737DE31843D8C000A8DBA0 /* BBAddBillViewController.m */,
+				FD2F822B18B8A59600DDA517 /* BBSetCategoryViewController.h */,
+				FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */,
 				FD70CBF4185E81B600F6C850 /* BBAddNotesViewController.h */,
 				FD70CBF5185E81B600F6C850 /* BBAddNotesViewController.m */,
 				FD7859C41846E2CA006AA2C7 /* BBAddRecurrenceViewController.h */,
@@ -321,9 +326,9 @@
 		FD737DD7184297CB00A8DBA0 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				FD70CBF1185E7B8100F6C850 /* BillRecord.h */,
-				FD70CBF2185E7B8100F6C850 /* BillRecord.m */,
 				FD737DD8184297F400A8DBA0 /* BillsBuddy.xcdatamodeld */,
+				FD54BDFC18B96BDD00788BC1 /* BillRecord.h */,
+				FD54BDFD18B96BDD00788BC1 /* BillRecord.m */,
 				FDA357BD1848E91F00002AC9 /* BillRecurrenceRule.h */,
 				FDA357BE1848E91F00002AC9 /* BillRecurrenceRule.m */,
 				FDA357BA1848E89800002AC9 /* BillRecurrenceEnd.h */,
@@ -411,6 +416,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Equippd Software";
 				TargetAttributes = {
+					FD55950E1835F5BD00B4D789 = {
+						DevelopmentTeam = WCCJ58QBP5;
+					};
 					FD5595321835F5BD00B4D789 = {
 						TestTargetID = FD55950E1835F5BD00B4D789;
 					};
@@ -522,12 +530,13 @@
 				FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */,
 				FD55951F1835F5BD00B4D789 /* main.m in Sources */,
 				FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */,
+				FD2F822D18B8A59600DDA517 /* BBSetCategoryViewController.m in Sources */,
 				FD8EEADF1845835B001B331B /* YearDays.m in Sources */,
 				FD8EEAD61845835B001B331B /* YearMonths.m in Sources */,
 				FDA357BC1848E89800002AC9 /* BillRecurrenceEnd.m in Sources */,
+				FD54BDFE18B96BDD00788BC1 /* BillRecord.m in Sources */,
 				FDD57B5C185547CA00813197 /* BBSettingsViewController.m in Sources */,
 				FD737DE41843D8C000A8DBA0 /* BBAddBillViewController.m in Sources */,
-				FD70CBF3185E7B8100F6C850 /* BillRecord.m in Sources */,
 				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,
 				FD7859C018469749006AA2C7 /* BBMethodStore.m in Sources */,
 				FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */,
@@ -669,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BillsBuddy/BillsBuddy-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -690,6 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BillsBuddy/BillsBuddy-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

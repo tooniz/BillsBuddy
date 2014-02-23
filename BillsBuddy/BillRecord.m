@@ -2,8 +2,8 @@
 //  BillRecord.m
 //  BillsBuddy
 //
-//  Created by Tony Zhou on 12/15/13.
-//  Copyright (c) 2013 Equippd Software. All rights reserved.
+//  Created by Tony Zhou on 2/22/14.
+//  Copyright (c) 2014 Equippd Software. All rights reserved.
 //
 
 #import "BillRecord.h"
@@ -11,14 +11,15 @@
 #import "BillRecurrenceRule.h"
 #import "BillRecurrenceEnd.h"
 
+
 @implementation BillRecord
 
 @dynamic amount;
+@dynamic category;
 @dynamic item;
 @dynamic nextDueDate;
 @dynamic notes;
 @dynamic startDate;
-@dynamic category;
 @dynamic overdueBills;
 @dynamic paidBills;
 @dynamic recurrenceRule;

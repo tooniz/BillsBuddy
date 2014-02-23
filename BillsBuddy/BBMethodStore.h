@@ -19,6 +19,10 @@
 + (NSArray *)tableViewRecords:(CenterViewType_E)viewType;
 + (NSArray *)tableViewRecords;
 
++ (UIColor*) billCategoryColor:(BillCategory_E)category;
++ (NSString*) billCategoryShortText:(BillCategory_E)category;
++ (NSString*) billCategoryLongText:(BillCategory_E)category;
+
 + (void) scheduleNotificationForDate:(NSDate *)date AlertBody:(NSString *)alertBody ActionButtonTitle:(NSString *)actionButtonTitle RepeatInterval:(NSCalendarUnit)repeatInterval NotificationID:(NSString *)notificationID;
 + (void) cancelLocalNotification:(NSString*)notificationID;
 + (void) scheduleAppBadgeUpdate;

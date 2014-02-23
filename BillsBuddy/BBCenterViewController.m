@@ -21,6 +21,7 @@
 #define kCellItemDescTag 102
 #define kCellAmountDescTag 103
 #define kCellAmountTag 104
+#define kCellItemImageTextTag 105
 
 @interface BBCenterViewController ()
 
@@ -139,7 +140,12 @@
         // Item Image
         UIImageView *itemImage = [[UIImageView alloc] initWithFrame:CGRectMake(13, 10, 40, 40)];
         itemImage.tag = kCellItemImageTag;
-        itemImage.backgroundColor = [VAR_STORE sideTintColor];
+        // Item Image Text
+        UILabel *itemImageText = [[UILabel alloc] initWithFrame:CGRectMake(19, 15, 30, 30)];
+        itemImageText.tag = kCellItemImageTextTag;
+        itemImageText.font = [UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:20];
+        itemImageText.textColor = [UIColor colorWithWhite:1 alpha:1];
+        itemImageText.adjustsFontSizeToFitWidth = YES;
         // Item Text
         UILabel *itemText = [[UILabel alloc] init];
         itemText.tag = kCellItemTextTag;
@@ -162,6 +168,7 @@
         amountText.font = [UIFont fontWithName:[VAR_STORE labelDefaultFontName] size:20];
         // Cell subviews
         [cell.contentView addSubview:itemImage];
+        [cell.contentView addSubview:itemImageText];
         [cell.contentView addSubview:itemText];
         [cell.contentView addSubview:itemDescText];
         [cell.contentView addSubview:amountDescText];
@@ -173,6 +180,7 @@
     
     // Updates needs to be outside nil block so it occurs with every reloadData call
     UIImageView *itemImage = (UIImageView *)[cell viewWithTag:kCellItemImageTag];
+    UILabel *itemImageText = (UILabel *)[cell viewWithTag:kCellItemImageTextTag];
     UILabel *itemDescText = (UILabel *)[cell viewWithTag:kCellItemDescTag];
     UILabel *itemText = (UILabel *)[cell viewWithTag:kCellItemTextTag];
     UILabel *amountDescText = (UILabel *)[cell viewWithTag:kCellAmountDescTag];
@@ -180,8 +188,8 @@
     CGRect itemFrameUpper = CGRectMake(66, 10, 138, 28);
     CGRect itemFrameLower = CGRectMake(66, 15, 138, 28);
 
-//FIXME need to update image for record
-    itemImage = itemImage;
+    itemImage.backgroundColor = [BBMethodStore billCategoryColor:(BillCategory_E)record.category.integerValue];
+    itemImageText.text = [BBMethodStore billCategoryShortText:(BillCategory_E)record.category.integerValue];
     itemText.text = record.item;
     amountText.text = StringGen(@"%@%@", [VAR_STORE currencySymbol], record.amount.stringValue);
     switch ([VAR_STORE centerViewType]) {

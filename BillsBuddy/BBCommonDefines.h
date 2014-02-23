@@ -35,5 +35,19 @@ typedef enum {
     BBBillTypeDefault = 0
 } BBBillType;
 
+typedef NS_OPTIONS(NSUInteger, BillCategory_E) {
+    BILL_MISC,
+    BILL_ENTERTAINMENT,
+    BILL_EDUCATION,
+    BILL_UTILITIES,
+    BILL_FOOD_DINING,
+    BILL_FINANCIAL,
+    BILL_HEALTH,
+    BILL_HOME,
+    BILL_KIDS,
+    BILL_TRANSPORT,
+    BILL_TRAVEL
+};
+
 //#define ALLOW_OVERDUE_IN_UPCOMING
 #endif
