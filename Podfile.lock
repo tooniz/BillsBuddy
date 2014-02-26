@@ -1,0 +1,34 @@
+PODS:
+  - LMAlertView (1.0):
+    - RBBAnimation
+  - MMDrawerController (0.5.1):
+    - MMDrawerController/Core
+    - MMDrawerController/MMDrawerBarButtonItem
+    - MMDrawerController/MMDrawerVisualStates
+    - MMDrawerController/Subclass
+  - MMDrawerController/Core (0.5.1)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.1):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.1):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.1):
+    - MMDrawerController/Core
+  - RBBAnimation (0.3.0)
+  - SWTableViewCell (0.1.4)
+
+DEPENDENCIES:
+  - LMAlertView (from `https://github.com/lmcd/LMAlertView.git`)
+  - MMDrawerController (~> 0.5.1)
+  - SWTableViewCell (~> 0.1.4)
+
+EXTERNAL SOURCES:
+  LMAlertView:
+    :git: https://github.com/lmcd/LMAlertView.git
+
+SPEC CHECKSUMS:
+  LMAlertView: 3f73b71cf6c4149c10d24a7a3d2c3acb22dfecca
+  MMDrawerController: 3e22aec684dbee5307ff9d1e76523003a3303a2d
+  RBBAnimation: e7f31ed62f760f3caf120b5d943267bd9a8e1f64
+  SWTableViewCell: baaeaa6e0ee61355d8049f85e06c2789d89804e3
+
+COCOAPODS: 0.28.0
