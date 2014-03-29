@@ -10,9 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <LMAlertView.h>
 
-@interface BBAddRecurrenceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BBAddRecurrenceViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *recurrenceFieldWrapper;
 @property (weak, nonatomic) IBOutlet UILabel *recurrenceField;
 

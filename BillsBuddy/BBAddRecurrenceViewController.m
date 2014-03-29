@@ -51,11 +51,16 @@
     [super viewWillAppear:animated];
     // Add line to bottm of recurrenceFieldWrapper
     UIBezierPath *linePath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0,self.view.frame.size.width, 0.5f)];
-    CAShapeLayer *line = [CAShapeLayer layer];
-    line.path = [linePath CGPath];
-    line.fillColor = [[UIColor colorWithWhite:0.75 alpha:1] CGColor];
-    line.frame = CGRectMake(0, self.recurrenceFieldWrapper.frame.size.height-1, self.view.frame.size.width, 1);
-    [self.recurrenceFieldWrapper.layer addSublayer:line];
+    CAShapeLayer *line_top = [CAShapeLayer layer];
+    line_top.path = [linePath CGPath];
+    line_top.fillColor = [[UIColor colorWithWhite:0.75 alpha:1] CGColor];
+    line_top.frame = CGRectMake(0, 0, self.view.frame.size.width, 1);
+    CAShapeLayer *line_bot = [CAShapeLayer layer];
+    line_bot.path = [linePath CGPath];
+    line_bot.fillColor = [[UIColor colorWithWhite:0.75 alpha:1] CGColor];
+    line_bot.frame = CGRectMake(0, self.recurrenceFieldWrapper.frame.size.height-1, self.view.frame.size.width, 1);
+    [self.recurrenceFieldWrapper.layer addSublayer:line_top];
+    [self.recurrenceFieldWrapper.layer addSublayer:line_bot];
     self.recurrenceField.font = [UIFont fontWithName:[VAR_STORE labelLightFontName] size:18];
     self.recurrenceField.textColor = [UIColor lightGrayColor];
     [self updateRecurrenceField:nil];
@@ -146,7 +151,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -176,7 +181,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    DLog(@"cellForRowAtIndexPath called")
+    DLog(@"cellForRowAtIndexPath called with %@", indexPath.description)
     static NSString *cellIdentifier = @"recurrenceTableCell";
     
     // Cell retrieval
