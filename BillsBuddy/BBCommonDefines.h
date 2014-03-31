@@ -11,6 +11,7 @@
 
 typedef NS_OPTIONS(NSUInteger, CenterViewType_E) {
     CV_UPCOMING,
+    CV_ALLDUE,
     CV_PAID,
     CV_OVERDUE,
     CV_CATEGORIES,

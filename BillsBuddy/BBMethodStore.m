@@ -64,17 +64,21 @@
 
 + (NSArray *)tableViewRecords:(CenterViewType_E)viewType {
     static NSMutableArray *upcomingViewRecords;
+    static NSMutableArray *allDueViewRecords;
     static NSMutableArray *paidViewRecords;
     static NSMutableArray *overdueViewRecords;
     
     if ([VAR_STORE refetchNeeded]) {
         upcomingViewRecords = nil;
+        allDueViewRecords = nil;
         paidViewRecords = nil;
         overdueViewRecords = nil;
         upcomingViewRecords = [[NSMutableArray alloc] init];
+        allDueViewRecords = [[NSMutableArray alloc] init];
         paidViewRecords = [[NSMutableArray alloc] init];
         overdueViewRecords = [[NSMutableArray alloc] init];
         [VAR_STORE setUpcomingCount:0];
+        [VAR_STORE setAllDueCount:0];
         [VAR_STORE setPaidCount:0];
         [VAR_STORE setOverdueCount:0];
         
@@ -100,6 +104,14 @@
             if (record.hasOverdueBills)
                 (VAR_STORE).upcomingCount += record.overdueBills.count;
 #endif
+            // ALL DUE SECTION
+            if (record.hasDueDate) {
+                NSInteger upcomingDays = 99999;
+                if ([BBMethodStore daysBetween:[NSDate date] and:record.nextDueDate] <= upcomingDays) {
+                    [allDueViewRecords addObject:record];
+                    (VAR_STORE).allDueCount += 1;
+                }
+            }
             // PAID SECTION
             if (record.hasPaidBills) {
                 [paidViewRecords addObject:record];
@@ -113,6 +125,9 @@
         }
         descriptor = [[NSSortDescriptor alloc] initWithKey:@"nextDueDate" ascending:YES];
         [upcomingViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"nextDueDate" ascending:YES];
+        [allDueViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
 
         descriptor = [[NSSortDescriptor alloc] initWithKey:@"recentPaidDate" ascending:NO];
         [paidViewRecords sortUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
@@ -128,6 +143,9 @@
     switch (viewType) {
         case CV_UPCOMING:
             return upcomingViewRecords;
+            break;
+        case CV_ALLDUE:
+            return allDueViewRecords;
             break;
         case CV_PAID:
             return paidViewRecords;

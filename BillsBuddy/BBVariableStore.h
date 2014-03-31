@@ -16,6 +16,7 @@
 
 // data properties
 @property (nonatomic) NSInteger upcomingCount;
+@property (nonatomic) NSInteger allDueCount;
 @property (nonatomic) NSInteger paidCount;
 @property (nonatomic) NSInteger overdueCount;
 @property (nonatomic) NSInteger numberOfRowsInLeftTable;

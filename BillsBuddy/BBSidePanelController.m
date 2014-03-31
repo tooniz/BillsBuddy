@@ -67,6 +67,7 @@ BOOL statusBarHidden = NO;
     UINavigationController *nav = (UINavigationController *)self.centerViewController;
     UIViewController *centerViewController;
     if ([VAR_STORE centerViewType] == CV_UPCOMING ||
+        [VAR_STORE centerViewType] == CV_ALLDUE ||
         [VAR_STORE centerViewType] == CV_PAID ||
         [VAR_STORE centerViewType] == CV_OVERDUE)
         // Setup navigation root view controller

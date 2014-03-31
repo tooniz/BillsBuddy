@@ -51,20 +51,26 @@
         defaultRow = self.selected.row;
     else
         switch ([SETTINGS integerForKey:@"upcomingDays"]) {
-            case 7:
+            case 1:
                 defaultRow = 0;
                 break;
-            case 14:
+            case 3:
                 defaultRow = 1;
                 break;
-            case 31:
+            case 7:
                 defaultRow = 2;
                 break;
-            case 93:
+            case 14:
                 defaultRow = 3;
                 break;
+            case 31:
+                defaultRow = 4;
+                break;
+            case 93:
+                defaultRow = 5;
+                break;
             default:
-                defaultRow = 2;
+                defaultRow = 4;
                 DAssert(0, @"invalid upcomingDays setting seen %d", (int)[SETTINGS integerForKey:@"upcomingDays"])
                 break;
         }
@@ -80,15 +86,21 @@
     NSInteger upcomingDays;
     switch (indexPath.row) {
         case 0:
-            upcomingDays = 7;
+            upcomingDays = 1;
             break;
         case 1:
-            upcomingDays = 14;
+            upcomingDays = 3;
             break;
         case 2:
-            upcomingDays = 31;
+            upcomingDays = 7;
             break;
         case 3:
+            upcomingDays = 14;
+            break;
+        case 4:
+            upcomingDays = 31;
+            break;
+        case 5:
             upcomingDays = 93;
             break;
         default:

@@ -64,7 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
-        return 3;
+        return 4;
     else if (section == 1)
         return 1; // FIXME if CATEGORIES implemented, change this to 2
     else
@@ -130,6 +130,15 @@
             [cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
             break;
         case 01:
+            //FIXME
+            iconImage = [[UIImage imageNamed:@"clock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [bg setBackgroundColor:[VAR_STORE clockIconColor]];
+            [cell.icon setBackgroundColor:[VAR_STORE clockIconColor]];
+            [cell.itemLabel setText:@"All due bills"];
+            count = (int)[VAR_STORE allDueCount];
+            [cell.countLabel setText:(count > 0) ? [NSString stringWithFormat:@"%d", count] : @"" ];
+            break;
+        case 02:
             iconImage = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE checkIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE checkIconColor]];
@@ -137,7 +146,7 @@
             count = (int)[VAR_STORE paidCount];
             [cell.countLabel setText:@""];
             break;
-        case 02:
+        case 03:
             iconImage = [[UIImage imageNamed:@"cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE crossIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE crossIconColor]];
@@ -181,9 +190,12 @@
             [VAR_STORE setCenterViewType:CV_UPCOMING];
             break;
         case 01:
-            [VAR_STORE setCenterViewType:CV_PAID];
+            [VAR_STORE setCenterViewType:CV_ALLDUE];
             break;
         case 02:
+            [VAR_STORE setCenterViewType:CV_PAID];
+            break;
+        case 03:
             [VAR_STORE setCenterViewType:CV_OVERDUE];
             break;
 /* FIXME to implement

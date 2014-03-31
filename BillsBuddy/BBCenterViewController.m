@@ -122,6 +122,7 @@
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
         
         if ([VAR_STORE centerViewType] == CV_UPCOMING ||
+            [VAR_STORE centerViewType] == CV_ALLDUE ||
             [VAR_STORE centerViewType] == CV_OVERDUE) {
             [leftUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE checkIconColor]
                                                         icon:[UIImage imageNamed:@"check.png"]];
@@ -193,7 +194,8 @@
     itemText.text = record.item;
     amountText.text = StringGen(@"%@%@", [VAR_STORE currencySymbol], record.amount.stringValue);
     switch ([VAR_STORE centerViewType]) {
-        case CV_UPCOMING: {
+        case CV_UPCOMING:
+        case CV_ALLDUE: {
             itemText.frame = itemFrameLower;
             NSInteger days;
 #ifdef ALLOW_OVERDUE_IN_UPCOMING
@@ -210,7 +212,7 @@
 #endif
             NSInteger urgentDays = [SETTINGS integerForKey:@"urgentDays"];
             NSString *daysString = abs((int)days) > 1 ? @"days" : @"day";
-            amountDescText.text = (days<0) ? StringGen(@"overdue %d %@", abs(days), daysString) : (days>0) ? StringGen(@"in %d %@", (int)days, daysString) : StringGen(@"today");
+            amountDescText.text = (days<0) ? StringGen(@"overdue %d %@", abs((int)days), daysString) : (days>0) ? StringGen(@"in %d %@", (int)days, daysString) : StringGen(@"today");
             amountText.textColor = (days > urgentDays) ? [VAR_STORE clockIconColor] : [VAR_STORE crossIconColor];
             break;
         }

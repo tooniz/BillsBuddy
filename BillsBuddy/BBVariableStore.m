@@ -12,6 +12,7 @@
 
 EQP_SINGLETON_BEGIN(BBVariableStore)
 EQP_FIELD_INT(upcomingCount, 0)
+EQP_FIELD_INT(allDueCount, 0)
 EQP_FIELD_INT(paidCount, 0)
 EQP_FIELD_INT(overdueCount, 0)
 EQP_FIELD_INT(numberOfRowsInLeftTable, 0)
