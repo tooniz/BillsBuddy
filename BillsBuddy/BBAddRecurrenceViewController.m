@@ -64,6 +64,16 @@
     self.recurrenceField.font = [UIFont fontWithName:[VAR_STORE labelLightFontName] size:18];
     self.recurrenceField.textColor = [UIColor lightGrayColor];
     [self updateRecurrenceField:nil];
+
+    if ((VAR_STORE).addViewIsAddMode == YES) {
+        [self.navigationItem setTitle:@"Add recurrence"];
+    }
+    else {
+        [self.navigationItem setTitle:@"Edit recurrence"];
+        self.pendingRecurrenceRule = (VAR_STORE).pendingBillRecord.recurrenceRule;
+        self.pendingRecurrenceEnd = (VAR_STORE).pendingBillRecord.recurrenceRule.recurrenceEnd;
+        [self updateRecurrenceField:[self recurrenceTypeString]];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -82,11 +92,19 @@
     if (self.recurrenceValid) {
         // Create recurrence rule in context
         BillRecord *record = (VAR_STORE).pendingBillRecord;
+        [self.pendingRecurrenceRule setRecurrenceEnd:self.pendingRecurrenceEnd];
         [record setRecurrenceRule:self.pendingRecurrenceRule];
         // Save context
-        [(VAR_STORE).pendingBillRecord addToContext:[APP_DELEGATE managedObjectContext]];
-        DLog(@"Dump bill record about to be added:\n %@", record.description)
-        DLog(@"Dump recurrence rule of bill record about to be added:\n %@", record.recurrenceRule.description)
+        
+        if ((VAR_STORE).addViewIsAddMode == YES) {
+            [(VAR_STORE).pendingBillRecord addToContext:[APP_DELEGATE managedObjectContext]];
+            DLog(@"Dump bill record about to be added:\n %@", record.description)
+            DLog(@"Dump recurrence rule of bill record about to be added:\n %@", record.recurrenceRule.description)
+        }
+        {
+            DLog(@"Dump bill record about to be modified:\n %@", record.description)
+            DLog(@"Dump recurrence rule of bill record about to be modified:\n %@", record.recurrenceRule.description)
+        }
         [APP_DELEGATE saveContext];
         (VAR_STORE).pendingBillRecord = nil;
         
@@ -112,6 +130,11 @@
         else {
             DAssert(record.recurrenceRule.recurrenceEnd.occurenceCount.intValue == 1, @"only 1-time occurence or infinitely repeated recurrence supported for now!")
         }
+
+        // Cancel existing notification
+        if ((VAR_STORE).addViewIsAddMode == NO)
+            [BBMethodStore cancelLocalNotification:[[[record objectID] URIRepresentation] absoluteString]];
+        
         // Schedule the notification
         int hour = (int)[SETTINGS integerForKey:@"scheduledReminderHour"];
         int day = (int)[SETTINGS integerForKey:@"notificationDays"];
@@ -179,6 +202,7 @@
     return sectionName;
 }
 
+// FIXME this may be a little inefficient given we already used static cells in nib
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLog(@"cellForRowAtIndexPath called with %@", indexPath.description)
@@ -230,44 +254,51 @@
         }
         [cell.contentView addSubview:itemText];
     }
+
+    UILabel *selection = (UILabel *)[cell viewWithTag:kRecurrenceTag];
+    if (selection.text == [self recurrenceTypeString])
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    else
+        cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog(@"tableView:didSelectRowAtIndexPath called")
     NSInteger sectionRow = indexPath.section*10 + indexPath.row;
-    self.pendingRecurrenceRule = [BillRecurrenceRule disconnectedEntity];
-    self.pendingRecurrenceEnd = nil;
+    if (self.pendingRecurrenceRule == nil)
+        self.pendingRecurrenceRule = [BillRecurrenceRule disconnectedEntity];
     self.recurrenceValid = YES;
 
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UILabel *selection = (UILabel *)[cell viewWithTag:kRecurrenceTag];
-    [self updateRecurrenceField:selection.text];
+    NSString *selectionText;
     switch (sectionRow) {
         case 00:
+            selectionText = kRecurOnceText;
             self.pendingRecurrenceEnd = [BillRecurrenceEnd disconnectedEntity];
             self.pendingRecurrenceEnd.occurenceCount = [NSNumber numberWithInt:1];
             [self.pendingRecurrenceRule setRecurrenceEnd:self.pendingRecurrenceEnd];
             break;
         case 01:
+            selectionText = kRecurDailyText;
+            self.pendingRecurrenceEnd = nil;
             self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyDaily];
             self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
             break;
         case 02:
+            selectionText = kRecurWeeklyText;
+            self.pendingRecurrenceEnd = nil;
             self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyWeekly];
             self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
             break;
-/*
         case 03:
-            self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyWeekly];
-            self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:2];
-            break;
- */
-        case 03:
+            selectionText = kRecurMonthlyText;
+            self.pendingRecurrenceEnd = nil;
             self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyMonthly];
             self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
             break;
         case 04:
+            selectionText = kRecurYearlyText;
+            self.pendingRecurrenceEnd = nil;
             self.pendingRecurrenceRule.frequency = [NSNumber numberWithInt:BBRecurrenceFrequencyYearly];
             self.pendingRecurrenceRule.interval = [NSNumber numberWithInt:1];
             break;
@@ -276,16 +307,13 @@
 //TODO special rule
             self.recurrenceValid = NO;
             break;
-        case 11:
-//TODO special rule
-            self.recurrenceValid = NO;
-            break;
  */
         default:
             self.recurrenceValid = NO;
             break;
     }
-    
+    [self updateRecurrenceField:selectionText];
+    [tableView reloadData];
 }
 
 #pragma mark - Misc Methods
@@ -310,6 +338,27 @@
     UIColor *secondColor = self.recurrenceValid ? [VAR_STORE buttonAppTextColor]: [UIColor lightGrayColor];
     NSMutableAttributedString *mutableString = [self formatStringTwoTone:initString firstRange:NSMakeRange(0,message.length-1) asFirstColor:[UIColor blackColor] secondRange:NSMakeRange(message.length,initString.length - message.length) asSecondColor:secondColor];
     [self.recurrenceField setAttributedText:mutableString];
+}
+
+- (NSString *)recurrenceTypeString {
+    if (self.pendingRecurrenceEnd == nil) {
+        if (self.pendingRecurrenceRule.frequency == nil)
+            return nil;
+        else if (self.pendingRecurrenceRule.frequency.integerValue == BBRecurrenceFrequencyDaily)
+            return kRecurDailyText;
+        else if (self.pendingRecurrenceRule.frequency.integerValue == BBRecurrenceFrequencyWeekly)
+            return kRecurWeeklyText;
+        else if (self.pendingRecurrenceRule.frequency.integerValue == BBRecurrenceFrequencyMonthly)
+            return kRecurMonthlyText;
+        else if (self.pendingRecurrenceRule.frequency.integerValue == BBRecurrenceFrequencyYearly)
+            return kRecurYearlyText;
+        else
+            return nil;
+    }
+    else if (self.pendingRecurrenceEnd.occurenceCount.integerValue == 1) {
+        return kRecurOnceText;
+    }
+    return nil;
 }
 
 @end

@@ -131,7 +131,7 @@
             break;
         case 01:
             //FIXME
-            iconImage = [[UIImage imageNamed:@"clock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            iconImage = [[UIImage imageNamed:@"files"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             [bg setBackgroundColor:[VAR_STORE clockIconColor]];
             [cell.icon setBackgroundColor:[VAR_STORE clockIconColor]];
             [cell.itemLabel setText:@"All due bills"];

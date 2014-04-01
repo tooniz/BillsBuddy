@@ -54,26 +54,37 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Initialization
-    if (self.datePickerDateString==nil)
-        [self setDatePickerDateString:@"today"];
+
     // Appearance for text fields
     [self.descriptionText setDelegate:self];
-    [self.descriptionText becomeFirstResponder];
     [self.amountText setDelegate:self];
-    // Appearance for buttons
-    [self.currencyButton setTitle:[VAR_STORE currencySymbol] forState:UIControlStateNormal];
-    [self setDueDate:self.datePicker.date];
-    [self formatDueDateButton:self.datePickerDateString];
-    [self datePickerWheelChanged];
     
     BillCategory_E category = (VAR_STORE).pendingBillRecord.category.integerValue;
     [self.categoryText setTitle:[BBMethodStore billCategoryShortText:category] forState:UIControlStateNormal];
     [self.categoryText.titleLabel setFont:[UIFont fontWithName:[VAR_STORE navBarDefaultFontName] size:26]];
     [self.categoryText setBackgroundColor:[BBMethodStore billCategoryColor:category]];
-}
 
-- (void)viewDidAppear:(BOOL)animated {
+    if ((VAR_STORE).addViewIsAddMode == YES) {
+        [self.navigationItem setTitle:@"Add a bill"];
+        [self.descriptionText becomeFirstResponder];
+        [self.datePicker setDate:[NSDate date]];
+    }
+    else {
+        [self.navigationItem setTitle:@"Edit bill"];
+        self.storedValue = [[NSMutableString alloc] initWithString:StringGen(@"%d", (int)((VAR_STORE).pendingBillRecord.amount.floatValue*100))];
+        [self.amountText setText:[NSString stringWithFormat:@"%@",[self formattedAmount:self.storedValue]]];
+        [self.descriptionText setText:(VAR_STORE).pendingBillRecord.item];
+        [self.amountText becomeFirstResponder];
+        [self.datePicker setDate:(VAR_STORE).pendingBillRecord.nextDueDate];
+    }
+
+    // Appearance for buttons
+    [self.currencyButton setTitle:[VAR_STORE currencySymbol] forState:UIControlStateNormal];
+    [self setDueDate:self.datePicker.date];
+
+    [self datePickerWheelChanged];
+    [self formatDueDateButton:self.datePickerDateString];
+
     // Appearance for date picker/wrapper
     [self.datePicker addTarget:self action:@selector(datePickerWheelChanged) forControlEvents:UIControlEventValueChanged];
     [self.datePicker setMinimumDate:[NSDate date]];
@@ -320,7 +331,7 @@
     return nil;
 }
 
-// When characters entered 
+// Used to modify amountText field formatting when different characters are entered
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     // Handling amountText field

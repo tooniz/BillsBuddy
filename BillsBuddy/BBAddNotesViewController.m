@@ -37,6 +37,11 @@
     self.record = (VAR_STORE).pendingBillRecord;
     self.notesTextView.text = self.record.notes;
     self.notesPlaceHolder.hidden = ([self.notesTextView.text length]>0);
+
+    if ((VAR_STORE).addViewIsAddMode == YES)
+        [self.navigationItem setTitle:@"Add notes"];
+    else
+        [self.navigationItem setTitle:@"Edit notes"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

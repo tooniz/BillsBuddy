@@ -126,13 +126,14 @@
             [VAR_STORE centerViewType] == CV_OVERDUE) {
             [leftUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE checkIconColor]
                                                         icon:[UIImage imageNamed:@"check.png"]];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE clockIconColor]
-                                                        icon:[UIImage imageNamed:@"clock.png"]];
+//TODO: individual calendar for each bill
+//            [leftUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE clockIconColor]
+//                                                        icon:[UIImage imageNamed:@"clock.png"]];
             [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE crossIconColor]
                                                         title:@"Delete"];
         }
 //        [rightUtilityButtons sw_addUtilityButtonWithColor:[VAR_STORE sideTintColor]
- //                                                   title:@"More"];
+//                                                    title:@"More"];
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier
                                   containingTableView:tableView // For row height and selection
@@ -245,6 +246,20 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if ((VAR_STORE).centerViewType == CV_UPCOMING ||
+        (VAR_STORE).centerViewType == CV_ALLDUE) {
+        // Item retrieval
+        BillRecord *record = [self.tableRecordsArray objectAtIndex:indexPath.row];
+        (VAR_STORE).addViewIsAddMode = NO;
+        (VAR_STORE).pendingBillRecord = record;
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addBillNavController"];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     DLog(@"scrollViewWillBeginDragging called")
     UITableView *tableView = (UITableView *)scrollView;
@@ -337,6 +352,7 @@
 #pragma mark - Interaction Methods
 
 - (IBAction)didTapAdd:(id)sender {
+    (VAR_STORE).addViewIsAddMode = YES;
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addBillNavController"];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -358,6 +374,11 @@
         case CV_UPCOMING: {
             [self.navigationItem setTitle:@"BillsBuddy"];
             self.totalCount = [VAR_STORE upcomingCount];
+            break;
+        }
+        case CV_ALLDUE: {
+            [self.navigationItem setTitle:@"All due bills"];
+            self.totalCount = [VAR_STORE allDueCount];
             break;
         }
         case CV_PAID:
@@ -425,6 +446,7 @@
     for (BillRecord *record in self.tableRecordsArray) {
         NSDecimalNumber *multiplier = [[NSDecimalNumber alloc] initWithInteger:
         [VAR_STORE centerViewType] == CV_UPCOMING ? 1 :
+        [VAR_STORE centerViewType] == CV_ALLDUE ? 1 :
         [VAR_STORE centerViewType] == CV_PAID ? record.paidBills.count :
         [VAR_STORE centerViewType] == CV_OVERDUE ? record.overdueBills.count : 0 ];
         NSDecimalNumber *product = [[NSDecimalNumber alloc] initWithDecimal:[record.amount decimalNumberByMultiplyingBy:multiplier].decimalValue];

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
 		FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB51848352F00E20B83 /* BillDate.m */; };
+		FD18815018EAA00500A63AA6 /* files@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD18814F18EAA00500A63AA6 /* files@2x.png */; };
 		FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD2EDA491897A46700613A99 /* allclear@2x.png */; };
 		FD2F822D18B8A59600DDA517 /* BBSetCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */; };
 		FD54BDFE18B96BDD00788BC1 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54BDFD18B96BDD00788BC1 /* BillRecord.m */; };
@@ -77,6 +78,7 @@
 		D4B2FCC1BD1548E5AF75A294 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0BCAB41848352F00E20B83 /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
 		FD0BCAB51848352F00E20B83 /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
+		FD18814F18EAA00500A63AA6 /* files@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "files@2x.png"; sourceTree = "<group>"; };
 		FD2EDA491897A46700613A99 /* allclear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allclear@2x.png"; sourceTree = "<group>"; };
 		FD2F822B18B8A59600DDA517 /* BBSetCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSetCategoryViewController.h; sourceTree = "<group>"; };
 		FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSetCategoryViewController.m; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 		FD737DDE1842AB5E00A8DBA0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD18814F18EAA00500A63AA6 /* files@2x.png */,
 				FD8EEA9618445849001B331B /* check@2x.png */,
 				FD8EEA9718445849001B331B /* clock@2x.png */,
 				FD8EEA9818445849001B331B /* cross@2x.png */,
@@ -451,6 +454,7 @@
 				FD5595291835F5BD00B4D789 /* Main_iPad.storyboard in Resources */,
 				FD737DE11842AF5100A8DBA0 /* Quando-Regular.ttf in Resources */,
 				FD55952E1835F5BD00B4D789 /* Images.xcassets in Resources */,
+				FD18815018EAA00500A63AA6 /* files@2x.png in Resources */,
 				FD5595261835F5BD00B4D789 /* Main_iPhone.storyboard in Resources */,
 				FD8EEA9C18445849001B331B /* cross@2x.png in Resources */,
 				FD55951D1835F5BD00B4D789 /* InfoPlist.strings in Resources */,

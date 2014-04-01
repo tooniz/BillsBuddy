@@ -19,6 +19,7 @@ EQP_FIELD_INT(numberOfRowsInLeftTable, 0)
 
 EQP_FIELD_INT(refetchNeeded, YES)
 EQP_FIELD_ENUM(centerViewType, CV_UPCOMING)
+EQP_FIELD_INT(addViewIsAddMode, YES)
 EQP_FIELD_OBJECT(pendingBillRecord, [BillRecord disconnectedEntity])
 
 //EQP_FIELD_OBJECT(navBarTintColor, UIColorFromRGB(247, 247, 247))

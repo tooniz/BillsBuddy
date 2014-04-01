@@ -27,6 +27,7 @@
 // app properties
 @property (nonatomic) BOOL refetchNeeded;
 @property (nonatomic) CenterViewType_E centerViewType;
+@property (nonatomic) BOOL addViewIsAddMode;
 @property (nonatomic, strong) BillRecord *pendingBillRecord;
 
 // app ui properties
