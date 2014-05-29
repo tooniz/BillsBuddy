@@ -24,3 +24,14 @@ Kay features: Scheduled bills, Recurring reminders, Bill categories, Notes keepi
 
 - Brought to you with love by Equippd Software -
 Connect with us and give us feedback!
+
+<img style="cursor: -webkit-zoom-in;" src="https://raw.githubusercontent.com/tooniz/BillsBuddy/master/Screenshots/4%20retina/iOS%20Simulator%20Screen%20shot%20Feb%2022,%202014,%203.10.56%20PM.png" width="260" height="462"> 
+
+<img style="cursor: -webkit-zoom-in;" src="https://raw.githubusercontent.com/tooniz/BillsBuddy/master/Screenshots/4%20retina/iOS%20Simulator%20Screen%20shot%20Feb%2022,%202014,%203.08.21%20PM.png" width="260" height="462">
+
+<img style="cursor: -webkit-zoom-in;" src="https://raw.githubusercontent.com/tooniz/BillsBuddy/master/Screenshots/4%20retina/iOS%20Simulator%20Screen%20shot%20Feb%2022,%202014,%203.11.15%20PM.png" width="260" height="462">
+
+<img style="cursor: -webkit-zoom-in;" src="https://raw.githubusercontent.com/tooniz/BillsBuddy/master/Screenshots/4%20retina/iOS%20Simulator%20Screen%20shot%20Feb%2022,%202014,%203.12.05%20PM.png" width="260" height="462">
+
+<img style="cursor: -webkit-zoom-in;" src="https://raw.githubusercontent.com/tooniz/BillsBuddy/master/Screenshots/4%20retina/iOS%20Simulator%20Screen%20shot%20Feb%2021,%202014,%2011.50.07%20PM.png" width="260" height="462">
+
