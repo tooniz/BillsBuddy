@@ -14,5 +14,7 @@
 	<integer>8</integer>
 	<key>notificationDays</key>
 	<integer>0</integer>
+	<key>currencyCode</key>
+	<string>$</string>
 </dict>
 </plist>

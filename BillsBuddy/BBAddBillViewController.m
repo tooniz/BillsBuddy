@@ -80,6 +80,7 @@
 
     // Appearance for buttons
     [self.currencyButton setTitle:[VAR_STORE currencySymbol] forState:UIControlStateNormal];
+    [self.currencyButton sizeToFit];
     [self setDueDate:self.datePicker.date];
 
     [self datePickerWheelChanged];

@@ -1,0 +1,1364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Afghanistan</key>
+	<array>
+		<string>Afghanistan</string>
+		<string>؋</string>
+		<string>AFN</string>
+		<string>Afghanistan: ؋ (AFN)</string>
+	</array>
+	<key>Albania</key>
+	<array>
+		<string>Albania</string>
+		<string>Lek</string>
+		<string>ALL</string>
+		<string>Albania: Lek (ALL)</string>
+	</array>
+	<key>Algeria</key>
+	<array>
+		<string>Algeria</string>
+		<string>د.ج.‏</string>
+		<string>DZD</string>
+		<string>Algeria: د.ج.‏ (DZD)</string>
+	</array>
+	<key>American Samoa</key>
+	<array>
+		<string>American Samoa</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>American Samoa: $ (USD)</string>
+	</array>
+	<key>Angola</key>
+	<array>
+		<string>Angola</string>
+		<string>Kz</string>
+		<string>AOA</string>
+		<string>Angola: Kz (AOA)</string>
+	</array>
+	<key>Argentina</key>
+	<array>
+		<string>Argentina</string>
+		<string>$</string>
+		<string>ARS</string>
+		<string>Argentina: $ (ARS)</string>
+	</array>
+	<key>Armenia</key>
+	<array>
+		<string>Armenia</string>
+		<string>դր.</string>
+		<string>AMD</string>
+		<string>Armenia: դր. (AMD)</string>
+	</array>
+	<key>Aruba</key>
+	<array>
+		<string>Aruba</string>
+		<string>Afl.</string>
+		<string>AWG</string>
+		<string>Aruba: Afl. (AWG)</string>
+	</array>
+	<key>Australia</key>
+	<array>
+		<string>Australia</string>
+		<string>$</string>
+		<string>AUD</string>
+		<string>Australia: $ (AUD)</string>
+	</array>
+	<key>Austria</key>
+	<array>
+		<string>Austria</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Austria: € (EUR)</string>
+	</array>
+	<key>Azerbaijan</key>
+	<array>
+		<string>Azerbaijan</string>
+		<string>man.</string>
+		<string>AZN</string>
+		<string>Azerbaijan: man. (AZN)</string>
+	</array>
+	<key>Bahamas</key>
+	<array>
+		<string>Bahamas</string>
+		<string>BSD</string>
+		<string>BSD</string>
+		<string>Bahamas: BSD (BSD)</string>
+	</array>
+	<key>Bahrain</key>
+	<array>
+		<string>Bahrain</string>
+		<string>د.ب.‏</string>
+		<string>BHD</string>
+		<string>Bahrain: د.ب.‏ (BHD)</string>
+	</array>
+	<key>Bangladesh</key>
+	<array>
+		<string>Bangladesh</string>
+		<string>৳</string>
+		<string>BDT</string>
+		<string>Bangladesh: ৳ (BDT)</string>
+	</array>
+	<key>Barbados</key>
+	<array>
+		<string>Barbados</string>
+		<string>$</string>
+		<string>BBD</string>
+		<string>Barbados: $ (BBD)</string>
+	</array>
+	<key>Belarus</key>
+	<array>
+		<string>Belarus</string>
+		<string>BYR</string>
+		<string>BYR</string>
+		<string>Belarus: BYR (BYR)</string>
+	</array>
+	<key>Belgium</key>
+	<array>
+		<string>Belgium</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Belgium: € (EUR)</string>
+	</array>
+	<key>Belize</key>
+	<array>
+		<string>Belize</string>
+		<string>$</string>
+		<string>BZD</string>
+		<string>Belize: $ (BZD)</string>
+	</array>
+	<key>Benin</key>
+	<array>
+		<string>Benin</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Benin: CFA (XOF)</string>
+	</array>
+	<key>Bermuda</key>
+	<array>
+		<string>Bermuda</string>
+		<string>$</string>
+		<string>BMD</string>
+		<string>Bermuda: $ (BMD)</string>
+	</array>
+	<key>Bhutan</key>
+	<array>
+		<string>Bhutan</string>
+		<string>Nu.</string>
+		<string>BTN</string>
+		<string>Bhutan: Nu. (BTN)</string>
+	</array>
+	<key>Bolivia</key>
+	<array>
+		<string>Bolivia</string>
+		<string>Bs</string>
+		<string>BOB</string>
+		<string>Bolivia: Bs (BOB)</string>
+	</array>
+	<key>Bosnia and Herzegovina</key>
+	<array>
+		<string>Bosnia and Herzegovina</string>
+		<string>KM</string>
+		<string>BAM</string>
+		<string>Bosnia and Herzegovina: KM (BAM)</string>
+	</array>
+	<key>Botswana</key>
+	<array>
+		<string>Botswana</string>
+		<string>P</string>
+		<string>BWP</string>
+		<string>Botswana: P (BWP)</string>
+	</array>
+	<key>Brazil</key>
+	<array>
+		<string>Brazil</string>
+		<string>R$</string>
+		<string>BRL</string>
+		<string>Brazil: R$ (BRL)</string>
+	</array>
+	<key>Brunei</key>
+	<array>
+		<string>Brunei</string>
+		<string>$</string>
+		<string>BND</string>
+		<string>Brunei: $ (BND)</string>
+	</array>
+	<key>Bulgaria</key>
+	<array>
+		<string>Bulgaria</string>
+		<string>лв.</string>
+		<string>BGN</string>
+		<string>Bulgaria: лв. (BGN)</string>
+	</array>
+	<key>Burkina Faso</key>
+	<array>
+		<string>Burkina Faso</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Burkina Faso: CFA (XOF)</string>
+	</array>
+	<key>Burundi</key>
+	<array>
+		<string>Burundi</string>
+		<string>FBu</string>
+		<string>BIF</string>
+		<string>Burundi: FBu (BIF)</string>
+	</array>
+	<key>Cambodia</key>
+	<array>
+		<string>Cambodia</string>
+		<string>៛</string>
+		<string>KHR</string>
+		<string>Cambodia: ៛ (KHR)</string>
+	</array>
+	<key>Cameroon</key>
+	<array>
+		<string>Cameroon</string>
+		<string>FCFA</string>
+		<string>XAF</string>
+		<string>Cameroon: FCFA (XAF)</string>
+	</array>
+	<key>Canada</key>
+	<array>
+		<string>Canada</string>
+		<string>$</string>
+		<string>CAD</string>
+		<string>Canada: $ (CAD)</string>
+	</array>
+	<key>Cape Verde</key>
+	<array>
+		<string>Cape Verde</string>
+		<string>CVE</string>
+		<string>CVE</string>
+		<string>Cape Verde: CVE (CVE)</string>
+	</array>
+	<key>Central African Republic</key>
+	<array>
+		<string>Central African Republic</string>
+		<string>FCFA</string>
+		<string>XAF</string>
+		<string>Central African Republic: FCFA (XAF)</string>
+	</array>
+	<key>Chad</key>
+	<array>
+		<string>Chad</string>
+		<string>FCFA</string>
+		<string>XAF</string>
+		<string>Chad: FCFA (XAF)</string>
+	</array>
+	<key>Chile</key>
+	<array>
+		<string>Chile</string>
+		<string>$</string>
+		<string>CLP</string>
+		<string>Chile: $ (CLP)</string>
+	</array>
+	<key>China</key>
+	<array>
+		<string>China</string>
+		<string>￥</string>
+		<string>CNY</string>
+		<string>China: ￥ (CNY)</string>
+	</array>
+	<key>Colombia</key>
+	<array>
+		<string>Colombia</string>
+		<string>$</string>
+		<string>COP</string>
+		<string>Colombia: $ (COP)</string>
+	</array>
+	<key>Comoros</key>
+	<array>
+		<string>Comoros</string>
+		<string>CF</string>
+		<string>KMF</string>
+		<string>Comoros: CF (KMF)</string>
+	</array>
+	<key>Congo - Brazzaville</key>
+	<array>
+		<string>Congo - Brazzaville</string>
+		<string>FCFA</string>
+		<string>XAF</string>
+		<string>Congo - Brazzaville: FCFA (XAF)</string>
+	</array>
+	<key>Congo - Kinshasa</key>
+	<array>
+		<string>Congo - Kinshasa</string>
+		<string>CDF</string>
+		<string>CDF</string>
+		<string>Congo - Kinshasa: CDF (CDF)</string>
+	</array>
+	<key>Costa Rica</key>
+	<array>
+		<string>Costa Rica</string>
+		<string>₡</string>
+		<string>CRC</string>
+		<string>Costa Rica: ₡ (CRC)</string>
+	</array>
+	<key>Croatia</key>
+	<array>
+		<string>Croatia</string>
+		<string>kn</string>
+		<string>HRK</string>
+		<string>Croatia: kn (HRK)</string>
+	</array>
+	<key>Cyprus</key>
+	<array>
+		<string>Cyprus</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Cyprus: € (EUR)</string>
+	</array>
+	<key>Czech Republic</key>
+	<array>
+		<string>Czech Republic</string>
+		<string>Kč</string>
+		<string>CZK</string>
+		<string>Czech Republic: Kč (CZK)</string>
+	</array>
+	<key>Côte d’Ivoire</key>
+	<array>
+		<string>Côte d’Ivoire</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Côte d’Ivoire: CFA (XOF)</string>
+	</array>
+	<key>Denmark</key>
+	<array>
+		<string>Denmark</string>
+		<string>kr</string>
+		<string>DKK</string>
+		<string>Denmark: kr (DKK)</string>
+	</array>
+	<key>Djibouti</key>
+	<array>
+		<string>Djibouti</string>
+		<string>Fdj</string>
+		<string>DJF</string>
+		<string>Djibouti: Fdj (DJF)</string>
+	</array>
+	<key>Dominican Republic</key>
+	<array>
+		<string>Dominican Republic</string>
+		<string>$</string>
+		<string>DOP</string>
+		<string>Dominican Republic: $ (DOP)</string>
+	</array>
+	<key>Ecuador</key>
+	<array>
+		<string>Ecuador</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Ecuador: $ (USD)</string>
+	</array>
+	<key>Egypt</key>
+	<array>
+		<string>Egypt</string>
+		<string>ج.م.‏</string>
+		<string>EGP</string>
+		<string>Egypt: ج.م.‏ (EGP)</string>
+	</array>
+	<key>El Salvador</key>
+	<array>
+		<string>El Salvador</string>
+		<string>US$</string>
+		<string>USD</string>
+		<string>El Salvador: US$ (USD)</string>
+	</array>
+	<key>Equatorial Guinea</key>
+	<array>
+		<string>Equatorial Guinea</string>
+		<string>FCFA</string>
+		<string>XAF</string>
+		<string>Equatorial Guinea: FCFA (XAF)</string>
+	</array>
+	<key>Eritrea</key>
+	<array>
+		<string>Eritrea</string>
+		<string>Nfk</string>
+		<string>ERN</string>
+		<string>Eritrea: Nfk (ERN)</string>
+	</array>
+	<key>Estonia</key>
+	<array>
+		<string>Estonia</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Estonia: € (EUR)</string>
+	</array>
+	<key>Ethiopia</key>
+	<array>
+		<string>Ethiopia</string>
+		<string>Br</string>
+		<string>ETB</string>
+		<string>Ethiopia: Br (ETB)</string>
+	</array>
+	<key>Faroe Islands</key>
+	<array>
+		<string>Faroe Islands</string>
+		<string>kr</string>
+		<string>DKK</string>
+		<string>Faroe Islands: kr (DKK)</string>
+	</array>
+	<key>Fiji</key>
+	<array>
+		<string>Fiji</string>
+		<string>FJD</string>
+		<string>FJD</string>
+		<string>Fiji: FJD (FJD)</string>
+	</array>
+	<key>Finland</key>
+	<array>
+		<string>Finland</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Finland: € (EUR)</string>
+	</array>
+	<key>France</key>
+	<array>
+		<string>France</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>France: € (EUR)</string>
+	</array>
+	<key>French Guiana</key>
+	<array>
+		<string>French Guiana</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>French Guiana: € (EUR)</string>
+	</array>
+	<key>Gabon</key>
+	<array>
+		<string>Gabon</string>
+		<string>FCFA</string>
+		<string>XAF</string>
+		<string>Gabon: FCFA (XAF)</string>
+	</array>
+	<key>Gambia</key>
+	<array>
+		<string>Gambia</string>
+		<string>GMD</string>
+		<string>GMD</string>
+		<string>Gambia: GMD (GMD)</string>
+	</array>
+	<key>Georgia</key>
+	<array>
+		<string>Georgia</string>
+		<string>GEL</string>
+		<string>GEL</string>
+		<string>Georgia: GEL (GEL)</string>
+	</array>
+	<key>Germany</key>
+	<array>
+		<string>Germany</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Germany: € (EUR)</string>
+	</array>
+	<key>Ghana</key>
+	<array>
+		<string>Ghana</string>
+		<string>GH₵</string>
+		<string>GHS</string>
+		<string>Ghana: GH₵ (GHS)</string>
+	</array>
+	<key>Greece</key>
+	<array>
+		<string>Greece</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Greece: € (EUR)</string>
+	</array>
+	<key>Greenland</key>
+	<array>
+		<string>Greenland</string>
+		<string>kr</string>
+		<string>DKK</string>
+		<string>Greenland: kr (DKK)</string>
+	</array>
+	<key>Guadeloupe</key>
+	<array>
+		<string>Guadeloupe</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Guadeloupe: € (EUR)</string>
+	</array>
+	<key>Guam</key>
+	<array>
+		<string>Guam</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Guam: $ (USD)</string>
+	</array>
+	<key>Guatemala</key>
+	<array>
+		<string>Guatemala</string>
+		<string>Q</string>
+		<string>GTQ</string>
+		<string>Guatemala: Q (GTQ)</string>
+	</array>
+	<key>Guinea</key>
+	<array>
+		<string>Guinea</string>
+		<string>FG</string>
+		<string>GNF</string>
+		<string>Guinea: FG (GNF)</string>
+	</array>
+	<key>Guinea-Bissau</key>
+	<array>
+		<string>Guinea-Bissau</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Guinea-Bissau: CFA (XOF)</string>
+	</array>
+	<key>Guyana</key>
+	<array>
+		<string>Guyana</string>
+		<string>GYD</string>
+		<string>GYD</string>
+		<string>Guyana: GYD (GYD)</string>
+	</array>
+	<key>Honduras</key>
+	<array>
+		<string>Honduras</string>
+		<string>L</string>
+		<string>HNL</string>
+		<string>Honduras: L (HNL)</string>
+	</array>
+	<key>Hong Kong SAR China</key>
+	<array>
+		<string>Hong Kong SAR China</string>
+		<string>$</string>
+		<string>HKD</string>
+		<string>Hong Kong SAR China: $ (HKD)</string>
+	</array>
+	<key>Hungary</key>
+	<array>
+		<string>Hungary</string>
+		<string>Ft</string>
+		<string>HUF</string>
+		<string>Hungary: Ft (HUF)</string>
+	</array>
+	<key>Iceland</key>
+	<array>
+		<string>Iceland</string>
+		<string>kr</string>
+		<string>ISK</string>
+		<string>Iceland: kr (ISK)</string>
+	</array>
+	<key>India</key>
+	<array>
+		<string>India</string>
+		<string>₹</string>
+		<string>INR</string>
+		<string>India: ₹ (INR)</string>
+	</array>
+	<key>Indonesia</key>
+	<array>
+		<string>Indonesia</string>
+		<string>Rp</string>
+		<string>IDR</string>
+		<string>Indonesia: Rp (IDR)</string>
+	</array>
+	<key>Iran</key>
+	<array>
+		<string>Iran</string>
+		<string>﷼</string>
+		<string>IRR</string>
+		<string>Iran: ﷼ (IRR)</string>
+	</array>
+	<key>Iraq</key>
+	<array>
+		<string>Iraq</string>
+		<string>د.ع.‏</string>
+		<string>IQD</string>
+		<string>Iraq: د.ع.‏ (IQD)</string>
+	</array>
+	<key>Ireland</key>
+	<array>
+		<string>Ireland</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Ireland: € (EUR)</string>
+	</array>
+	<key>Israel</key>
+	<array>
+		<string>Israel</string>
+		<string>₪</string>
+		<string>ILS</string>
+		<string>Israel: ₪ (ILS)</string>
+	</array>
+	<key>Italy</key>
+	<array>
+		<string>Italy</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Italy: € (EUR)</string>
+	</array>
+	<key>Jamaica</key>
+	<array>
+		<string>Jamaica</string>
+		<string>$</string>
+		<string>JMD</string>
+		<string>Jamaica: $ (JMD)</string>
+	</array>
+	<key>Japan</key>
+	<array>
+		<string>Japan</string>
+		<string>￥</string>
+		<string>JPY</string>
+		<string>Japan: ￥ (JPY)</string>
+	</array>
+	<key>Jordan</key>
+	<array>
+		<string>Jordan</string>
+		<string>د.أ.‏</string>
+		<string>JOD</string>
+		<string>Jordan: د.أ.‏ (JOD)</string>
+	</array>
+	<key>Kazakhstan</key>
+	<array>
+		<string>Kazakhstan</string>
+		<string>KZT</string>
+		<string>KZT</string>
+		<string>Kazakhstan: KZT (KZT)</string>
+	</array>
+	<key>Kenya</key>
+	<array>
+		<string>Kenya</string>
+		<string>Ksh</string>
+		<string>KES</string>
+		<string>Kenya: Ksh (KES)</string>
+	</array>
+	<key>Kuwait</key>
+	<array>
+		<string>Kuwait</string>
+		<string>د.ك.‏</string>
+		<string>KWD</string>
+		<string>Kuwait: د.ك.‏ (KWD)</string>
+	</array>
+	<key>Kyrgyzstan</key>
+	<array>
+		<string>Kyrgyzstan</string>
+		<string>сом</string>
+		<string>KGS</string>
+		<string>Kyrgyzstan: сом (KGS)</string>
+	</array>
+	<key>Laos</key>
+	<array>
+		<string>Laos</string>
+		<string>₭</string>
+		<string>LAK</string>
+		<string>Laos: ₭ (LAK)</string>
+	</array>
+	<key>Latvia</key>
+	<array>
+		<string>Latvia</string>
+		<string>Ls</string>
+		<string>LVL</string>
+		<string>Latvia: Ls (LVL)</string>
+	</array>
+	<key>Lebanon</key>
+	<array>
+		<string>Lebanon</string>
+		<string>ل.ل.‏</string>
+		<string>LBP</string>
+		<string>Lebanon: ل.ل.‏ (LBP)</string>
+	</array>
+	<key>Liberia</key>
+	<array>
+		<string>Liberia</string>
+		<string>$</string>
+		<string>LRD</string>
+		<string>Liberia: $ (LRD)</string>
+	</array>
+	<key>Libya</key>
+	<array>
+		<string>Libya</string>
+		<string>د.ل.‏</string>
+		<string>LYD</string>
+		<string>Libya: د.ل.‏ (LYD)</string>
+	</array>
+	<key>Liechtenstein</key>
+	<array>
+		<string>Liechtenstein</string>
+		<string>CHF</string>
+		<string>CHF</string>
+		<string>Liechtenstein: CHF (CHF)</string>
+	</array>
+	<key>Lithuania</key>
+	<array>
+		<string>Lithuania</string>
+		<string>Lt</string>
+		<string>LTL</string>
+		<string>Lithuania: Lt (LTL)</string>
+	</array>
+	<key>Luxembourg</key>
+	<array>
+		<string>Luxembourg</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Luxembourg: € (EUR)</string>
+	</array>
+	<key>Macau SAR China</key>
+	<array>
+		<string>Macau SAR China</string>
+		<string>MOP</string>
+		<string>MOP</string>
+		<string>Macau SAR China: MOP (MOP)</string>
+	</array>
+	<key>Macedonia</key>
+	<array>
+		<string>Macedonia</string>
+		<string>MKD</string>
+		<string>MKD</string>
+		<string>Macedonia: MKD (MKD)</string>
+	</array>
+	<key>Madagascar</key>
+	<array>
+		<string>Madagascar</string>
+		<string>MGA</string>
+		<string>MGA</string>
+		<string>Madagascar: MGA (MGA)</string>
+	</array>
+	<key>Malawi</key>
+	<array>
+		<string>Malawi</string>
+		<string>MWK</string>
+		<string>MWK</string>
+		<string>Malawi: MWK (MWK)</string>
+	</array>
+	<key>Malaysia</key>
+	<array>
+		<string>Malaysia</string>
+		<string>RM</string>
+		<string>MYR</string>
+		<string>Malaysia: RM (MYR)</string>
+	</array>
+	<key>Mali</key>
+	<array>
+		<string>Mali</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Mali: CFA (XOF)</string>
+	</array>
+	<key>Malta</key>
+	<array>
+		<string>Malta</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Malta: € (EUR)</string>
+	</array>
+	<key>Marshall Islands</key>
+	<array>
+		<string>Marshall Islands</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Marshall Islands: $ (USD)</string>
+	</array>
+	<key>Martinique</key>
+	<array>
+		<string>Martinique</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Martinique: € (EUR)</string>
+	</array>
+	<key>Mauritania</key>
+	<array>
+		<string>Mauritania</string>
+		<string>MRO</string>
+		<string>MRO</string>
+		<string>Mauritania: MRO (MRO)</string>
+	</array>
+	<key>Mauritius</key>
+	<array>
+		<string>Mauritius</string>
+		<string>MUR</string>
+		<string>MUR</string>
+		<string>Mauritius: MUR (MUR)</string>
+	</array>
+	<key>Mayotte</key>
+	<array>
+		<string>Mayotte</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Mayotte: € (EUR)</string>
+	</array>
+	<key>Mexico</key>
+	<array>
+		<string>Mexico</string>
+		<string>$</string>
+		<string>MXN</string>
+		<string>Mexico: $ (MXN)</string>
+	</array>
+	<key>Micronesia</key>
+	<array>
+		<string>Micronesia</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Micronesia: $ (USD)</string>
+	</array>
+	<key>Moldova</key>
+	<array>
+		<string>Moldova</string>
+		<string>MDL</string>
+		<string>MDL</string>
+		<string>Moldova: MDL (MDL)</string>
+	</array>
+	<key>Monaco</key>
+	<array>
+		<string>Monaco</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Monaco: € (EUR)</string>
+	</array>
+	<key>Mongolia</key>
+	<array>
+		<string>Mongolia</string>
+		<string>₮</string>
+		<string>MNT</string>
+		<string>Mongolia: ₮ (MNT)</string>
+	</array>
+	<key>Montenegro</key>
+	<array>
+		<string>Montenegro</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Montenegro: € (EUR)</string>
+	</array>
+	<key>Morocco</key>
+	<array>
+		<string>Morocco</string>
+		<string>MAD</string>
+		<string>MAD</string>
+		<string>Morocco: MAD (MAD)</string>
+	</array>
+	<key>Mozambique</key>
+	<array>
+		<string>Mozambique</string>
+		<string>MTn</string>
+		<string>MZN</string>
+		<string>Mozambique: MTn (MZN)</string>
+	</array>
+	<key>Myanmar [Burma]</key>
+	<array>
+		<string>Myanmar [Burma]</string>
+		<string>K</string>
+		<string>MMK</string>
+		<string>Myanmar [Burma]: K (MMK)</string>
+	</array>
+	<key>Namibia</key>
+	<array>
+		<string>Namibia</string>
+		<string>$</string>
+		<string>NAD</string>
+		<string>Namibia: $ (NAD)</string>
+	</array>
+	<key>Nepal</key>
+	<array>
+		<string>Nepal</string>
+		<string>नेरू</string>
+		<string>NPR</string>
+		<string>Nepal: नेरू (NPR)</string>
+	</array>
+	<key>Netherlands</key>
+	<array>
+		<string>Netherlands</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Netherlands: € (EUR)</string>
+	</array>
+	<key>New Zealand</key>
+	<array>
+		<string>New Zealand</string>
+		<string>$</string>
+		<string>NZD</string>
+		<string>New Zealand: $ (NZD)</string>
+	</array>
+	<key>Nicaragua</key>
+	<array>
+		<string>Nicaragua</string>
+		<string>C$</string>
+		<string>NIO</string>
+		<string>Nicaragua: C$ (NIO)</string>
+	</array>
+	<key>Niger</key>
+	<array>
+		<string>Niger</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Niger: CFA (XOF)</string>
+	</array>
+	<key>Nigeria</key>
+	<array>
+		<string>Nigeria</string>
+		<string>₦</string>
+		<string>NGN</string>
+		<string>Nigeria: ₦ (NGN)</string>
+	</array>
+	<key>Northern Mariana Islands</key>
+	<array>
+		<string>Northern Mariana Islands</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Northern Mariana Islands: $ (USD)</string>
+	</array>
+	<key>Norway</key>
+	<array>
+		<string>Norway</string>
+		<string>kr</string>
+		<string>NOK</string>
+		<string>Norway: kr (NOK)</string>
+	</array>
+	<key>Oman</key>
+	<array>
+		<string>Oman</string>
+		<string>ر.ع.‏</string>
+		<string>OMR</string>
+		<string>Oman: ر.ع.‏ (OMR)</string>
+	</array>
+	<key>Pakistan</key>
+	<array>
+		<string>Pakistan</string>
+		<string>₨</string>
+		<string>PKR</string>
+		<string>Pakistan: ₨ (PKR)</string>
+	</array>
+	<key>Palau</key>
+	<array>
+		<string>Palau</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Palau: $ (USD)</string>
+	</array>
+	<key>Palestinian Territories</key>
+	<array>
+		<string>Palestinian Territories</string>
+		<string>د.أ.‏</string>
+		<string>JOD</string>
+		<string>Palestinian Territories: د.أ.‏ (JOD)</string>
+	</array>
+	<key>Panama</key>
+	<array>
+		<string>Panama</string>
+		<string>B/.</string>
+		<string>PAB</string>
+		<string>Panama: B/. (PAB)</string>
+	</array>
+	<key>Papua New Guinea</key>
+	<array>
+		<string>Papua New Guinea</string>
+		<string>PGK</string>
+		<string>PGK</string>
+		<string>Papua New Guinea: PGK (PGK)</string>
+	</array>
+	<key>Paraguay</key>
+	<array>
+		<string>Paraguay</string>
+		<string>₲</string>
+		<string>PYG</string>
+		<string>Paraguay: ₲ (PYG)</string>
+	</array>
+	<key>Peru</key>
+	<array>
+		<string>Peru</string>
+		<string>S/.</string>
+		<string>PEN</string>
+		<string>Peru: S/. (PEN)</string>
+	</array>
+	<key>Philippines</key>
+	<array>
+		<string>Philippines</string>
+		<string>₱</string>
+		<string>PHP</string>
+		<string>Philippines: ₱ (PHP)</string>
+	</array>
+	<key>Poland</key>
+	<array>
+		<string>Poland</string>
+		<string>zł</string>
+		<string>PLN</string>
+		<string>Poland: zł (PLN)</string>
+	</array>
+	<key>Portugal</key>
+	<array>
+		<string>Portugal</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Portugal: € (EUR)</string>
+	</array>
+	<key>Puerto Rico</key>
+	<array>
+		<string>Puerto Rico</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Puerto Rico: $ (USD)</string>
+	</array>
+	<key>Qatar</key>
+	<array>
+		<string>Qatar</string>
+		<string>ر.ق.‏</string>
+		<string>QAR</string>
+		<string>Qatar: ر.ق.‏ (QAR)</string>
+	</array>
+	<key>Romania</key>
+	<array>
+		<string>Romania</string>
+		<string>RON</string>
+		<string>RON</string>
+		<string>Romania: RON (RON)</string>
+	</array>
+	<key>Russia</key>
+	<array>
+		<string>Russia</string>
+		<string>руб.</string>
+		<string>RUB</string>
+		<string>Russia: руб. (RUB)</string>
+	</array>
+	<key>Rwanda</key>
+	<array>
+		<string>Rwanda</string>
+		<string>FR</string>
+		<string>RWF</string>
+		<string>Rwanda: FR (RWF)</string>
+	</array>
+	<key>Réunion</key>
+	<array>
+		<string>Réunion</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Réunion: € (EUR)</string>
+	</array>
+	<key>Saint Barthélemy</key>
+	<array>
+		<string>Saint Barthélemy</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Saint Barthélemy: € (EUR)</string>
+	</array>
+	<key>Saint Martin</key>
+	<array>
+		<string>Saint Martin</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Saint Martin: € (EUR)</string>
+	</array>
+	<key>Saudi Arabia</key>
+	<array>
+		<string>Saudi Arabia</string>
+		<string>ر.س.‏</string>
+		<string>SAR</string>
+		<string>Saudi Arabia: ر.س.‏ (SAR)</string>
+	</array>
+	<key>Senegal</key>
+	<array>
+		<string>Senegal</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Senegal: CFA (XOF)</string>
+	</array>
+	<key>Serbia</key>
+	<array>
+		<string>Serbia</string>
+		<string>дин.</string>
+		<string>RSD</string>
+		<string>Serbia: дин. (RSD)</string>
+	</array>
+	<key>Seychelles</key>
+	<array>
+		<string>Seychelles</string>
+		<string>SCR</string>
+		<string>SCR</string>
+		<string>Seychelles: SCR (SCR)</string>
+	</array>
+	<key>Sierra Leone</key>
+	<array>
+		<string>Sierra Leone</string>
+		<string>SLL</string>
+		<string>SLL</string>
+		<string>Sierra Leone: SLL (SLL)</string>
+	</array>
+	<key>Singapore</key>
+	<array>
+		<string>Singapore</string>
+		<string>$</string>
+		<string>SGD</string>
+		<string>Singapore: $ (SGD)</string>
+	</array>
+	<key>Slovakia</key>
+	<array>
+		<string>Slovakia</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Slovakia: € (EUR)</string>
+	</array>
+	<key>Slovenia</key>
+	<array>
+		<string>Slovenia</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Slovenia: € (EUR)</string>
+	</array>
+	<key>Solomon Islands</key>
+	<array>
+		<string>Solomon Islands</string>
+		<string>SBD</string>
+		<string>SBD</string>
+		<string>Solomon Islands: SBD (SBD)</string>
+	</array>
+	<key>Somalia</key>
+	<array>
+		<string>Somalia</string>
+		<string>SOS</string>
+		<string>SOS</string>
+		<string>Somalia: SOS (SOS)</string>
+	</array>
+	<key>South Africa</key>
+	<array>
+		<string>South Africa</string>
+		<string>R</string>
+		<string>ZAR</string>
+		<string>South Africa: R (ZAR)</string>
+	</array>
+	<key>South Korea</key>
+	<array>
+		<string>South Korea</string>
+		<string>₩</string>
+		<string>KRW</string>
+		<string>South Korea: ₩ (KRW)</string>
+	</array>
+	<key>Spain</key>
+	<array>
+		<string>Spain</string>
+		<string>€</string>
+		<string>EUR</string>
+		<string>Spain: € (EUR)</string>
+	</array>
+	<key>Sri Lanka</key>
+	<array>
+		<string>Sri Lanka</string>
+		<string>රු.</string>
+		<string>LKR</string>
+		<string>Sri Lanka: රු. (LKR)</string>
+	</array>
+	<key>Sudan</key>
+	<array>
+		<string>Sudan</string>
+		<string>SDG</string>
+		<string>SDG</string>
+		<string>Sudan: SDG (SDG)</string>
+	</array>
+	<key>Swaziland</key>
+	<array>
+		<string>Swaziland</string>
+		<string>SZL</string>
+		<string>SZL</string>
+		<string>Swaziland: SZL (SZL)</string>
+	</array>
+	<key>Sweden</key>
+	<array>
+		<string>Sweden</string>
+		<string>kr</string>
+		<string>SEK</string>
+		<string>Sweden: kr (SEK)</string>
+	</array>
+	<key>Switzerland</key>
+	<array>
+		<string>Switzerland</string>
+		<string>CHF</string>
+		<string>CHF</string>
+		<string>Switzerland: CHF (CHF)</string>
+	</array>
+	<key>Syria</key>
+	<array>
+		<string>Syria</string>
+		<string>ل.س.‏</string>
+		<string>SYP</string>
+		<string>Syria: ل.س.‏ (SYP)</string>
+	</array>
+	<key>São Tomé and Príncipe</key>
+	<array>
+		<string>São Tomé and Príncipe</string>
+		<string>Db</string>
+		<string>STD</string>
+		<string>São Tomé and Príncipe: Db (STD)</string>
+	</array>
+	<key>Taiwan</key>
+	<array>
+		<string>Taiwan</string>
+		<string>NT$</string>
+		<string>TWD</string>
+		<string>Taiwan: NT$ (TWD)</string>
+	</array>
+	<key>Tajikistan</key>
+	<array>
+		<string>Tajikistan</string>
+		<string>сом</string>
+		<string>TJS</string>
+		<string>Tajikistan: сом (TJS)</string>
+	</array>
+	<key>Tanzania</key>
+	<array>
+		<string>Tanzania</string>
+		<string>TSh</string>
+		<string>TZS</string>
+		<string>Tanzania: TSh (TZS)</string>
+	</array>
+	<key>Thailand</key>
+	<array>
+		<string>Thailand</string>
+		<string>฿</string>
+		<string>THB</string>
+		<string>Thailand: ฿ (THB)</string>
+	</array>
+	<key>Togo</key>
+	<array>
+		<string>Togo</string>
+		<string>CFA</string>
+		<string>XOF</string>
+		<string>Togo: CFA (XOF)</string>
+	</array>
+	<key>Tonga</key>
+	<array>
+		<string>Tonga</string>
+		<string>T$</string>
+		<string>TOP</string>
+		<string>Tonga: T$ (TOP)</string>
+	</array>
+	<key>Trinidad and Tobago</key>
+	<array>
+		<string>Trinidad and Tobago</string>
+		<string>$</string>
+		<string>TTD</string>
+		<string>Trinidad and Tobago: $ (TTD)</string>
+	</array>
+	<key>Tunisia</key>
+	<array>
+		<string>Tunisia</string>
+		<string>د.ت.‏</string>
+		<string>TND</string>
+		<string>Tunisia: د.ت.‏ (TND)</string>
+	</array>
+	<key>Turkey</key>
+	<array>
+		<string>Turkey</string>
+		<string>TL</string>
+		<string>TRY</string>
+		<string>Turkey: TL (TRY)</string>
+	</array>
+	<key>Turkmenistan</key>
+	<array>
+		<string>Turkmenistan</string>
+		<string>m.</string>
+		<string>TMT</string>
+		<string>Turkmenistan: m. (TMT)</string>
+	</array>
+	<key>U.S. Minor Outlying Islands</key>
+	<array>
+		<string>U.S. Minor Outlying Islands</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>U.S. Minor Outlying Islands: $ (USD)</string>
+	</array>
+	<key>U.S. Virgin Islands</key>
+	<array>
+		<string>U.S. Virgin Islands</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>U.S. Virgin Islands: $ (USD)</string>
+	</array>
+	<key>Uganda</key>
+	<array>
+		<string>Uganda</string>
+		<string>USh</string>
+		<string>UGX</string>
+		<string>Uganda: USh (UGX)</string>
+	</array>
+	<key>Ukraine</key>
+	<array>
+		<string>Ukraine</string>
+		<string>₴</string>
+		<string>UAH</string>
+		<string>Ukraine: ₴ (UAH)</string>
+	</array>
+	<key>United Arab Emirates</key>
+	<array>
+		<string>United Arab Emirates</string>
+		<string>د.إ.‏</string>
+		<string>AED</string>
+		<string>United Arab Emirates: د.إ.‏ (AED)</string>
+	</array>
+	<key>United Kingdom</key>
+	<array>
+		<string>United Kingdom</string>
+		<string>£</string>
+		<string>GBP</string>
+		<string>United Kingdom: £ (GBP)</string>
+	</array>
+	<key>United States</key>
+	<array>
+		<string>United States</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>United States: $ (USD)</string>
+	</array>
+	<key>Uruguay</key>
+	<array>
+		<string>Uruguay</string>
+		<string>$</string>
+		<string>UYU</string>
+		<string>Uruguay: $ (UYU)</string>
+	</array>
+	<key>Uzbekistan</key>
+	<array>
+		<string>Uzbekistan</string>
+		<string>сўм</string>
+		<string>UZS</string>
+		<string>Uzbekistan: сўм (UZS)</string>
+	</array>
+	<key>Venezuela</key>
+	<array>
+		<string>Venezuela</string>
+		<string>Bs.F.</string>
+		<string>VEF</string>
+		<string>Venezuela: Bs.F. (VEF)</string>
+	</array>
+	<key>Vietnam</key>
+	<array>
+		<string>Vietnam</string>
+		<string>₫</string>
+		<string>VND</string>
+		<string>Vietnam: ₫ (VND)</string>
+	</array>
+	<key>Western Sahara</key>
+	<array>
+		<string>Western Sahara</string>
+		<string>د.م.‏</string>
+		<string>MAD</string>
+		<string>Western Sahara: د.م.‏ (MAD)</string>
+	</array>
+	<key>Yemen</key>
+	<array>
+		<string>Yemen</string>
+		<string>ر.ي.‏</string>
+		<string>YER</string>
+		<string>Yemen: ر.ي.‏ (YER)</string>
+	</array>
+	<key>Zambia</key>
+	<array>
+		<string>Zambia</string>
+		<string>ZK</string>
+		<string>ZMK</string>
+		<string>Zambia: ZK (ZMK)</string>
+	</array>
+	<key>Zimbabwe</key>
+	<array>
+		<string>Zimbabwe</string>
+		<string>$</string>
+		<string>USD</string>
+		<string>Zimbabwe: $ (USD)</string>
+	</array>
+</dict>
+</plist>

@@ -7,6 +7,7 @@
 //
 
 #import "BBAppDelegate.h"
+#import "iRate.h"
 
 @interface BBAppDelegate ()
 
@@ -25,6 +26,9 @@
     [VAR_STORE initialize];
     // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultSettings" ofType:@"plist"]]];
+
+    (VAR_STORE).currencySymbol = [SETTINGS stringForKey:@"currencySymbol"];
+
 #ifdef DEBUG
     // FIXME CLEAR NOTIF
     //[self flushDatabase];
@@ -34,6 +38,8 @@
         DLog(@"notification found with id = %@ \n %@", notificationId, notification.description)
     }
 #endif
+    // iRate
+    //[iRate sharedInstance].previewMode = YES;
     return YES;
 }
 							

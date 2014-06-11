@@ -10,8 +10,12 @@
 		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
 		FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB51848352F00E20B83 /* BillDate.m */; };
 		FD18815018EAA00500A63AA6 /* files@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD18814F18EAA00500A63AA6 /* files@2x.png */; };
+		FD248E871935BF2D00922A18 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = FD248E861935BF2D00922A18 /* Notes */; };
 		FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD2EDA491897A46700613A99 /* allclear@2x.png */; };
 		FD2F822D18B8A59600DDA517 /* BBSetCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */; };
+		FD3847231948228700839207 /* CurrencyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3847221948228700839207 /* CurrencyList.plist */; };
+		FD384726194822B700839207 /* CurrencyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD384725194822B700839207 /* CurrencyPicker.m */; };
+		FD43851219159DFE0065062D /* BBCurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD43851119159DFE0065062D /* BBCurrencyViewController.m */; };
 		FD54BDFE18B96BDD00788BC1 /* BillRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54BDFD18B96BDD00788BC1 /* BillRecord.m */; };
 		FD5595131835F5BD00B4D789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595121835F5BD00B4D789 /* Foundation.framework */; };
 		FD5595151835F5BD00B4D789 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595141835F5BD00B4D789 /* CoreGraphics.framework */; };
@@ -40,6 +44,8 @@
 		FD737DE41843D8C000A8DBA0 /* BBAddBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD737DE31843D8C000A8DBA0 /* BBAddBillViewController.m */; };
 		FD7859C018469749006AA2C7 /* BBMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7859BF18469749006AA2C7 /* BBMethodStore.m */; };
 		FD7859C61846E2CA006AA2C7 /* BBAddRecurrenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7859C51846E2CA006AA2C7 /* BBAddRecurrenceViewController.m */; };
+		FD8B647818EAA87B00005E6D /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD8B647518EAA87B00005E6D /* iRate.bundle */; };
+		FD8B647918EAA87B00005E6D /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8B647718EAA87B00005E6D /* iRate.m */; };
 		FD8EEA9518445568001B331B /* BBLeftTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9418445568001B331B /* BBLeftTableCell.xib */; };
 		FD8EEA9A18445849001B331B /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9618445849001B331B /* check@2x.png */; };
 		FD8EEA9B18445849001B331B /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8EEA9718445849001B331B /* clock@2x.png */; };
@@ -79,9 +85,15 @@
 		FD0BCAB41848352F00E20B83 /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
 		FD0BCAB51848352F00E20B83 /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
 		FD18814F18EAA00500A63AA6 /* files@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "files@2x.png"; sourceTree = "<group>"; };
+		FD248E861935BF2D00922A18 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Notes; path = BillsBuddy/Notes; sourceTree = "<group>"; };
 		FD2EDA491897A46700613A99 /* allclear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allclear@2x.png"; sourceTree = "<group>"; };
 		FD2F822B18B8A59600DDA517 /* BBSetCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSetCategoryViewController.h; sourceTree = "<group>"; };
 		FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSetCategoryViewController.m; sourceTree = "<group>"; };
+		FD3847221948228700839207 /* CurrencyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrencyList.plist; sourceTree = "<group>"; };
+		FD384724194822B700839207 /* CurrencyPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPicker.h; sourceTree = "<group>"; };
+		FD384725194822B700839207 /* CurrencyPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPicker.m; sourceTree = "<group>"; };
+		FD43851019159DFE0065062D /* BBCurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCurrencyViewController.h; sourceTree = "<group>"; };
+		FD43851119159DFE0065062D /* BBCurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCurrencyViewController.m; sourceTree = "<group>"; };
 		FD54BDFC18B96BDD00788BC1 /* BillRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecord.h; sourceTree = "<group>"; };
 		FD54BDFD18B96BDD00788BC1 /* BillRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecord.m; sourceTree = "<group>"; };
 		FD55950F1835F5BD00B4D789 /* BillsBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +138,9 @@
 		FD7859BF18469749006AA2C7 /* BBMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMethodStore.m; sourceTree = "<group>"; };
 		FD7859C41846E2CA006AA2C7 /* BBAddRecurrenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddRecurrenceViewController.h; sourceTree = "<group>"; };
 		FD7859C51846E2CA006AA2C7 /* BBAddRecurrenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddRecurrenceViewController.m; sourceTree = "<group>"; };
+		FD8B647518EAA87B00005E6D /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = iRate.bundle; path = iRate/iRate.bundle; sourceTree = SOURCE_ROOT; };
+		FD8B647618EAA87B00005E6D /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRate.h; path = iRate/iRate.h; sourceTree = SOURCE_ROOT; };
+		FD8B647718EAA87B00005E6D /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRate.m; path = iRate/iRate.m; sourceTree = SOURCE_ROOT; };
 		FD8EEA9418445568001B331B /* BBLeftTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLeftTableCell.xib; sourceTree = "<group>"; };
 		FD8EEA9618445849001B331B /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		FD8EEA9718445849001B331B /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
@@ -197,6 +212,7 @@
 				FD5595111835F5BD00B4D789 /* Frameworks */,
 				FD5595101835F5BD00B4D789 /* Products */,
 				178D3495E5DA4CF88E1E837B /* Pods.xcconfig */,
+				FD248E861935BF2D00922A18 /* Notes */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +261,7 @@
 				FD55951E1835F5BD00B4D789 /* main.m */,
 				FD5595201835F5BD00B4D789 /* BillsBuddy-Prefix.pch */,
 				FDD57B5D185549EE00813197 /* DefaultSettings.plist */,
+				FD3847221948228700839207 /* CurrencyList.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -270,8 +287,13 @@
 		FD55954A1835F6BB00B4D789 /* Imported Files */ = {
 			isa = PBXGroup;
 			children = (
+				FD8B647518EAA87B00005E6D /* iRate.bundle */,
+				FD8B647618EAA87B00005E6D /* iRate.h */,
+				FD8B647718EAA87B00005E6D /* iRate.m */,
 				FD55955E183609E600B4D789 /* CustomBadge.h */,
 				FD55955F183609E600B4D789 /* CustomBadge.m */,
+				FD384724194822B700839207 /* CurrencyPicker.h */,
+				FD384725194822B700839207 /* CurrencyPicker.m */,
 				FD55954B1835F6EA00B4D789 /* EqpSingleton.h */,
 				FD55954C1835F6EA00B4D789 /* EqpSingleton.m */,
 				FD55954D1835F6EA00B4D789 /* EqpUtilityDefines.h */,
@@ -321,6 +343,8 @@
 				FDD57B60185556EE00813197 /* BBSettingsNotifications.m */,
 				FDD57B621855570F00813197 /* BBSettingsUpcomingDays.h */,
 				FDD57B631855570F00813197 /* BBSettingsUpcomingDays.m */,
+				FD43851019159DFE0065062D /* BBCurrencyViewController.h */,
+				FD43851119159DFE0065062D /* BBCurrencyViewController.m */,
 			);
 			name = Interactive;
 			sourceTree = "<group>";
@@ -460,6 +484,9 @@
 				FD55951D1835F5BD00B4D789 /* InfoPlist.strings in Resources */,
 				FD8EEA9B18445849001B331B /* clock@2x.png in Resources */,
 				FDD57B5E185549EE00813197 /* DefaultSettings.plist in Resources */,
+				FD8B647818EAA87B00005E6D /* iRate.bundle in Resources */,
+				FD248E871935BF2D00922A18 /* Notes in Resources */,
+				FD3847231948228700839207 /* CurrencyList.plist in Resources */,
 				FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */,
 				FDD57B59185538F100813197 /* gear@2x.png in Resources */,
 				FD8EEAA318447FE2001B331B /* Montserrat-Bold.ttf in Resources */,
@@ -529,9 +556,12 @@
 				FD8EEAE21845835B001B331B /* Positions.m in Sources */,
 				FDA357BF1848E91F00002AC9 /* BillRecurrenceRule.m in Sources */,
 				FD70CBF6185E81B600F6C850 /* BBAddNotesViewController.m in Sources */,
+				FD8B647918EAA87B00005E6D /* iRate.m in Sources */,
 				FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */,
 				FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */,
+				FD43851219159DFE0065062D /* BBCurrencyViewController.m in Sources */,
 				FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */,
+				FD384726194822B700839207 /* CurrencyPicker.m in Sources */,
 				FD55951F1835F5BD00B4D789 /* main.m in Sources */,
 				FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */,
 				FD2F822D18B8A59600DDA517 /* BBSetCategoryViewController.m in Sources */,

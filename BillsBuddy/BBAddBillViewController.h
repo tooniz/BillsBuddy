@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "CurrencyPicker.h"
 
 @interface BBAddBillViewController : UIViewController <UITextFieldDelegate>
 
