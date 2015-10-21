@@ -17,8 +17,8 @@
 #endif
 
 #define APP_DELEGATE_NAME BBAppDelegate
-#import <EqpUtilityDefines.h>
-#import <EqpSingleton.h>
+#import "EqpUtilityDefines.h"
+#import "EqpSingleton.h"
 
 #import "BBCommonDefines.h"
 #import "BBVariableStore.h"

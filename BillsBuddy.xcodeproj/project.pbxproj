@@ -10,6 +10,7 @@
 		B134A660C71348CCADA4C4C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B2FCC1BD1548E5AF75A294 /* libPods.a */; };
 		FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0BCAB51848352F00E20B83 /* BillDate.m */; };
 		FD18815018EAA00500A63AA6 /* files@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD18814F18EAA00500A63AA6 /* files@2x.png */; };
+		FD231A141BD8163F00B6A177 /* EqpSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD231A121BD8163F00B6A177 /* EqpSingleton.m */; settings = {ASSET_TAGS = (); }; };
 		FD248E871935BF2D00922A18 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = FD248E861935BF2D00922A18 /* Notes */; };
 		FD2EDA4A1897A46700613A99 /* allclear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD2EDA491897A46700613A99 /* allclear@2x.png */; };
 		FD2F822D18B8A59600DDA517 /* BBSetCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F822C18B8A59600DDA517 /* BBSetCategoryViewController.m */; };
@@ -32,7 +33,6 @@
 		FD5595371835F5BD00B4D789 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595161835F5BD00B4D789 /* UIKit.framework */; };
 		FD55953F1835F5BD00B4D789 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD55953D1835F5BD00B4D789 /* InfoPlist.strings */; };
 		FD5595411835F5BD00B4D789 /* BillsBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5595401835F5BD00B4D789 /* BillsBuddyTests.m */; };
-		FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55954C1835F6EA00B4D789 /* EqpSingleton.m */; };
 		FD5595521835F8BB00B4D789 /* BBVariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5595511835F8BB00B4D789 /* BBVariableStore.m */; };
 		FD5595571835FB5900B4D789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5595561835FB5900B4D789 /* QuartzCore.framework */; };
 		FD559560183609E600B4D789 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = FD55955F183609E600B4D789 /* CustomBadge.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Xanalyzer -analyzer-disable-checker -w"; }; };
@@ -85,6 +85,9 @@
 		FD0BCAB41848352F00E20B83 /* BillDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDate.h; sourceTree = "<group>"; };
 		FD0BCAB51848352F00E20B83 /* BillDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDate.m; sourceTree = "<group>"; };
 		FD18814F18EAA00500A63AA6 /* files@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "files@2x.png"; sourceTree = "<group>"; };
+		FD231A111BD8163F00B6A177 /* EqpSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqpSingleton.h; sourceTree = "<group>"; };
+		FD231A121BD8163F00B6A177 /* EqpSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqpSingleton.m; sourceTree = "<group>"; };
+		FD231A131BD8163F00B6A177 /* EqpUtilityDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqpUtilityDefines.h; sourceTree = "<group>"; };
 		FD248E861935BF2D00922A18 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Notes; path = BillsBuddy/Notes; sourceTree = "<group>"; };
 		FD2EDA491897A46700613A99 /* allclear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allclear@2x.png"; sourceTree = "<group>"; };
 		FD2F822B18B8A59600DDA517 /* BBSetCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSetCategoryViewController.h; sourceTree = "<group>"; };
@@ -116,9 +119,6 @@
 		FD55953C1835F5BD00B4D789 /* BillsBuddyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillsBuddyTests-Info.plist"; sourceTree = "<group>"; };
 		FD55953E1835F5BD00B4D789 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD5595401835F5BD00B4D789 /* BillsBuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillsBuddyTests.m; sourceTree = "<group>"; };
-		FD55954B1835F6EA00B4D789 /* EqpSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EqpSingleton.h; path = ../../CommonDefines/EqpSingleton.h; sourceTree = "<group>"; };
-		FD55954C1835F6EA00B4D789 /* EqpSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EqpSingleton.m; path = ../../CommonDefines/EqpSingleton.m; sourceTree = "<group>"; };
-		FD55954D1835F6EA00B4D789 /* EqpUtilityDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EqpUtilityDefines.h; path = ../../CommonDefines/EqpUtilityDefines.h; sourceTree = "<group>"; };
 		FD5595501835F8BB00B4D789 /* BBVariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVariableStore.h; sourceTree = "<group>"; };
 		FD5595511835F8BB00B4D789 /* BBVariableStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVariableStore.m; sourceTree = "<group>"; };
 		FD5595531835F91300B4D789 /* BBCommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBCommonDefines.h; sourceTree = "<group>"; };
@@ -294,9 +294,9 @@
 				FD55955F183609E600B4D789 /* CustomBadge.m */,
 				FD384724194822B700839207 /* CurrencyPicker.h */,
 				FD384725194822B700839207 /* CurrencyPicker.m */,
-				FD55954B1835F6EA00B4D789 /* EqpSingleton.h */,
-				FD55954C1835F6EA00B4D789 /* EqpSingleton.m */,
-				FD55954D1835F6EA00B4D789 /* EqpUtilityDefines.h */,
+				FD231A111BD8163F00B6A177 /* EqpSingleton.h */,
+				FD231A121BD8163F00B6A177 /* EqpSingleton.m */,
+				FD231A131BD8163F00B6A177 /* EqpUtilityDefines.h */,
 			);
 			name = "Imported Files";
 			sourceTree = "<group>";
@@ -558,7 +558,6 @@
 				FD70CBF6185E81B600F6C850 /* BBAddNotesViewController.m in Sources */,
 				FD8B647918EAA87B00005E6D /* iRate.m in Sources */,
 				FD0BCAB61848352F00E20B83 /* BillDate.m in Sources */,
-				FD55954E1835F6EA00B4D789 /* EqpSingleton.m in Sources */,
 				FD43851219159DFE0065062D /* BBCurrencyViewController.m in Sources */,
 				FD737DDA184297F400A8DBA0 /* BillsBuddy.xcdatamodeld in Sources */,
 				FD384726194822B700839207 /* CurrencyPicker.m in Sources */,
@@ -574,6 +573,7 @@
 				FD559560183609E600B4D789 /* CustomBadge.m in Sources */,
 				FD7859C018469749006AA2C7 /* BBMethodStore.m in Sources */,
 				FDB7C266183F337C004E6117 /* BBLeftViewController.m in Sources */,
+				FD231A141BD8163F00B6A177 /* EqpSingleton.m in Sources */,
 				FD8EEADC1845835B001B331B /* MonthDays.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
